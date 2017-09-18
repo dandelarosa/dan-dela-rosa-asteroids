@@ -1,5 +1,7 @@
 'use strict';
 
+const DEBUG = true;
+
 var game;
 var context2d;
 var keyboard;

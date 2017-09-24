@@ -1,5 +1,7 @@
 'use strict';
 
+const MAX_BULLETS = 3;
+
 /**
  * The active game scene.
  */
@@ -9,6 +11,8 @@ class PlayScene {
     this.height = height;
 
     this.ship = new Ship(this.width / 2, this.height / 2);
+    this.playerBullets = [];
+    this.canShoot = true;
   }
 
   /**
@@ -17,6 +21,46 @@ class PlayScene {
   update() {
     this.ship.update();
     this.wrapObject(this.ship);
+
+    if (this.ship) {
+      if (keyboard.spacePressed && this.canShoot) {
+        this.spawnBullet();
+        this.canShoot = false;
+      }
+      else if (keyboard.spaceReleased) {
+        this.canShoot = true;
+      }
+    }
+
+    for (var i = 0; i < this.playerBullets.length; i++) {
+      var playerBullet = this.playerBullets[i];
+      if (!playerBullet.shouldExist()) {
+        this.killPlayerBullet(i);
+        i--;
+        continue;
+      }
+      playerBullet.update();
+      this.wrapObject(playerBullet);
+    }
+  }
+
+  /**
+   * Creates a bullet object.
+   */
+  spawnBullet() {
+    if (this.ship && this.playerBullets.length < MAX_BULLETS) {
+      var bullet = new PlayerBullet(this.ship);
+      this.playerBullets.push(bullet);
+      // TODO: play fire sound
+    }
+  }
+
+  /**
+   * Removes the selected bullet from the scene.
+   * @param i - The index where the bullet is located.
+   */
+  killPlayerBullet(i) {
+    this.playerBullets.splice(i, 1);
   }
 
   /**
@@ -44,5 +88,8 @@ class PlayScene {
    */
   draw() {
     this.ship.draw();
+    this.playerBullets.forEach(function(bullet) {
+      bullet.draw();
+    });
   }
 }

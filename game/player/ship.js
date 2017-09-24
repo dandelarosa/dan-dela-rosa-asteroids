@@ -19,6 +19,9 @@ class Ship {
     this.angle = 270;
   }
 
+  /**
+   * Updates the object.
+   */
   update() {
     if (keyboard.leftPressed) {
       this.angle -= ROTATION_ANGLE_INCREMENT;
@@ -46,6 +49,9 @@ class Ship {
     this.dy *= DRAG_COEFFICIENT;
   }
 
+  /**
+   * Draws the object.
+   */
   draw() {
     context2d.save();
     context2d.translate(this.x, this.y);

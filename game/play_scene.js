@@ -7,7 +7,7 @@ class PlayScene {
   constructor(width, height) {
     this.width = width;
     this.height = height;
-    
+
     this.ship = new Ship(this.width / 2, this.height / 2);
   }
 
@@ -16,18 +16,26 @@ class PlayScene {
    */
   update() {
     this.ship.update();
+    this.wrapObject(this.ship);
+  }
 
-    if (this.ship.x + this.ship.radius < 0) {
-      this.ship.x = this.width + this.ship.radius;
+  /**
+   * Checks if the given object out of bounds, and wraps it it the other side
+   * of the screen if it does.
+   * @param object - The object to check.
+   */
+  wrapObject(object) {
+    if (object.x + object.radius < 0) {
+      object.x = this.width + object.radius;
     }
-    if (this.ship.x - this.ship.radius > this.width) {
-      this.ship.x = -this.ship.radius;
+    if (object.x - object.radius > this.width) {
+      object.x = -object.radius;
     }
-    if (this.ship.y + this.ship.radius < 0) {
-      this.ship.y = this.height + this.ship.radius;
+    if (object.y + object.radius < 0) {
+      object.y = this.height + object.radius;
     }
-    if (this.ship.y - this.ship.radius > this.width) {
-      this.ship.y = -this.ship.radius;
+    if (object.y - object.radius > this.width) {
+      object.y = -object.radius;
     }
   }
 

@@ -10,6 +10,8 @@ class PlayScene {
     this.width = width;
     this.height = height;
 
+    this.collisionDetector = new CollisionDetector();
+
     this.ship = new Ship(this.width / 2, this.height / 2);
     this.playerBullets = [];
     this.canShoot = true;
@@ -81,7 +83,11 @@ class PlayScene {
       var asteroidY = Math.random() * this.height;
       var asteroid = new BigAsteroid(asteroidX, asteroidY);
 
-      // TODO: Make sure new asteroids don't hit ship right away
+      // Make sure new asteroids don't hit ship right away
+      while (this.ship && this.collisionDetector.objectsWithin(asteroid, this.ship, 200)) {
+        asteroid.x = Math.random() * this.width;
+        asteroid.y = Math.random() * this.height;
+      }
 
       this.asteroids.push(asteroid);
     }

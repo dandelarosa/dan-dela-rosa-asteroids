@@ -8,8 +8,8 @@ class BigAsteroid extends Asteroid {
     super(x, y);
 
     this.initialize({
-      minSpeed: 1,
-      maxSpeed: 3,
+      minSpeed: 0.5,
+      maxSpeed: 1.25,
       radius: 100,
     });
 

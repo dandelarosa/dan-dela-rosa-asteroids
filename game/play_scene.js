@@ -6,13 +6,16 @@ const MAX_BULLETS = 3;
  * The active game scene.
  */
 class PlayScene {
-  constructor(width, height) {
+  constructor(width, height, numAsteroids) {
     this.width = width;
     this.height = height;
 
     this.ship = new Ship(this.width / 2, this.height / 2);
     this.playerBullets = [];
     this.canShoot = true;
+
+    this.asteroids = [];
+    this.spawnAsteroids(numAsteroids);
   }
 
   /**
@@ -42,6 +45,12 @@ class PlayScene {
       playerBullet.update();
       this.wrapObject(playerBullet);
     }
+
+    for (var j = 0; j < this.asteroids.length; j++) {
+      var asteroid = this.asteroids[j];
+      asteroid.update();
+      this.wrapObject(asteroid);
+    }
   }
 
   /**
@@ -61,6 +70,22 @@ class PlayScene {
    */
   killPlayerBullet(i) {
     this.playerBullets.splice(i, 1);
+  }
+
+  /**
+   * Creates some asteroids.
+   */
+  spawnAsteroids(numAsteroids) {
+    for (var i = 0; i < numAsteroids; i++) {
+      var asteroidX = Math.random() * this.width;
+      var asteroidY = Math.random() * this.height;
+      var asteroid = new BigAsteroid(asteroidX, asteroidY);
+
+      // TODO: Make sure new asteroids don't hit ship right away
+
+      this.asteroids.push(asteroid);
+    }
+
   }
 
   /**
@@ -90,6 +115,9 @@ class PlayScene {
     this.ship.draw();
     this.playerBullets.forEach(function(bullet) {
       bullet.draw();
+    });
+    this.asteroids.forEach(function(asteroid) {
+      asteroid.draw();
     });
   }
 }

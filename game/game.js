@@ -33,5 +33,7 @@ class Game {
     context2d.fillRect(0, 0, this.width, this.height);
 
     this.currentScene.draw();
+
+    this.gameManager.drawHUD();
   }
 }

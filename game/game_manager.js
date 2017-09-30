@@ -9,6 +9,7 @@ class GameManager {
     this.needsNewLevel = false;
 
     this.currentLives = 3;
+    this.currentScore = 0;
   }
 
   /**
@@ -25,5 +26,21 @@ class GameManager {
   goToNextLevel() {
     this.currentLevel++;
     this.needsNewLevel = true;
+  }
+
+  /**
+   * Draws the head up display (lives, score, etc.)
+   */
+  drawHUD() {
+    context2d.fillStyle = 'white';
+    context2d.font = '24px Courier New';
+
+    context2d.textAlign = 'left';
+    var livesString = 'Dans: ' + this.currentLives;
+    context2d.fillText(livesString, 10, 30);
+
+    context2d.textAlign = 'right';
+    var scoreString = 'Score: ' + this.currentScore;
+    context2d.fillText(scoreString, 790, 30);
   }
 }

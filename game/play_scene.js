@@ -38,6 +38,7 @@ class PlayScene {
       }
     }
 
+    // Update player bullets
     for (var i = 0; i < this.playerBullets.length; i++) {
       var playerBullet = this.playerBullets[i];
       if (!playerBullet.shouldExist()) {
@@ -49,10 +50,28 @@ class PlayScene {
       this.wrapObject(playerBullet);
     }
 
+    // Update asteroids
     for (var j = 0; j < this.asteroids.length; j++) {
       var asteroid = this.asteroids[j];
       asteroid.update();
       this.wrapObject(asteroid);
+    }
+
+    // Check for collisions between player bullets and asteroids
+    for (var i = 0; i < this.playerBullets.length; i++) {
+      for (var j = 0; j < this.asteroids.length; j++) {
+        var playerBullet = this.playerBullets[i];
+        var asteroid = this.asteroids[j];
+        if (this.collisionDetector.collisionBetween(playerBullet, asteroid)) {
+          this.killPlayerBullet(i);
+          i--;
+          this.killAsteroidAtIndex(j);
+          // TODO: play explosion sound
+          // TODO: play asteroids kill sound
+          // TODO: update score
+          break;
+        }
+      }
     }
   }
 
@@ -92,7 +111,29 @@ class PlayScene {
 
       this.asteroids.push(asteroid);
     }
+  }
 
+  /**
+   * Removes the selected asteroid from the scene. It may also spawn new asteroids.
+   * @param i - The index where the asteroid is located.
+   */
+  killAsteroidAtIndex(i) {
+    var removedAsteroids = this.asteroids.splice(i, 1);
+    for (var j = 0; j < removedAsteroids.length; j++) {
+      var oldAsteroid = removedAsteroids[j];
+      if (oldAsteroid.type === 'big') {
+        var newAsteroid = new MediumAsteroid(oldAsteroid.x, oldAsteroid.y);
+        this.asteroids.push(newAsteroid);
+        newAsteroid = new MediumAsteroid(oldAsteroid.x, oldAsteroid.y);
+        this.asteroids.push(newAsteroid);
+      }
+      else if (oldAsteroid.type === 'medium') {
+        var newAsteroid = new SmallAsteroid(oldAsteroid.x, oldAsteroid.y);
+        this.asteroids.push(newAsteroid);
+        newAsteroid = new SmallAsteroid(oldAsteroid.x, oldAsteroid.y);
+        this.asteroids.push(newAsteroid);
+      }
+    }
   }
 
   /**

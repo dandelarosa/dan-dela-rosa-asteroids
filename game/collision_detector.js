@@ -4,7 +4,7 @@
  * An object that can be used for detecting collisions.
  */
 class CollisionDetector {
-  constructor() {  
+  constructor() {
   }
 
   /**
@@ -13,7 +13,7 @@ class CollisionDetector {
    * @param object2 - The other object to check.
    * @return true if the objects have collided, false if not.
    */
-  collisionBetween() {
+  collisionBetween(object1, object2) {
     return this.objectsWithin(object1, object2, 0);
   }
 

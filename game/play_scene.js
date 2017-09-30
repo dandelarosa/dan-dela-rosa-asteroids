@@ -43,7 +43,7 @@ class PlayScene {
     for (var i = 0; i < this.playerBullets.length; i++) {
       var playerBullet = this.playerBullets[i];
       if (!playerBullet.shouldExist()) {
-        this.killPlayerBullet(i);
+        this.killPlayerBulletAtIndex(i);
         i--;
         continue;
       }
@@ -64,7 +64,7 @@ class PlayScene {
         var playerBullet = this.playerBullets[i];
         var asteroid = this.asteroids[j];
         if (this.collisionDetector.collisionBetween(playerBullet, asteroid)) {
-          this.killPlayerBullet(i);
+          this.killPlayerBulletAtIndex(i);
           i--;
           this.killAsteroidAtIndex(j);
           // TODO: play explosion sound
@@ -141,7 +141,7 @@ class PlayScene {
    * Removes the selected bullet from the scene.
    * @param i - The index where the bullet is located.
    */
-  killPlayerBullet(i) {
+  killPlayerBulletAtIndex(i) {
     this.playerBullets.splice(i, 1);
   }
 

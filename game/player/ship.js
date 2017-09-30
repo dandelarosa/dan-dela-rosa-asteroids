@@ -17,6 +17,8 @@ class Ship {
     this.radius = COLLISION_RADIUS;
     // 270 degrees = ship faces upwards
     this.angle = 270;
+
+    this.invincibilityTimer = 60;
   }
 
   /**
@@ -47,6 +49,18 @@ class Ship {
 
     this.dx *= DRAG_COEFFICIENT;
     this.dy *= DRAG_COEFFICIENT;
+
+    if (this.invincibilityTimer > 0) {
+      this.invincibilityTimer--;
+    }
+  }
+
+  /**
+   * Checks if the ship is invincible.
+   * @return {boolean} true if the ship is invincible, false if not.
+   */
+  isInvincible(){
+    return this.invincibilityTimer > 0;
   }
 
   /**

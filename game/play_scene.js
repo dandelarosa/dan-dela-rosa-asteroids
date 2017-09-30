@@ -13,22 +13,23 @@ class PlayScene {
 
     this.collisionDetector = new CollisionDetector();
 
-    this.ship = new Ship(this.width / 2, this.height / 2);
+    this.spawnShip();
     this.playerBullets = [];
     this.canShoot = true;
 
     this.asteroids = [];
     this.spawnAsteroids(this.gameManager.numberOfAsteroidsToCreate());
+
+    this.deathTimer = 0;
   }
 
   /**
    * Updates the scene's state.
    */
   update() {
-    this.ship.update();
-    this.wrapObject(this.ship);
-
     if (this.ship) {
+      this.ship.update();
+      this.wrapObject(this.ship);
       if (keyboard.spacePressed && this.canShoot) {
         this.spawnBullet();
         this.canShoot = false;
@@ -67,9 +68,37 @@ class PlayScene {
           i--;
           this.killAsteroidAtIndex(j);
           // TODO: play explosion sound
-          // TODO: play asteroids kill sound
-          // TODO: update score
+          this.playerKilledAsteroid();
           break;
+        }
+      }
+    }
+
+    // Check for collisions between player and asteroids
+    if (this.ship) {
+      for (var i = 0; i < this.asteroids.length; i++) {
+        var asteroid = this.asteroids[i];
+        if (this.collisionDetector.collisionBetween(this.ship, asteroid)) {
+          this.killAsteroidAtIndex(i);
+          if (this.ship.isInvincible()) {
+            this.playerKilledAsteroid();
+          }
+          else {
+            this.killShip();
+          }
+          break;
+        }
+      }
+    }
+
+    if (this.deathTimer > 0) {
+      this.deathTimer--;
+      if (this.deathTimer === 0) {
+        if (this.gameManager.currentLives > 0) {
+          this.spawnShip();
+        }
+        else {
+          // TODO: go to game over scene
         }
       }
     }
@@ -77,6 +106,24 @@ class PlayScene {
     if (this.shouldGoToNextLevel()) {
       this.gameManager.goToNextLevel();
     }
+  }
+
+  /**
+   * Creates the player ship.
+   */
+  spawnShip() {
+    this.ship = new Ship(this.width / 2, this.height / 2);
+  }
+
+  /**
+   * Destroys the player ship.
+   */
+  killShip() {
+    // TODO: play explosion sound
+    // TODO: play player death sound
+    this.ship = null;
+    this.gameManager.currentLives--;
+    this.deathTimer = 60;
   }
 
   /**
@@ -161,6 +208,14 @@ class PlayScene {
   }
 
   /**
+   * Handles the event when the player kills an asteroid.
+   */
+  playerKilledAsteroid() {
+    // TODO: play asteroids kill sound
+    // TODO: update score
+  }
+
+  /**
    * Checks if the game should go to the next level.
    * @return {boolean} Whether to get to the next level.
    */
@@ -186,7 +241,9 @@ class PlayScene {
    * Draws the scene.
    */
   draw() {
-    this.ship.draw();
+    if (this.ship) {
+      this.ship.draw();
+    }
     this.playerBullets.forEach(function(bullet) {
       bullet.draw();
     });

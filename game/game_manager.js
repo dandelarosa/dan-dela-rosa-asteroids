@@ -7,6 +7,8 @@ class GameManager {
   constructor() {
     this.currentLevel = 1;
     this.needsNewLevel = false;
+
+    this.currentLives = 3;
   }
 
   /**

@@ -6,9 +6,10 @@ const MAX_BULLETS = 3;
  * The active game scene.
  */
 class PlayScene {
-  constructor(width, height, numAsteroids) {
+  constructor(width, height, gameManager) {
     this.width = width;
     this.height = height;
+    this.gameManager = gameManager;
 
     this.collisionDetector = new CollisionDetector();
 
@@ -17,7 +18,7 @@ class PlayScene {
     this.canShoot = true;
 
     this.asteroids = [];
-    this.spawnAsteroids(numAsteroids);
+    this.spawnAsteroids(this.gameManager.numberOfAsteroidsToCreate());
   }
 
   /**

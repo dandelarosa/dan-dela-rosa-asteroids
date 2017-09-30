@@ -1,7 +1,5 @@
 'use strict';
 
-const MIN_ASTEROIDS = 3;
-
 /**
  * The root game object.
  */
@@ -11,7 +9,8 @@ class Game {
     this.height = 600;
     this.fps = 60;
 
-    this.currentScene = new PlayScene(this.width, this.height, MIN_ASTEROIDS);
+    this.gameManager = new GameManager();
+    this.currentScene = new PlayScene(this.width, this.height, this.gameManager);
   }
 
   /**

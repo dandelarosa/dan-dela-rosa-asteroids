@@ -6,6 +6,7 @@
 class GameManager {
   constructor() {
     this.currentLevel = 1;
+    this.needsNewLevel = false;
   }
 
   /**
@@ -14,5 +15,13 @@ class GameManager {
    */
   numberOfAsteroidsToCreate() {
     return this.currentLevel + 2;
+  }
+
+  /**
+   * Tells the manager that the game should advance to the next level.
+   */
+  goToNextLevel() {
+    this.currentLevel++;
+    this.needsNewLevel = true;
   }
 }

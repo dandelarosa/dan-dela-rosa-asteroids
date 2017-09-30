@@ -17,6 +17,11 @@ class Game {
    * Updates the game's state.
    */
   update() {
+    if (this.gameManager.needsNewLevel) {
+      this.currentScene = new PlayScene(this.width, this.height, this.gameManager);
+      this.gameManager.needsNewLevel = false;
+    }
+
     this.currentScene.update();
   }
 

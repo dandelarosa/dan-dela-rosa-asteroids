@@ -73,6 +73,10 @@ class PlayScene {
         }
       }
     }
+
+    if (this.shouldGoToNextLevel()) {
+      this.gameManager.goToNextLevel();
+    }
   }
 
   /**
@@ -154,6 +158,28 @@ class PlayScene {
     if (object.y - object.radius > this.width) {
       object.y = -object.radius;
     }
+  }
+
+  /**
+   * Checks if the game should go to the next level.
+   * @return {boolean} Whether to get to the next level.
+   */
+  shouldGoToNextLevel() {
+    // Don't transition if there are still asteroids
+    if (this.asteroids.length > 0) {
+      return false;
+    }
+    // TODO: Don't transition if the UFO is alive
+    // TODO: Don't transition if there is still an enemy bullet
+    // Don't transition if there are still player bullets
+    if (this.playerBullets.length > 0) {
+      return false;
+    }
+    // Don't transition while respawning the ship
+    if (!this.ship) {
+      return false;
+    }
+    return true;
   }
 
   /**

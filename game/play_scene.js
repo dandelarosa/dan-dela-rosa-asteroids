@@ -255,12 +255,12 @@ class PlayScene {
    * Draws the scene.
    */
   draw() {
-    if (this.ship) {
-      this.ship.draw();
-    }
     this.playerBullets.forEach(function(bullet) {
       bullet.draw();
     });
+    if (this.ship) {
+      this.ship.draw();
+    }
     this.asteroids.forEach(function(asteroid) {
       asteroid.draw();
     });

@@ -1,7 +1,8 @@
 'use strict';
 
-const DEBUG = true;
+var DEBUG = false;
 
+var persistence;
 var game;
 var context2d;
 var keyboard;
@@ -10,6 +11,7 @@ var keyboard;
  * Sets up the HTML page and instantiates the game object.
  */
 function createGame() {
+  persistence = new Persistence();
   game = new Game();
 
   var rootDiv = document.getElementById('game');

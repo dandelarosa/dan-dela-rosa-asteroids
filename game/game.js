@@ -11,12 +11,24 @@ class Game {
 
     this.gameManager = new GameManager();
     this.currentScene = new PlayScene(this.width, this.height, this.gameManager);
+
+    DEBUG = persistence.getBoolean('debug_on');
+    this.canToggleDebug;
   }
 
   /**
    * Updates the game's state.
    */
   update() {
+    if (keyboard.onePressed && this.canToggleDebug) {
+      DEBUG = !DEBUG;
+      persistence.setBoolean('debug_on', DEBUG);
+      this.canToggleDebug = false;
+    }
+    else if (keyboard.oneReleased) {
+      this.canToggleDebug = true;
+    }
+
     if (this.gameManager.needsNewLevel) {
       this.currentScene = new PlayScene(this.width, this.height, this.gameManager);
       this.gameManager.needsNewLevel = false;

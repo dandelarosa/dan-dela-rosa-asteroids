@@ -13,6 +13,8 @@ class Keyboard {
     this.spaceReleased = true;
     this.enterPressed = false;
     this.enterReleased = true;
+    this.onePressed = false;
+    this.oneReleased = true;
   }
 
   /**
@@ -40,6 +42,10 @@ class Keyboard {
         break;
       case 40:
         this.downPressed = true;
+        break;
+      case 49:
+        this.onePressed = true;
+        this.oneReleased = false;
         break;
     }
   }
@@ -69,6 +75,10 @@ class Keyboard {
         break;
       case 40:
         this.downPressed = false;
+        break;
+      case 49:
+        this.onePressed = false;
+        this.oneReleased = true;
         break;
     }
   }

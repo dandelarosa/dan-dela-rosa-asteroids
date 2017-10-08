@@ -226,7 +226,7 @@ class PlayScene {
    */
   playerKilledAsteroid() {
     sounds.playAsteroidDeathSound();
-    // TODO: update score
+    this.gameManager.incrementScore(100);
   }
 
   /**

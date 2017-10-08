@@ -10,6 +10,8 @@ class GameManager {
 
     this.currentLives = 3;
     this.currentScore = 0;
+    this.scoreRequiredForExtraLife = 10000;
+    this.additionalScoreRequiredForNextExtraLife = 10000;
   }
 
   /**
@@ -18,6 +20,19 @@ class GameManager {
    */
   numberOfAsteroidsToCreate() {
     return this.currentLevel + 2;
+  }
+
+  /**
+   * Increases the player's score.
+   * @param {number} amount - The number of points to reward to the player.
+   */
+  incrementScore(amount) {
+    this.currentScore += amount;
+    if (this.currentScore >= this.scoreRequiredForExtraLife) {
+      this.currentLives++;
+      sounds.playBonusSound();
+      this.scoreRequiredForExtraLife += this.additionalScoreRequiredForNextExtraLife;
+    }
   }
 
   /**

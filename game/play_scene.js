@@ -11,6 +11,9 @@ class PlayScene {
     this.height = height;
     this.gameManager = gameManager;
 
+    this.paused = false;
+    this.pausePressed = false;
+
     this.collisionDetector = new CollisionDetector();
 
     this.spawnShip();
@@ -27,6 +30,17 @@ class PlayScene {
    * Updates the scene's state.
    */
   update() {
+    if (keyboard.enterPressed && !this.pausePressed) {
+      this.paused = !this.paused;
+      this.pausePressed = true;
+    }
+    else if (keyboard.enterReleased) {
+      this.pausePressed = false;
+    }
+    if (this.paused) {
+      return;
+    }
+
     if (this.ship) {
       this.ship.update();
       this.wrapObject(this.ship);
@@ -250,5 +264,12 @@ class PlayScene {
     this.asteroids.forEach(function(asteroid) {
       asteroid.draw();
     });
+
+    if (this.paused) {
+      context2d.fillStyle = 'white';
+      context2d.font = '24px Courier New';
+      context2d.textAlign = 'center';
+      context2d.fillText('PAUSED', 400, 300);
+    }
   }
 }

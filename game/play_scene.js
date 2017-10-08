@@ -81,7 +81,7 @@ class PlayScene {
           this.killPlayerBulletAtIndex(i);
           i--;
           this.killAsteroidAtIndex(j);
-          // TODO: play explosion sound
+          sounds.playExplosionSound();
           this.playerKilledAsteroid();
           break;
         }
@@ -133,8 +133,8 @@ class PlayScene {
    * Destroys the player ship.
    */
   killShip() {
-    // TODO: play explosion sound
-    // TODO: play player death sound
+    sounds.playExplosionSound();
+    sounds.playPlayerDeathSound();
     this.ship = null;
     this.gameManager.currentLives--;
     this.deathTimer = 60;
@@ -147,7 +147,7 @@ class PlayScene {
     if (this.ship && this.playerBullets.length < MAX_BULLETS) {
       var bullet = new PlayerBullet(this.ship);
       this.playerBullets.push(bullet);
-      // TODO: play fire sound
+      sounds.playBulletSound();
     }
   }
 
@@ -225,7 +225,7 @@ class PlayScene {
    * Handles the event when the player kills an asteroid.
    */
   playerKilledAsteroid() {
-    // TODO: play asteroids kill sound
+    sounds.playAsteroidDeathSound();
     // TODO: update score
   }
 

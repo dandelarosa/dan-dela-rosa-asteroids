@@ -1,6 +1,7 @@
 'use strict';
 
 const MAX_BULLETS = 3;
+const UFO_DELAY = 600;
 
 /**
  * The active game scene.
@@ -22,6 +23,8 @@ class PlayScene {
 
     this.asteroids = [];
     this.spawnAsteroids(this.gameManager.numberOfAsteroidsToCreate());
+
+    this.ufoTimer = UFO_DELAY;
 
     this.deathTimer = 0;
   }
@@ -70,6 +73,29 @@ class PlayScene {
       var asteroid = this.asteroids[j];
       asteroid.update();
       this.wrapObject(asteroid);
+    }
+
+    // Check if UFO should be spawned
+    if (this.gameManager.currentLives > 0) {
+      this.ufoTimer--;
+    }
+    if (this.ufo) {
+      if (this.ufo.shouldExist()) {
+        this.ufo.update();
+        this.wrapObject(this.ufo);
+        if (this.ufo.shouldSteer()) {
+          this.ufo.steer();
+        }
+        if (this.ufo.shouldShoot()) {
+          this.spawnEnemyBullet();
+        }
+      }
+      else {
+        this.killUFO();
+      }
+    }
+    else if (this.ufoTimer < 0) {
+      this.spawnUFO();
     }
 
     // Check for collisions between player bullets and asteroids
@@ -202,6 +228,36 @@ class PlayScene {
   }
 
   /**
+   * Creates the UFO.
+   */
+  spawnUFO() {
+    this.ufo = new UFO();
+    this.ufoTimer = UFO_DELAY;
+    sounds.playUFOSpawnSound();
+  }
+
+  /**
+   * Destroys the UFO.
+   */
+  killUFO() {
+    // TODO: implement
+  }
+
+  /**
+   * Creates the enemy's bullet.
+   */
+  spawnEnemyBullet() {
+    // TODO: implement
+  }
+
+  /**
+   * Destroys the enemy's bullet.
+   */
+  killEnemyBullet() {
+    // TODO: implement
+  }
+
+  /**
    * Checks if the given object out of bounds, and wraps it it the other side
    * of the screen if it does.
    * @param object - The object to check.
@@ -264,6 +320,9 @@ class PlayScene {
     this.asteroids.forEach(function(asteroid) {
       asteroid.draw();
     });
+    if (this.ufo) {
+      this.ufo.draw();
+    }
 
     if (this.paused) {
       context2d.fillStyle = 'white';

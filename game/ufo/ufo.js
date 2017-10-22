@@ -9,15 +9,19 @@ const SHOOT_DELAY = 30;
  */
 class UFO {
   constructor() {
-    this.x = 0;
-    this.y = 300;
+    this.x = -UFO_RADIUS;
+    this.y = 600 * Math.random();
 
-    this.dx = 3;
+    this.dx = Math.random() >= 0.5 ? 3 : -3;
     this.dy = 0;
 
     this.radius = UFO_RADIUS;
 
     this.aggressive = Math.random() >= 0.5;
+
+    this.distanceTraveled = 0;
+    this.steerTimer = STEER_DELAY;
+    this.shootTimer = SHOOT_DELAY;
   }
 
   /**
@@ -34,7 +38,10 @@ class UFO {
   update() {
     this.x += this.dx;
     this.y += this.dy;
-    console.log(this.y);
+
+    this.distanceTraveled += this.dx;
+    this.steerTimer--;
+    this.shootTimer--;
   }
 
   /**
@@ -42,6 +49,9 @@ class UFO {
    * @return {boolean} true if the UFO should stay, false if not.
    */
   shouldExist() {
+    if (Math.abs(this.distanceTraveled) > 800 + 2 * UFO_RADIUS) {
+      return false;
+    }
     return true;
   }
 
@@ -50,6 +60,10 @@ class UFO {
    * @return {boolean} true if the UFO should steer, false if not.
    */
   shouldSteer() {
+    if (this.steerTimer == 0) {
+      this.steerTimer = STEER_DELAY;
+      return true;
+    }
     return false;
   }
 
@@ -57,6 +71,16 @@ class UFO {
    * Changes the UFO's direction.
    */
   steer() {
+    var direction = Math.floor(Math.random() * 3);
+    if (direction === 2) {
+      this.dy = 3;
+    }
+    else if (direction === 1) {
+      this.dy = -3;
+    }
+    else {
+      this.dy = 0;
+    }
   }
 
   /**
@@ -64,6 +88,10 @@ class UFO {
    * @return {boolean} true if the UFO should shoot, false if not.
    */
   shouldShoot() {
+    if (this.shootTimer == 0) {
+      this.shootTimer = SHOOT_DELAY;
+      return true;
+    }
     return false;
   }
 

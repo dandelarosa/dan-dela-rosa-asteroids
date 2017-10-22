@@ -150,6 +150,31 @@ class PlayScene {
       }
     }
 
+    // Check for collisions between player and enemy bullet
+    if (this.ship && this.enemyBullet) {
+      if (this.collisionDetector.collisionBetween(this.ship, this.enemyBullet)) {
+        this.killEnemyBullet();
+        if (!this.ship.isInvincible()) {
+          this.killShip();
+        }
+      }
+    }
+
+    // Check for collisions between player and UFO
+    if (this.ship && this.ufo) {
+      if (this.collisionDetector.collisionBetween(this.ship, this.ufo)) {
+        sounds.playExplosionSound();
+        sounds.playUFODeathSound();
+        this.killUFO();
+        if (this.ship.isInvincible()) {
+          this.playerKilledUFO();
+        }
+        else {
+          this.killShip();
+        }
+      }
+    }
+
     if (this.deathTimer > 0) {
       this.deathTimer--;
       if (this.deathTimer === 0) {

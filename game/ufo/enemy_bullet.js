@@ -1,4 +1,4 @@
-'use strict;'
+'use strict';
 
 const ENEMY_BULLET_RADIUS = 2;
 const ENEMY_MUZZLE_VELOCITY = 20;

@@ -1,4 +1,4 @@
-'use strict;'
+'use strict';
 
 const UFO_RADIUS = 20;
 const STEER_DELAY = 60;

@@ -1,4 +1,4 @@
-'use strict;'
+'use strict';
 
 /**
  * The class to use for managing values that are stored between page visits.

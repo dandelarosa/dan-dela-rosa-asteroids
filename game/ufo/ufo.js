@@ -16,6 +16,16 @@ class UFO {
     this.dy = 0;
 
     this.radius = UFO_RADIUS;
+
+    this.aggressive = Math.random() >= 0.5;
+  }
+
+  /**
+   * Checks if this UFO is aggressive.
+   * @return {boolean} true if the UFO is aggressive, false if it is not.
+   */
+  isAggressive() {
+    return this.aggressive;
   }
 
   /**

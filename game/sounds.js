@@ -33,8 +33,9 @@ class Sounds {
 
   /**
    * Plays a sound when a UFO appears.
+   * @param {boolean} isAggressive - determines which variant of the sound to play.
    */
-  playUFOSpawnSound() {
+  playUFOSpawnSound(isAggressive) {
   }
 
   /**

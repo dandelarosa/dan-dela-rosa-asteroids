@@ -228,7 +228,7 @@ class PlayScene {
   spawnUFO() {
     this.ufo = new UFO();
     this.gameManager.resetUFOTimer();
-    sounds.playUFOSpawnSound();
+    sounds.playUFOSpawnSound(this.ufo.isAggressive());
   }
 
   /**
@@ -242,7 +242,15 @@ class PlayScene {
    * Creates the enemy's bullet.
    */
   spawnEnemyBullet() {
-    // TODO: implement
+    if (!this.ufo) {
+      return;
+    }
+    if (this.ufo.isAggressive() && this.ship) {
+      // TODO: fire a bullet at the player
+    }
+    else {
+      // TODO: fire a bullet at a random direction
+    }
   }
 
   /**

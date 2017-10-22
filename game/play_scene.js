@@ -175,6 +175,33 @@ class PlayScene {
       }
     }
 
+    // Check for collisions between enemy bullet and asteroids
+    if (this.enemyBullet) {
+      for (var i = 0; i < this.asteroids.length; i++) {
+        var asteroid = this.asteroids[i];
+        if (this.collisionDetector.collisionBetween(this.enemyBullet, asteroid)) {
+          sounds.playExplosionSound();
+          this.killAsteroidAtIndex(i);
+          this.killEnemyBullet();
+          break;
+        }
+      }
+    }
+
+    // Check for collisions between UFO and asteroids
+    if (this.ufo) {
+      for (var i = 0; i < this.asteroids.length; i++) {
+        var asteroid = this.asteroids[i];
+        if (this.collisionDetector.collisionBetween(this.ufo, asteroid)) {
+          sounds.playExplosionSound();
+          sounds.playAsteroidDeathSound();
+          this.killAsteroidAtIndex(i);
+          this.killUFO();
+          break;
+        }
+      }
+    }
+
     if (this.deathTimer > 0) {
       this.deathTimer--;
       if (this.deathTimer === 0) {

@@ -93,6 +93,16 @@ class PlayScene {
       this.spawnUFO();
     }
 
+    if (this.enemyBullet) {
+      if (this.enemyBullet.shouldExist()) {
+        this.enemyBullet.update();
+        this.wrapObject(this.enemyBullet);
+      }
+      else {
+        this.killEnemyBullet();
+      }
+    }
+
     // Check for collisions between player bullets and asteroids
     for (var i = 0; i < this.playerBullets.length; i++) {
       for (var j = 0; j < this.asteroids.length; j++) {
@@ -245,19 +255,15 @@ class PlayScene {
     if (!this.ufo) {
       return;
     }
-    if (this.ufo.isAggressive() && this.ship) {
-      // TODO: fire a bullet at the player
-    }
-    else {
-      // TODO: fire a bullet at a random direction
-    }
+    this.enemyBullet = new EnemyBullet(this.ufo, this.ship);
+    sounds.playBulletSound();
   }
 
   /**
    * Destroys the enemy's bullet.
    */
   killEnemyBullet() {
-    // TODO: implement
+    this.enemyBullet = null;
   }
 
   /**
@@ -317,6 +323,9 @@ class PlayScene {
     this.playerBullets.forEach(function(bullet) {
       bullet.draw();
     });
+    if (this.enemyBullet) {
+      this.enemyBullet.draw();
+    }
     if (this.ship) {
       this.ship.draw();
     }

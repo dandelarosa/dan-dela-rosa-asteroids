@@ -119,6 +119,20 @@ class PlayScene {
       }
     }
 
+    // Check for collisions between player bullets and UFO
+    if (this.ufo) {
+      for (var i = 0; i < this.playerBullets.length; i++) {
+        var playerBullet = this.playerBullets[i];
+        if (this.collisionDetector.collisionBetween(playerBullet, this.ufo)) {
+          this.killPlayerBulletAtIndex(i);
+          this.killUFO();
+          sounds.playExplosionSound();
+          this.playerKilledUFO();
+          break;
+        }
+      }
+    }
+
     // Check for collisions between player and asteroids
     if (this.ship) {
       for (var i = 0; i < this.asteroids.length; i++) {
@@ -245,7 +259,8 @@ class PlayScene {
    * Destroys the UFO.
    */
   killUFO() {
-    // TODO: implement
+    sounds.stopUFOSpawnSound();
+    this.ufo = null;
   }
 
   /**
@@ -291,6 +306,13 @@ class PlayScene {
    */
   playerKilledAsteroid() {
     sounds.playAsteroidDeathSound();
+    this.gameManager.incrementScore(100);
+  }
+
+  /**
+   * Handles the event when the player kills a UFO.
+   */
+  playerKilledUFO() {
     this.gameManager.incrementScore(100);
   }
 

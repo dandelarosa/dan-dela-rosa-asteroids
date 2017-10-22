@@ -39,6 +39,12 @@ class Sounds {
   }
 
   /**
+   * Stops playing the UFO sound.
+   */
+  stopUFOSpawnSound() {
+  }
+
+  /**
    * Plays a sound when a UFO is destroyed.
    */
   playUFODeathSound() {

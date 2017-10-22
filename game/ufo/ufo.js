@@ -64,7 +64,10 @@ class UFO {
     context2d.save();
     context2d.translate(this.x, this.y);
 
-    // TODO: implement for real
+    context2d.fillStyle = 'white';
+    context2d.beginPath();
+    context2d.arc(0, 0, this.radius, 0, 2 * Math.PI);
+    context2d.fill();
 
     if (DEBUG) {
       context2d.strokeStyle = 'white';

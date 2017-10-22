@@ -1,5 +1,7 @@
 'use strict';
 
+const UFO_DELAY = 600;
+
 /**
  * The object that manages game variables.
  */
@@ -12,6 +14,8 @@ class GameManager {
     this.currentScore = 0;
     this.scoreRequiredForExtraLife = 10000;
     this.additionalScoreRequiredForNextExtraLife = 10000;
+
+    this.ufoTimer = UFO_DELAY;
   }
 
   /**
@@ -20,6 +24,30 @@ class GameManager {
    */
   numberOfAsteroidsToCreate() {
     return this.currentLevel + 2;
+  }
+
+  /**
+   * Decrement the UFO timer.
+   */
+  decrementUFOTimer() {
+    if (this.currentLives > 0) {
+      this.ufoTimer--;
+    }
+  }
+
+  /**
+   * Checks if the UFO should be spawned.
+   * @param {boolean} true if the UFO should be created now, false if not.
+   */
+  shouldSpawnUFO() {
+    return this.ufoTimer < 0;
+  }
+
+  /**
+   * Resets the UFO timer.
+   */
+  resetUFOTimer() {
+    this.ufoTimer = UFO_DELAY;
   }
 
   /**

@@ -1,7 +1,6 @@
 'use strict';
 
 const MAX_BULLETS = 3;
-const UFO_DELAY = 600;
 
 /**
  * The active game scene.
@@ -23,8 +22,6 @@ class PlayScene {
 
     this.asteroids = [];
     this.spawnAsteroids(this.gameManager.numberOfAsteroidsToCreate());
-
-    this.ufoTimer = UFO_DELAY;
 
     this.deathTimer = 0;
   }
@@ -76,9 +73,7 @@ class PlayScene {
     }
 
     // Check if UFO should be spawned
-    if (this.gameManager.currentLives > 0) {
-      this.ufoTimer--;
-    }
+    this.gameManager.decrementUFOTimer();
     if (this.ufo) {
       if (this.ufo.shouldExist()) {
         this.ufo.update();
@@ -94,7 +89,7 @@ class PlayScene {
         this.killUFO();
       }
     }
-    else if (this.ufoTimer < 0) {
+    else if (this.gameManager.shouldSpawnUFO()) {
       this.spawnUFO();
     }
 
@@ -232,7 +227,7 @@ class PlayScene {
    */
   spawnUFO() {
     this.ufo = new UFO();
-    this.ufoTimer = UFO_DELAY;
+    this.gameManager.resetUFOTimer();
     sounds.playUFOSpawnSound();
   }
 

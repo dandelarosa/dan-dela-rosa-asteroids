@@ -37,7 +37,7 @@ class GameManager {
 
   /**
    * Checks if the UFO should be spawned.
-   * @param {boolean} true if the UFO should be created now, false if not.
+   * @return {boolean} true if the UFO should be created now, false if not.
    */
   shouldSpawnUFO() {
     return this.ufoTimer < 0;

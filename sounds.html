@@ -4,34 +4,80 @@
     <meta charset="utf-8">
     <title>Dan Dela Rosa Asteroids</title>
   </head>
+  <script type="application/javascript">
+    var sounds = {};
+
+    var files = [
+      { id: 'explosion', src: 'media/sounds/Universal/147583__cactus2003__far-off-boom-without-amplify.wav' },
+      { id: 'bullet', src: 'media/sounds/Universal/275151__bird-man__gun-shot.wav' },
+      { id: 'reward', src: 'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg' },
+      { id: 'airraid', src: 'media/sounds/Clean/27788__drni__roland-juno106-lfo-to-dco-sirene.wav' },
+      { id: 'siren', src: 'media/sounds/Clean/58015__guitarguy1985__yelp.wav' },
+      { id: '300', src: 'media/sounds/DDA/300excerpt.mp3' },
+      { id: 'good_s', src: 'media/sounds/DDA/good_s.mp3' },
+      { id: 'lasttimeigave', src: 'media/sounds/DDA/lasttimeigave.mp3' },
+      { id: 'lol', src: 'media/sounds/DDA/olololol.mp3' },
+      { id: 'thunderstruck', src: 'media/sounds/DDA/Thunderstruck.mp3' },
+      { id: 'yousinme', src: 'media/sounds/DDA/yousinme.mp3' },
+      { id: 'ah_s', src: 'media/sounds/DDA/death/ah_s.mp3' },
+      { id: 'bobsaget', src: 'media/sounds/DDA/death/bobsaget.mp3' },
+      { id: 'fffuuuu', src: 'media/sounds/DDA/death/FFFUUUU.mp3' },
+      { id: 'oh_s', src: 'media/sounds/DDA/death/oh_s.mp3' },
+      { id: 'oh_s2', src: 'media/sounds/DDA/death/oh_s2.mp3' },
+      { id: 'my_s', src: 'media/sounds/DDA/death/THATSMY.mp3' },
+      { id: 'was_that', src: 'media/sounds/DDA/death/thehwasthat.mp3' },
+      { id: 'bull', src: 'media/sounds/DDA/death/thisisbull.mp3' },
+      { id: 'balls', src: 'media/sounds/DDA/kill/balls.mp3' },
+      { id: 'b1', src: 'media/sounds/DDA/kill/b1.mp3' },
+      { id: 'b2', src: 'media/sounds/DDA/kill/b2.mp3' },
+      { id: 'bs', src: 'media/sounds/DDA/kill/bs.mp3' },
+      { id: 'd', src: 'media/sounds/DDA/kill/d.mp3' },
+      { id: 'f', src: 'media/sounds/DDA/kill/f.mp3' },
+      { id: 'fu', src: 'media/sounds/DDA/kill/fu.mp3' },
+      { id: 'hs', src: 'media/sounds/DDA/kill/hs.mp3' },
+      { id: 'fs', src: 'media/sounds/DDA/kill/motherlovers.mp3' },
+      { id: 'p', src: 'media/sounds/DDA/kill/p.mp3' },
+      { id: '200lbs', src: 'media/sounds/DDA/ufo/200lbs.mp3' },
+      { id: 'cant_do', src: 'media/sounds/DDA/ufo/cantdo.mp3' },
+      { id: 'hes_an', src: 'media/sounds/DDA/ufo/hesan.mp3' },
+      { id: 'jollypiratedonut', src: 'media/sounds/DDA/ufo/jollypiratedonut.mp3' },
+      { id: 'walkamile', src: 'media/sounds/DDA/ufo/walkamile.mp3' },
+    ];
+
+    files.forEach(function(file) {
+      var audio = document.createElement('audio');
+      audio.id = file.id;
+      audio.src = file.src;
+      sounds[file.id] = audio;
+    });
+
+    function playSoundWithId(id) {
+      sounds[id].play();
+    }
+  </script>
   <body>
     <h1>A Sound POC</h1>
     <h2>Universal Sounds</h2>
     <p>Sounds that will be played on both versions</p>
     <ul>
       <li>
-        <audio id="explosion" src="media/sounds/Universal/147583__cactus2003__far-off-boom-without-amplify.wav"></audio>
-        <a onclick="document.getElementById('explosion').play()">Explosion</a> <a href="https://freesound.org/people/CaCtUs2003/sounds/147583/" target="_blank">(Source)</a>
+        <a onclick="playSoundWithId('explosion')">Explosion</a> <a href="https://freesound.org/people/CaCtUs2003/sounds/147583/" target="_blank">(Source)</a>
       </li>
       <li>
-        <audio id="bullet" src="media/sounds/Universal/275151__bird-man__gun-shot.wav"></audio>
-        <a onclick="document.getElementById('bullet').play()">Bullet</a> <a href="https://freesound.org/people/Bird_man/sounds/275151/" target="_blank">(Source)</a>
+        <a onclick="playSoundWithId('bullet')">Bullet</a> <a href="https://freesound.org/people/Bird_man/sounds/275151/" target="_blank">(Source)</a>
       </li>
       <li>
-        <audio id="reward" src="media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg"></audio>
-        <a onclick="document.getElementById('reward').play()">Reward</a> <a href="https://freesound.org/people/gordeszkakerek/sounds/234924/" target="_blank">(Source)</a>
+        <a onclick="playSoundWithId('reward')">Reward</a> <a href="https://freesound.org/people/gordeszkakerek/sounds/234924/" target="_blank">(Source)</a>
       </li>
     </ul>
     <h2>Sounds for Generic Version</h2>
     <p>Sounds that are only played in the generic version</p>
     <ul>
       <li>
-        <audio id="airraid" src="media/sounds/Clean/27788__drni__roland-juno106-lfo-to-dco-sirene.wav"></audio>
-        <a onclick="document.getElementById('airraid').play()">Air Raid</a> <a href="https://freesound.org/people/DrNI/sounds/27788/" target="_blank">(Source)</a>
+        <a onclick="playSoundWithId('airraid')">Air Raid</a> <a href="https://freesound.org/people/DrNI/sounds/27788/" target="_blank">(Source)</a>
       </li>
       <li>
-        <audio id="siren" src="media/sounds/Clean/58015__guitarguy1985__yelp.wav"></audio>
-        <a onclick="document.getElementById('siren').play()">Police Siren</a> <a href="https://freesound.org/people/guitarguy1985/sounds/58015/" target="_blank">(Source)</a>
+        <a onclick="playSoundWithId('siren')">Police Siren</a> <a href="https://freesound.org/people/guitarguy1985/sounds/58015/" target="_blank">(Source)</a>
       </li>
     </ul>
     <h2>Sounds for Dan Dela Rosa Asteroids</h2>
@@ -40,129 +86,100 @@
     <h3>Root Folder</h3>
     <ul>
       <li>
-        <audio id="300" src="media/sounds/DDA/300excerpt.mp3"></audio>
-        <a onclick="document.getElementById('300').play()">300</a>
+        <a onclick="playSoundWithId('300')">300</a>
       </li>
       <li>
-        <audio id="good_s" src="media/sounds/DDA/good_s.mp3"></audio>
-        <a onclick="document.getElementById('good_s').play()">Good S</a>
+        <a onclick="playSoundWithId('good_s')">Good S</a>
       </li>
       <li>
-        <audio id="lasttimeigave" src="media/sounds/DDA/lasttimeigave.mp3"></audio>
-        <a onclick="document.getElementById('lasttimeigave').play()">Last Time I Gave</a>
+        <a onclick="playSoundWithId('lasttimeigave')">Last Time I Gave</a>
       </li>
       <li>
-        <audio id="lol" src="media/sounds/DDA/olololol.mp3"></audio>
-        <a onclick="document.getElementById('lol').play()">lol</a>
+        <a onclick="playSoundWithId('lol')">lol</a>
       </li>
       <li>
-        <audio id="thunderstruck" src="media/sounds/DDA/Thunderstruck.mp3"></audio>
-        <a onclick="document.getElementById('thunderstruck').play()">Thunderstruck</a>
+        <a onclick="playSoundWithId('thunderstruck')">Thunderstruck</a>
       </li>
       <li>
-        <audio id="yousinme" src="media/sounds/DDA/yousinme.mp3"></audio>
-        <a onclick="document.getElementById('yousinme').play()">You S'ing Me?</a>
+        <a onclick="playSoundWithId('yousinme')">You S'ing Me?</a>
       </li>
     </ul>
     <h3>Death Folder</h3>
     <ul>
       <li>
-        <audio id="ah_s" src="media/sounds/DDA/death/ah_s.mp3"></audio>
-        <a onclick="document.getElementById('ah_s').play()">Ah S</a>
+        <a onclick="playSoundWithId('ah_s')">Ah S</a>
       </li>
       <li>
-        <audio id="bobsaget" src="media/sounds/DDA/death/bobsaget.mp3"></audio>
-        <a onclick="document.getElementById('bobsaget').play()">Bob Saget</a>
+        <a onclick="playSoundWithId('bobsaget')">Bob Saget</a>
       </li>
       <li>
-        <audio id="fffuuuu" src="media/sounds/DDA/death/FFFUUUU.mp3"></audio>
-        <a onclick="document.getElementById('fffuuuu').play()">FFFUUUU</a>
+        <a onclick="playSoundWithId('fffuuuu')">FFFUUUU</a>
       </li>
       <li>
-        <audio id="oh_s" src="media/sounds/DDA/death/oh_s.mp3"></audio>
-        <a onclick="document.getElementById('oh_s').play()">Oh S</a>
+        <a onclick="playSoundWithId('oh_s')">Oh S</a>
       </li>
       <li>
-        <audio id="oh_s2" src="media/sounds/DDA/death/oh_s2.mp3"></audio>
-        <a onclick="document.getElementById('oh_s2').play()">Oh S 2</a>
+        <a onclick="playSoundWithId('oh_s2')">Oh S 2</a>
       </li>
       <li>
-        <audio id="my_s" src="media/sounds/DDA/death/THATSMY.mp3"></audio>
-        <a onclick="document.getElementById('my_s').play()">That's My S</a>
+        <a onclick="playSoundWithId('my_s')">That's My S</a>
       </li>
       <li>
-        <audio id="was_that" src="media/sounds/DDA/death/thehwasthat.mp3"></audio>
-        <a onclick="document.getElementById('was_that').play()">What the H was that?</a>
+        <a onclick="playSoundWithId('was_that')">What the H was that?</a>
       </li>
       <li>
-        <audio id="bull" src="media/sounds/DDA/death/thisisbull.mp3"></audio>
-        <a onclick="document.getElementById('bull').play()">This is bull</a>
+        <a onclick="playSoundWithId('bull')">This is bull</a>
       </li>
     </ul>
     <h3>Kill Folder</h3>
     <ul>
       <li>
-        <audio id="balls" src="media/sounds/DDA/kill/balls.mp3"></audio>
-        <a onclick="document.getElementById('balls').play()">Balls</a>
+        <a onclick="playSoundWithId('balls')">Balls</a>
       </li>
       <li>
-        <audio id="b1" src="media/sounds/DDA/kill/b1.mp3"></audio>
-        <a onclick="document.getElementById('b1').play()">B 1</a>
+        <a onclick="playSoundWithId('b1')">B 1</a>
       </li>
       <li>
-        <audio id="b2" src="media/sounds/DDA/kill/b2.mp3"></audio>
-        <a onclick="document.getElementById('b2').play()">B 2</a>
+        <a onclick="playSoundWithId('b2')">B 2</a>
       </li>
       <li>
-        <audio id="bs" src="media/sounds/DDA/kill/bs.mp3"></audio>
-        <a onclick="document.getElementById('bs').play()">B.S.</a>
+        <a onclick="playSoundWithId('bs')">B.S.</a>
       </li>
       <li>
-        <audio id="d" src="media/sounds/DDA/kill/d.mp3"></audio>
-        <a onclick="document.getElementById('d').play()">D</a>
+        <a onclick="playSoundWithId('d')">D</a>
       </li>
       <li>
-        <audio id="f" src="media/sounds/DDA/kill/f.mp3"></audio>
-        <a onclick="document.getElementById('f').play()">F</a>
+        <a onclick="playSoundWithId('f')">F</a>
       </li>
       <li>
-        <audio id="fu" src="media/sounds/DDA/kill/fu.mp3"></audio>
-        <a onclick="document.getElementById('fu').play()">F.U.</a>
+        <a onclick="playSoundWithId('fu')">F.U.</a>
       </li>
       <li>
-        <audio id="hs" src="media/sounds/DDA/kill/hs.mp3"></audio>
-        <a onclick="document.getElementById('hs').play()">H.S.</a>
+        <a onclick="playSoundWithId('hs')">H.S.</a>
       </li>
       <li>
-        <audio id="fs" src="media/sounds/DDA/kill/motherlovers.mp3"></audio>
-        <a onclick="document.getElementById('fs').play()">Mother Lovers</a>
+        <a onclick="playSoundWithId('fs')">Mother Lovers</a>
       </li>
       <li>
-        <audio id="p" src="media/sounds/DDA/kill/p.mp3"></audio>
-        <a onclick="document.getElementById('p').play()">P</a>
+        <a onclick="playSoundWithId('p')">P</a>
       </li>
     </ul>
     <h3>UFO Folder</h3>
     <ul>
       <li>
-        <audio id="200lbs" src="media/sounds/DDA/ufo/200lbs.mp3"></audio>
-        <a onclick="document.getElementById('200lbs').play()">200lbs</a>
+        <a onclick="playSoundWithId('200lbs')">200lbs</a>
       </li>
       <li>
-        <audio id="cant_do" src="media/sounds/DDA/ufo/cantdo.mp3"></audio>
-        <a onclick="document.getElementById('cant_do').play()">Can't Do</a>
+        <a onclick="playSoundWithId('cant_do')">Can't Do</a>
       </li>
       <li>
-        <audio id="hes_an" src="media/sounds/DDA/ufo/hesan.mp3"></audio>
-        <a onclick="document.getElementById('hes_an').play()">He's an A</a>
+        <a onclick="playSoundWithId('hes_an')">He's an A</a>
       </li>
       <li>
-        <audio id="jollypiratedonut" src="media/sounds/DDA/ufo/jollypiratedonut.mp3"></audio>
-        <a onclick="document.getElementById('jollypiratedonut').play()">Jolly Pirate Donut</a>
+        <a onclick="playSoundWithId('jollypiratedonut')">Jolly Pirate Donut</a>
       </li>
       <li>
-        <audio id="walkamile" src="media/sounds/DDA/ufo/walkamile.mp3"></audio>
-        <a onclick="document.getElementById('walkamile').play()">Walk a Mile</a>
+        <a onclick="playSoundWithId('walkamile')">Walk a Mile</a>
       </li>
     </ul>
   </body>

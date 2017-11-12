@@ -127,6 +127,7 @@ class PlayScene {
           this.killPlayerBulletAtIndex(i);
           this.killUFO();
           sounds.playExplosionSound();
+          sounds.playUFODeathSound();
           this.playerKilledUFO();
           break;
         }
@@ -194,7 +195,7 @@ class PlayScene {
         var asteroid = this.asteroids[i];
         if (this.collisionDetector.collisionBetween(this.ufo, asteroid)) {
           sounds.playExplosionSound();
-          sounds.playAsteroidDeathSound();
+          sounds.playUFODeathSound();
           this.killAsteroidAtIndex(i);
           this.killUFO();
           break;

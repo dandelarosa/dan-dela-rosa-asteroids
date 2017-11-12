@@ -4,6 +4,10 @@
  * An object that can play multiple instances of a sound simultaneously.
  */
 class MultiAudio {
+  /**
+   * @param {string} audioSrc - The URL of the audio file.
+   * @param {number} numElements - The number of elements to contain.
+   */
   constructor(audioSrc, numElements) {
     this.audioElements = [];
     this.currentIndex = 0;

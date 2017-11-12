@@ -6,6 +6,10 @@
 class Sounds {
   constructor() {
     this.bulletAudio = new BulletAudio();
+    this.explosionAudio = new ExplosionAudio();
+    this.deathAudio = new DeathAudio();
+    this.killAudio = new KillAudio();
+    this.ufoDeathAudio = new UFODeathAudio();
   }
 
   /**
@@ -19,21 +23,21 @@ class Sounds {
    * Plays a tiny explosion sound.
    */
   playExplosionSound() {
-    playSoundWithId('explosion');
+    this.explosionAudio.play();
   }
 
   /**
    * Plays a sound when the player's ship is destroyed.
    */
   playPlayerDeathSound() {
-    playSoundWithId('ah_s');
+    this.deathAudio.play();
   }
 
   /**
    * Plays a sound when an asteroid is destroyed.
    */
   playAsteroidDeathSound() {
-    playSoundWithId('balls');
+    this.killAudio.play();
   }
 
   /**
@@ -59,7 +63,7 @@ class Sounds {
    * Plays a sound when a UFO is destroyed.
    */
   playUFODeathSound() {
-    playSoundWithId('200lbs');
+    this.ufoDeathAudio.play();
   }
 
   /**

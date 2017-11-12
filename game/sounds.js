@@ -5,13 +5,14 @@
  */
 class Sounds {
   constructor() {
+    this.bulletAudio = new BulletAudio();
   }
 
   /**
    * Plays a sound when the player fires bullet.
    */
   playBulletSound() {
-    playBulletAudio();
+    this.bulletAudio.play();
   }
 
   /**

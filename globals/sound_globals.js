@@ -1,7 +1,7 @@
-var sounds = {};
+var audioElements = {};
 
 function playSoundWithId(id) {
-  sounds[id].play();
+  audioElements[id].play();
 }
 
 (function() {
@@ -46,6 +46,6 @@ function playSoundWithId(id) {
     var audio = document.createElement('audio');
     audio.id = file.id;
     audio.src = file.src;
-    sounds[file.id] = audio;
+    audioElements[file.id] = audio;
   });
 })();

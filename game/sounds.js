@@ -11,6 +11,7 @@ class Sounds {
    * Plays a sound when the player fires bullet.
    */
   playBulletSound() {
+    playBulletAudio();
   }
 
   /**

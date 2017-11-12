@@ -18,18 +18,21 @@ class Sounds {
    * Plays a tiny explosion sound.
    */
   playExplosionSound() {
+    playSoundWithId('explosion');
   }
 
   /**
    * Plays a sound when the player's ship is destroyed.
    */
   playPlayerDeathSound() {
+    playSoundWithId('ah_s');
   }
 
   /**
    * Plays a sound when an asteroid is destroyed.
    */
   playAsteroidDeathSound() {
+    playSoundWithId('balls');
   }
 
   /**
@@ -37,6 +40,12 @@ class Sounds {
    * @param {boolean} isAggressive - determines which variant of the sound to play.
    */
   playUFOSpawnSound(isAggressive) {
+    if (isAggressive) {
+      playSoundWithId('thunderstruck');
+    }
+    else {
+      playSoundWithId('300');
+    }
   }
 
   /**
@@ -49,23 +58,28 @@ class Sounds {
    * Plays a sound when a UFO is destroyed.
    */
   playUFODeathSound() {
+    playSoundWithId('200lbs');
   }
 
   /**
    * Plays a sound when the player earns an extra life.
    */
   playBonusSound() {
+    playSoundWithId('reward');
+    playSoundWithId('good_s');
   }
 
   /**
    * Plays a sound when the game over screen appears.
    */
   playGameOverSound() {
+    playSoundWithId('ah_s');
   }
 
   /**
    * Plays a sound when the game is played after a game over.
    */
   playReplaySound() {
+    playSoundWithId('lasttimeigave');
   }
 }

@@ -378,8 +378,14 @@ class PlayScene {
     if (this.asteroids.length > 0) {
       return false;
     }
-    // TODO: Don't transition if the UFO is alive
-    // TODO: Don't transition if there is still an enemy bullet
+    // Don't transition if the UFO is alive
+    if (this.ufo) {
+      return false;
+    }
+    // Don't transition if there is still an enemy bullet
+    if (this.enemyBullet) {
+      return false;
+    }
     // Don't transition if there are still player bullets
     if (this.playerBullets.length > 0) {
       return false;

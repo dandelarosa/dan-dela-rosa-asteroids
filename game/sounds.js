@@ -9,7 +9,18 @@ class Sounds {
     this.explosionAudio = new ExplosionAudio();
     this.deathAudio = new DeathAudio();
     this.killAudio = new KillAudio();
+    this.ufoAudio = new UFOAudio();
     this.ufoDeathAudio = new UFODeathAudio();
+    this.gameOverAudio = new GameOverAudio();
+
+    this.rewardAudio = document.createElement('audio');
+    this.rewardAudio.src = 'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg';
+
+    this.rewardAudio2 = document.createElement('audio');
+    this.rewardAudio2.src = 'media/sounds/DDA/good_s.mp3';
+
+    this.replayAudio = document.createElement('audio');
+    this.replayAudio.src = 'media/sounds/DDA/lasttimeigave.mp3';
   }
 
   /**
@@ -45,18 +56,14 @@ class Sounds {
    * @param {boolean} isAggressive - determines which variant of the sound to play.
    */
   playUFOSpawnSound(isAggressive) {
-    if (isAggressive) {
-      playSoundWithId('thunderstruck');
-    }
-    else {
-      playSoundWithId('300');
-    }
+    this.ufoAudio.play(isAggressive);
   }
 
   /**
    * Stops playing the UFO sound.
    */
   stopUFOSpawnSound() {
+    this.ufoAudio.stop();
   }
 
   /**
@@ -70,21 +77,22 @@ class Sounds {
    * Plays a sound when the player earns an extra life.
    */
   playBonusSound() {
-    playSoundWithId('reward');
-    playSoundWithId('good_s');
+    this.rewardAudio.play();
+    // Play this only in the DDA soundpack
+    this.rewardAudio2.play();
   }
 
   /**
    * Plays a sound when the game over screen appears.
    */
   playGameOverSound() {
-    playSoundWithId('ah_s');
+    this.gameOverAudio.play();
   }
 
   /**
    * Plays a sound when the game is played after a game over.
    */
   playReplaySound() {
-    playSoundWithId('lasttimeigave');
+    this.replayAudio.play();
   }
 }

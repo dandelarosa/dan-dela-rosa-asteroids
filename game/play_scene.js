@@ -210,7 +210,8 @@ class PlayScene {
           this.spawnShip();
         }
         else {
-          // TODO: go to game over scene
+          sounds.stopUFOSpawnSound();
+          this.gameManager.goToGameOver();
         }
       }
     }
@@ -235,7 +236,7 @@ class PlayScene {
     sounds.playPlayerDeathSound();
     this.ship = null;
     this.gameManager.currentLives--;
-    this.deathTimer = 60;
+    this.deathTimer = 120;
   }
 
   /**

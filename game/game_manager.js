@@ -8,7 +8,7 @@ const UFO_DELAY = 600;
 class GameManager {
   constructor() {
     this.currentLevel = 1;
-    this.needsNewLevel = false;
+    this.nextSceneID = 'nextlevel';
 
     this.currentLives = 3;
     this.currentScore = 0;
@@ -68,7 +68,14 @@ class GameManager {
    */
   goToNextLevel() {
     this.currentLevel++;
-    this.needsNewLevel = true;
+    this.nextSceneID = 'nextlevel';
+  }
+
+  /**
+   * Tells the manager to show the game over state.
+   */
+  goToGameOver() {
+    this.nextSceneID = 'gameover';
   }
 
   /**

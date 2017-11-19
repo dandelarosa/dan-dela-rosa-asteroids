@@ -10,10 +10,9 @@ class Game {
     this.fps = 60;
 
     this.gameManager = new GameManager();
-    this.currentScene = new PlayScene(this.width, this.height, this.gameManager);
 
     DEBUG = persistence.getBoolean('debug_on');
-    this.canToggleDebug;
+    this.canToggleDebug = true;
   }
 
   /**
@@ -29,10 +28,13 @@ class Game {
       this.canToggleDebug = true;
     }
 
-    if (this.gameManager.needsNewLevel) {
+    if (this.gameManager.nextSceneID === 'nextlevel') {
       this.currentScene = new PlayScene(this.width, this.height, this.gameManager);
-      this.gameManager.needsNewLevel = false;
     }
+    else if (this.gameManager.nextSceneID === 'gameover') {
+      this.currentScene = new GameOverScene();
+    }
+    this.gameManager.nextSceneID = null;
 
     this.currentScene.update();
   }

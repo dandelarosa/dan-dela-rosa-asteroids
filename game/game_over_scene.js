@@ -5,19 +5,13 @@ class GameOverScene {
     this.gameManager = gameManager;
 
     this.playedSound = false;
-
-    // FIXME: Don't show image in the "Clean" version
-    this.image = (function() {
-      var image = document.createElement('img');
-      image.src  = 'media/images/Screen_shot_2016-01-07_at_12.07.42_PM.0.0.png.jpeg';
-      return image;
-    })();
   }
 
   /**
    * Updates the scene's state.
    */
   update() {
+    // FIXME: Don't play sound in the "Clean" version
     if (!this.playedSound) {
       sounds.playGameOverSound();
       this.playedSound = true;
@@ -40,6 +34,8 @@ class GameOverScene {
       context2d.fillText('New High Score!', 400, 75);
     }
 
-    context2d.drawImage(this.image, 100, 100, 600, 400);
+    // FIXME: Don't show image in the "Clean" version
+    var image = imageManager.gameOverImage;
+    context2d.drawImage(image, 100, 100, 600, 400);
   }
 }

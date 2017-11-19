@@ -7,6 +7,7 @@ var game;
 var context2d;
 var keyboard;
 var sounds;
+var imageManager;
 
 /**
  * Sets up the HTML page and instantiates the game object.
@@ -27,7 +28,8 @@ function createGame() {
   document.addEventListener('keyup', keyup);
 
   sounds = new Sounds;
-  
+  imageManager = new ImageManager();
+
   setInterval(update, 1000 / game.fps);
 }
 

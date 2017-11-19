@@ -16,6 +16,9 @@ class GameManager {
     this.additionalScoreRequiredForNextExtraLife = 10000;
 
     this.ufoTimer = UFO_DELAY;
+
+    this.highScore = persistence.getNumber('high_score', 0);
+    this.previousHighScore = this.highScore;
   }
 
   /**
@@ -75,6 +78,12 @@ class GameManager {
    * Tells the manager to show the game over state.
    */
   goToGameOver() {
+    this.previousHighScore = this.highScore;
+    if (this.currentScore > this.highScore) {
+      this.highScore = this.currentScore;
+      persistence.setNumber('high_score', this.highScore);
+    }
+
     this.nextSceneID = 'gameover';
   }
 

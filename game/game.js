@@ -32,7 +32,7 @@ class Game {
       this.currentScene = new PlayScene(this.width, this.height, this.gameManager);
     }
     else if (this.gameManager.nextSceneID === 'gameover') {
-      this.currentScene = new GameOverScene();
+      this.currentScene = new GameOverScene(this.gameManager);
     }
     this.gameManager.nextSceneID = null;
 

@@ -28,6 +28,30 @@ class Persistence {
   }
 
   /**
+   * Gets the stored number.
+   * @param {string} key - The key to look up.
+   * @param {number} fallback - The value to use if the stored value cannot be retrieved.
+   * @param {number} - The stored value, or fallback if there is no stored value.
+   */
+  getNumber(key, fallback) {
+    var storedValue = this.getValue(key, fallback);
+    var convertedValue = Number(storedValue);
+    if (convertedValue === NaN) {
+      return fallback;
+    }
+    return convertedValue;
+  }
+
+  /**
+   * Stores a number.
+   * @param {string} key - The key where number should be stored.
+   * @param {number} value - The number to store.
+   */
+  setNumber(key, value) {
+    return this.setValue(key,value);
+  }
+
+  /**
    * Gets the stored value.
    * @param {string} key - The key to look up.
    * @param {*} fallback - The value to use if the stored value cannot be retrieved.

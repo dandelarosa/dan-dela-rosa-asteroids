@@ -36,10 +36,16 @@ class Asteroid {
     context2d.save();
     context2d.translate(this.x, this.y);
 
-    context2d.fillStyle = 'green';
-    context2d.beginPath();
-    context2d.arc(0, 0, this.radius, 0, 2 * Math.PI);
-    context2d.fill();
+    var image = this.image;
+    if (image) {
+      context2d.drawImage(image, -image.width / 2, -image.height / 2);
+    }
+    else {
+      context2d.fillStyle = 'green';
+      context2d.beginPath();
+      context2d.arc(0, 0, this.radius, 0, 2 * Math.PI);
+      context2d.fill();
+    }
 
     if (DEBUG) {
       context2d.strokeStyle = 'white';

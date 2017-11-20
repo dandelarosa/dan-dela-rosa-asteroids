@@ -18,6 +18,15 @@ class UFO {
     this.radius = UFO_RADIUS;
 
     this.aggressive = Math.random() >= 0.5;
+    if (this.aggressive) {
+      this.image = imageManager.ufoImage1;
+    }
+    else if (Math.random() >= 0.5) {
+      this.image = imageManager.ufoImage2;
+    }
+    else {
+      this.image = imageManager.ufoImage3;
+    }
 
     this.distanceTraveled = 0;
     this.steerTimer = STEER_DELAY;
@@ -102,10 +111,16 @@ class UFO {
     context2d.save();
     context2d.translate(this.x, this.y);
 
-    context2d.fillStyle = 'white';
-    context2d.beginPath();
-    context2d.arc(0, 0, this.radius, 0, 2 * Math.PI);
-    context2d.fill();
+    var image = this.image;
+    if (image) {
+      context2d.drawImage(image, -image.width / 2, -image.height / 2);
+    }
+    else {
+      context2d.fillStyle = 'white';
+      context2d.beginPath();
+      context2d.arc(0, 0, this.radius, 0, 2 * Math.PI);
+      context2d.fill();
+    }
 
     if (DEBUG) {
       context2d.strokeStyle = 'white';

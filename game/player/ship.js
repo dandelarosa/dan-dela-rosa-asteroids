@@ -71,14 +71,20 @@ class Ship {
     context2d.translate(this.x, this.y);
     context2d.rotate(this.angle * Math.PI / 180);
 
-    context2d.beginPath();
-    context2d.moveTo(this.radius, 0);
-    context2d.lineTo(-this.radius, -this.radius);
-    context2d.lineTo(0, 0);
-    context2d.lineTo(-this.radius, this.radius);
-    context2d.closePath();
-    context2d.fillStyle = 'blue';
-    context2d.fill();
+    var image = imageManager.carImage;
+    if (image) {
+      context2d.drawImage(image, -70, -26);
+    }
+    else {
+      context2d.beginPath();
+      context2d.moveTo(this.radius, 0);
+      context2d.lineTo(-this.radius, -this.radius);
+      context2d.lineTo(0, 0);
+      context2d.lineTo(-this.radius, this.radius);
+      context2d.closePath();
+      context2d.fillStyle = 'blue';
+      context2d.fill();
+    }
 
     if (DEBUG) {
       context2d.strokeStyle = 'white';

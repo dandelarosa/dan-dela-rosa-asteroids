@@ -32,6 +32,9 @@ class ImageManager {
     this.bigAsteroidImage9 = document.createElement('img');
     this.bigAsteroidImage9.src = 'media/images/big_asteroid/bigasteroid9.png';
 
+    this.carImage = document.createElement('img');
+    this.carImage.src = 'media/images/car.png';
+
     this.gameOverImage = document.createElement('img');
     this.gameOverImage.src = 'media/images/Screen_shot_2016-01-07_at_12.07.42_PM.0.0.png.jpeg';
 
@@ -91,6 +94,15 @@ class ImageManager {
 
     this.smallAsteroidImage12 = document.createElement('img');
     this.smallAsteroidImage12.src = 'media/images/small_asteroid/smallasteroid12.png';
+
+    this.ufoImage1 = document.createElement('img');
+    this.ufoImage1.src = 'media/images/ufo/ufo1.png';
+
+    this.ufoImage2 = document.createElement('img');
+    this.ufoImage2.src = 'media/images/ufo/ufo2.png';
+
+    this.ufoImage3 = document.createElement('img');
+    this.ufoImage3.src = 'media/images/ufo/ufo3.png';
   }
 
   /**

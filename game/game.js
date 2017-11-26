@@ -34,6 +34,9 @@ class Game {
     else if (this.gameManager.nextSceneID === 'gameover') {
       this.currentScene = new GameOverScene(this.gameManager);
     }
+    else if (this.gameManager.nextSceneID === 'menu') {
+      this.currentScene = new MenuScene(this.gameManager);
+    }
     this.gameManager.nextSceneID = null;
 
     this.currentScene.update();

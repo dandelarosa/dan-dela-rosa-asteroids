@@ -8,6 +8,7 @@ const UFO_DELAY = 600;
 class GameManager {
   constructor() {
     this.setupNewGame();
+    this.nextSceneID = 'menu';
 
     this.highScore = persistence.getNumber('high_score', 0);
     this.previousHighScore = this.highScore;
@@ -25,6 +26,9 @@ class GameManager {
     this.ufoTimer = UFO_DELAY;
 
     this.currentLevel = 1;
+  }
+
+  startGame() {
     this.nextSceneID = 'nextlevel';
 
     if (this.previouslyGameOvered) {

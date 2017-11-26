@@ -19,6 +19,7 @@ class GameOverScene {
 
     if (keyboard.enterPressed && !keyboard.enterPressedPreviousFrame) {
       this.gameManager.setupNewGame();
+      this.gameManager.startGame();
     }
   }
 

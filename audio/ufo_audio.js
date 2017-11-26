@@ -20,11 +20,9 @@ class UFOAudio {
 
     this.ddaAggressiveAudio = document.createElement('audio');
     this.ddaAggressiveAudio.src = 'media/sounds/DDA/Thunderstruck.mp3';
-    this.ddaAggressiveAudio.loop = true;
 
     this.ddaPassiveAudio = document.createElement('audio');
     this.ddaPassiveAudio.src = 'media/sounds/DDA/300excerpt.mp3';
-    this.ddaPassiveAudio.loop = true;
   }
 
   /**

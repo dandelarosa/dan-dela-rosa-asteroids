@@ -2,7 +2,7 @@
 
 const UFO_RADIUS = 20;
 const STEER_DELAY = 60;
-const SHOOT_DELAY = 30;
+const SHOOT_DELAY = 45;
 
 /**
  * The UFO entity.
@@ -12,7 +12,7 @@ class UFO {
     this.x = -UFO_RADIUS;
     this.y = 600 * Math.random();
 
-    this.dx = Math.random() >= 0.5 ? 3 : -3;
+    this.dx = Math.random() >= 0.5 ? 2 : -2;
     this.dy = 0;
 
     this.radius = UFO_RADIUS;
@@ -58,7 +58,7 @@ class UFO {
    * @return {boolean} true if the UFO should stay, false if not.
    */
   shouldExist() {
-    if (Math.abs(this.distanceTraveled) > 800 + 2 * UFO_RADIUS) {
+    if (Math.abs(this.distanceTraveled) > 1600 + 2 * UFO_RADIUS) {
       return false;
     }
     return true;

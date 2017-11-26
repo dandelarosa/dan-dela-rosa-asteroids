@@ -82,6 +82,7 @@ class PlayScene {
       }
       else {
         this.killUFO();
+        sounds.playUFODeathSound();
       }
     }
     else if (this.gameManager.shouldSpawnUFO()) {
@@ -160,9 +161,9 @@ class PlayScene {
     if (this.ship && this.ufo) {
       if (this.collisionDetector.collisionBetween(this.ship, this.ufo)) {
         sounds.playExplosionSound();
-        sounds.playUFODeathSound();
         this.killUFO();
         if (this.ship.isInvincible()) {
+          sounds.playUFODeathSound();
           this.playerKilledUFO();
         }
         else {
@@ -190,9 +191,7 @@ class PlayScene {
         var asteroid = this.asteroids[i];
         if (this.collisionDetector.collisionBetween(this.ufo, asteroid)) {
           sounds.playExplosionSound();
-          sounds.playUFODeathSound();
           this.killAsteroidAtIndex(i);
-          this.killUFO();
           break;
         }
       }

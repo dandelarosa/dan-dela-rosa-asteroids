@@ -11,7 +11,6 @@ class Game {
 
     this.gameManager = new GameManager();
 
-    DEBUG = persistence.getBoolean('debug_on');
     this.canToggleDebug = true;
   }
 
@@ -20,8 +19,8 @@ class Game {
    */
   update() {
     if (keyboard.onePressed && this.canToggleDebug) {
-      DEBUG = !DEBUG;
-      persistence.setBoolean('debug_on', DEBUG);
+      showHitboxes = !showHitboxes;
+      persistence.setBoolean('show_hitboxes', showHitboxes);
       this.canToggleDebug = false;
     }
     else if (keyboard.oneReleased) {

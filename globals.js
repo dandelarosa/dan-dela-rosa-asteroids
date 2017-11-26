@@ -1,8 +1,9 @@
 'use strict';
 
-var DEBUG = false;
+// globals.js should be included last
+var persistence = new Persistence();
+var showHitboxes = persistence.getBoolean('show_hitboxes');
 
-var persistence;
 var game;
 var context2d;
 var keyboard;
@@ -13,7 +14,6 @@ var imageManager;
  * Sets up the HTML page and instantiates the game object.
  */
 function createGame() {
-  persistence = new Persistence();
   game = new Game();
 
   var rootDiv = document.getElementById('game');

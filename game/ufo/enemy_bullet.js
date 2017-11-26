@@ -63,7 +63,7 @@ class EnemyBullet {
     context2d.arc(0, 0, this.radius, 0, 2 * Math.PI);
     context2d.fill();
 
-    if (DEBUG) {
+    if (showHitboxes) {
       context2d.strokeStyle = 'white';
       context2d.beginPath();
       context2d.arc(0, 0, this.radius, 0, 2 * Math.PI);

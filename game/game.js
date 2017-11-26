@@ -37,6 +37,7 @@ class Game {
     this.gameManager.nextSceneID = null;
 
     this.currentScene.update();
+    keyboard.afterFrame();
   }
 
   /**

@@ -12,7 +12,6 @@ class PlayScene {
     this.gameManager = gameManager;
 
     this.paused = false;
-    this.pausePressed = false;
 
     this.collisionDetector = new CollisionDetector();
 
@@ -30,12 +29,8 @@ class PlayScene {
    * Updates the scene's state.
    */
   update() {
-    if (keyboard.enterPressed && !this.pausePressed) {
+    if (keyboard.enterPressed && !keyboard.enterPressedPreviousFrame) {
       this.paused = !this.paused;
-      this.pausePressed = true;
-    }
-    else if (keyboard.enterReleased) {
-      this.pausePressed = false;
     }
     if (this.paused) {
       return;

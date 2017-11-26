@@ -9,10 +9,14 @@ class Keyboard {
     this.rightPressed = false;
     this.upPressed = false;
     this.downPressed = false;
+    
     this.spacePressed = false;
     this.spaceReleased = true;
+
     this.enterPressed = false;
     this.enterReleased = true;
+    this.enterPressedPreviousFrame = false;
+
     this.onePressed = false;
     this.oneReleased = true;
   }
@@ -80,6 +84,18 @@ class Keyboard {
         this.onePressed = false;
         this.oneReleased = true;
         break;
+    }
+  }
+
+  /**
+   * Updates the state after each frame.
+   */
+  afterFrame() {
+    if (this.enterPressed) {
+      this.enterPressedPreviousFrame = true;
+    }
+    else if (this.enterReleased) {
+      this.enterPressedPreviousFrame = false;
     }
   }
 }

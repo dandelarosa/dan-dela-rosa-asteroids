@@ -7,9 +7,16 @@ const UFO_DELAY = 600;
  */
 class GameManager {
   constructor() {
-    this.currentLevel = 1;
-    this.nextSceneID = 'nextlevel';
+    this.setupNewGame();
 
+    this.highScore = persistence.getNumber('high_score', 0);
+    this.previousHighScore = this.highScore;
+  }
+
+  /**
+   * Sets up a new game.
+   */
+  setupNewGame() {
     this.currentLives = 3;
     this.currentScore = 0;
     this.scoreRequiredForExtraLife = 10000;
@@ -17,8 +24,12 @@ class GameManager {
 
     this.ufoTimer = UFO_DELAY;
 
-    this.highScore = persistence.getNumber('high_score', 0);
-    this.previousHighScore = this.highScore;
+    this.currentLevel = 1;
+    this.nextSceneID = 'nextlevel';
+
+    if (this.previouslyGameOvered) {
+      sounds.playReplaySound();
+    }
   }
 
   /**
@@ -85,6 +96,7 @@ class GameManager {
     }
 
     this.nextSceneID = 'gameover';
+    this.previouslyGameOvered = true;
   }
 
   /**

@@ -16,6 +16,10 @@ class GameOverScene {
       sounds.playGameOverSound();
       this.playedSound = true;
     }
+
+    if (keyboard.enterPressed && !keyboard.enterPressedPreviousFrame) {
+      this.gameManager.setupNewGame();
+    }
   }
 
   /**
@@ -39,5 +43,8 @@ class GameOverScene {
     // FIXME: Don't show image in the "Clean" version
     var image = imageManager.gameOverImage;
     context2d.drawImage(image, 100, 100, 600, 400);
+
+    context2d.textAlign = 'center';
+    context2d.fillText('Press Enter to play again', 400, 560);
   }
 }

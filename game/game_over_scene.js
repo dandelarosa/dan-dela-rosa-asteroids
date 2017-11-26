@@ -24,15 +24,17 @@ class GameOverScene {
   draw() {
     context2d.fillStyle = 'white';
     context2d.font = '24px Courier New';
-
     context2d.textAlign = 'center';
-    var highScoreString = 'High Score: ' + this.gameManager.highScore;
-    context2d.fillText(highScoreString, 400, 30);
+    context2d.fillText('GAME OVER', 400, 30);
 
+    var highScoreString = '';
     if (this.gameManager.highScore > this.gameManager.previousHighScore) {
-      context2d.textAlign = 'center';
-      context2d.fillText('New High Score!', 400, 75);
+      highScoreString += 'NEW! ';
     }
+    highScoreString += 'High Score: ';
+    highScoreString += this.gameManager.highScore;
+    context2d.textAlign = 'center';
+    context2d.fillText(highScoreString, 400, 75);
 
     // FIXME: Don't show image in the "Clean" version
     var image = imageManager.gameOverImage;

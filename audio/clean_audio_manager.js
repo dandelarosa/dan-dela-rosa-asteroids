@@ -10,6 +10,14 @@ class CleanAudioManager {
 
     this.rewardAudio = document.createElement('audio');
     this.rewardAudio.src = 'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg';
+
+    this.aggressiveUfoAudio = document.createElement('audio');
+    this.aggressiveUfoAudio.src = 'media/sounds/Clean/58015__guitarguy1985__yelp.wav';
+    this.aggressiveUfoAudio.loop = true;
+
+    this.passiveUfoAudio = document.createElement('audio');
+    this.passiveUfoAudio.src = 'media/sounds/Clean/27788__drni__roland-juno106-lfo-to-dco-sirene.wav';
+    this.passiveUfoAudio.loop = true;
   }
 
   /**
@@ -43,14 +51,24 @@ class CleanAudioManager {
    * @param {boolean} isAggressive - determines which variant of the sound to play.
    */
   playUFOSpawnSound(isAggressive) {
-    // TODO: implement (requires refactoring)
+    if (isAggressive) {
+      this.aggressiveUfoAudio.play();
+    }
+    else {
+      this.passiveUfoAudio.play();
+    }
   }
 
   /**
    * Stops playing the UFO sound.
    */
   stopUFOSpawnSound() {
-    // TODO: implement (requires refactoring)
+    // Right now there's no way of knowing which track is playing so just stop all of them.
+    this.aggressiveUfoAudio.pause();
+    this.aggressiveUfoAudio.currentTime = 0;
+
+    this.passiveUfoAudio.pause();
+    this.passiveUfoAudio.currentTime = 0;
   }
 
   /**

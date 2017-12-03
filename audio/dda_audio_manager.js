@@ -9,7 +9,6 @@ class DDAAudioManager {
     this.explosionAudio = new ExplosionAudio();
     this.deathAudio = new DeathAudio();
     this.killAudio = new KillAudio();
-    this.ufoAudio = new UFOAudio();
     this.ufoDeathAudio = new UFODeathAudio();
     this.gameOverAudio = new GameOverAudio();
 
@@ -21,6 +20,12 @@ class DDAAudioManager {
 
     this.replayAudio = document.createElement('audio');
     this.replayAudio.src = 'media/sounds/DDA/lasttimeigave.mp3';
+
+    this.aggressiveUfoAudio = document.createElement('audio');
+    this.aggressiveUfoAudio.src = 'media/sounds/DDA/Thunderstruck.mp3';
+
+    this.passiveUfoAudio = document.createElement('audio');
+    this.passiveUfoAudio.src = 'media/sounds/DDA/300excerpt.mp3';
   }
 
   /**
@@ -56,14 +61,24 @@ class DDAAudioManager {
    * @param {boolean} isAggressive - determines which variant of the sound to play.
    */
   playUFOSpawnSound(isAggressive) {
-    this.ufoAudio.play(isAggressive);
+    if (isAggressive) {
+      this.aggressiveUfoAudio.play();
+    }
+    else {
+      this.passiveUfoAudio.play();
+    }
   }
 
   /**
    * Stops playing the UFO sound.
    */
   stopUFOSpawnSound() {
-    this.ufoAudio.stop();
+    // Right now there's no way of knowing which track is playing so just stop all of them.
+    this.aggressiveUfoAudio.pause();
+    this.aggressiveUfoAudio.currentTime = 0;
+
+    this.passiveUfoAudio.pause();
+    this.passiveUfoAudio.currentTime = 0;
   }
 
   /**

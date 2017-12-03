@@ -9,7 +9,7 @@ class Keyboard {
     this.rightPressed = false;
     this.upPressed = false;
     this.downPressed = false;
-    
+
     this.spacePressed = false;
     this.spaceReleased = true;
 
@@ -19,6 +19,7 @@ class Keyboard {
 
     this.onePressed = false;
     this.oneReleased = true;
+    this.onePressedPreviousFrame = false;
   }
 
   /**
@@ -96,6 +97,13 @@ class Keyboard {
     }
     else if (this.enterReleased) {
       this.enterPressedPreviousFrame = false;
+    }
+
+    if (this.onePressed) {
+      this.onePressedPreviousFrame = true;
+    }
+    else if (this.oneReleased) {
+      this.onePressedPreviousFrame = false;
     }
   }
 }

@@ -18,13 +18,9 @@ class Game {
    * Updates the game's state.
    */
   update() {
-    if (keyboard.onePressed && this.canToggleDebug) {
+    if (keyboard.onePressed && !keyboard.onePressedPreviousFrame) {
       showHitboxes = !showHitboxes;
       persistence.setBoolean('show_hitboxes', showHitboxes);
-      this.canToggleDebug = false;
-    }
-    else if (keyboard.oneReleased) {
-      this.canToggleDebug = true;
     }
 
     if (this.gameManager.nextSceneID === 'nextlevel') {

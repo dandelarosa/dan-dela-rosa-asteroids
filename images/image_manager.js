@@ -14,6 +14,14 @@ class ImageManager {
   }
 
   /**
+   * Gets the player ship's image.
+   * @return {object} the ship image.
+   */
+  getPlayerShipImage() {
+    return this.innerImageManager.getPlayerShipImage();
+  }
+
+  /**
    * Gets a random image for the big asteroid.
    * @return {object} an image.
    */
@@ -35,6 +43,15 @@ class ImageManager {
    */
   getRandomSmallAsteroidImage() {
     return this.innerImageManager.getRandomSmallAsteroidImage();
+  }
+
+  /**
+   * Gets the selected UFO image.
+   * @param {number} index - The index corresponding to the selected image.
+   * @return {object} the image to show for the UFO, or null if none exists.
+   */
+  getUfoImage(index) {
+    return this.innerImageManager.getUfoImage(index);
   }
 
   /**

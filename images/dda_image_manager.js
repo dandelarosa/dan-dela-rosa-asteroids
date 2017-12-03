@@ -106,6 +106,14 @@ class DDAImageManager {
   }
 
   /**
+   * Gets the player ship's image.
+   * @return {object} the ship image.
+   */
+  getPlayerShipImage() {
+    return this.carImage;
+  }
+
+  /**
    * Gets a random image for the big asteroid.
    * @return {object} an image.
    */
@@ -155,6 +163,23 @@ class DDAImageManager {
     else if (index === 9) return this.smallAsteroidImage10;
     else if (index === 10) return this.smallAsteroidImage11;
     return this.smallAsteroidImage12;
+  }
+
+  /**
+   * Gets the selected UFO image.
+   * @param {number} index - The index corresponding to the selected image.
+   * @return {object} the image to show for the UFO, or null if none exists.
+   */
+  getUfoImage(index) {
+    if (index === 1) {
+      return this.ufoImage1;
+    }
+    else if (index === 2) {
+      return this.ufoImage2;
+    }
+    else {
+      return this.ufoImage3;
+    }
   }
 
   /**

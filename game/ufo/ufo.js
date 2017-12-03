@@ -19,13 +19,13 @@ class UFO {
 
     this.aggressive = Math.random() >= 0.5;
     if (this.aggressive) {
-      this.image = imageManager.ufoImage1;
+      this.image = imageManager.getUfoImage(1);
     }
     else if (Math.random() >= 0.5) {
-      this.image = imageManager.ufoImage2;
+      this.image = imageManager.getUfoImage(2);
     }
     else {
-      this.image = imageManager.ufoImage3;
+      this.image = imageManager.getUfoImage(3);
     }
 
     this.distanceTraveled = 0;

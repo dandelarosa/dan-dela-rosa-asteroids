@@ -71,7 +71,7 @@ class Ship {
     context2d.translate(this.x, this.y);
     context2d.rotate(this.angle * Math.PI / 180);
 
-    var image = imageManager.carImage;
+    var image = imageManager.getPlayerShipImage();
     if (image) {
       context2d.drawImage(image, -70, -26);
     }

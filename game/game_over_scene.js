@@ -11,7 +11,6 @@ class GameOverScene {
    * Updates the scene's state.
    */
   update() {
-    // FIXME: Don't play sound in the "Clean" version
     if (!this.playedSound) {
       sounds.playGameOverSound();
       this.playedSound = true;
@@ -41,9 +40,10 @@ class GameOverScene {
     context2d.textAlign = 'center';
     context2d.fillText(highScoreString, 400, 75);
 
-    // FIXME: Don't show image in the "Clean" version
-    var image = imageManager.gameOverImage;
-    context2d.drawImage(image, 100, 100, 600, 400);
+    var image = imageManager.getGameOverImage();
+    if (image) {
+      context2d.drawImage(image, 100, 100, 600, 400);
+    }
 
     context2d.textAlign = 'center';
     context2d.fillText('Press Enter to play again', 400, 560);

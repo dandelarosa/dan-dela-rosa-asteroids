@@ -30,4 +30,12 @@ class CleanImageManager {
   getRandomSmallAsteroidImage() {
     return null;
   }
+  
+  /**
+   * Gets the image to show on the game over screen.
+   * @return {object} the game over image.
+   */
+  getGameOverImage() {
+    return null;
+  }
 }

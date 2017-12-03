@@ -1,16 +1,10 @@
 'use strict';
 
 /**
- * The object used for managing images.
+ * The clean version of the image manager.
  */
-class ImageManager {
+class CleanImageManager {
   constructor() {
-    if (useCustomAssets) {
-      this.innerImageManager = new DDAImageManager();
-    }
-    else {
-      this.innerImageManager = new CleanImageManager();
-    }
   }
 
   /**
@@ -18,7 +12,7 @@ class ImageManager {
    * @return {object} an image.
    */
   getRandomBigAsteroidImage() {
-    return this.innerImageManager.getRandomBigAsteroidImage();
+    return null;
   }
 
   /**
@@ -26,7 +20,7 @@ class ImageManager {
    * @return {object} an image.
    */
   getRandomMediumAsteroidImage() {
-    return this.innerImageManager.getRandomMediumAsteroidImage();
+    return null;
   }
 
   /**
@@ -34,6 +28,6 @@ class ImageManager {
    * @return {object} an image.
    */
   getRandomSmallAsteroidImage() {
-    return this.innerImageManager.getRandomSmallAsteroidImage();
+    return null;
   }
 }

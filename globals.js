@@ -3,6 +3,7 @@
 // globals.js should be included last
 var persistence = new Persistence();
 var showHitboxes = persistence.getBoolean('show_hitboxes');
+var useCustomAssets = false;
 
 var game;
 var context2d;

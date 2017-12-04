@@ -13,10 +13,10 @@ class ImageManager {
    */
   selectManager() {
     if (useCustomAssets) {
-      this.innerImageManager = this.getDdaManager();
+      this.innerManager = this.getDdaManager();
     }
     else {
-      this.innerImageManager = this.getCleanManager();
+      this.innerManager = this.getCleanManager();
     }
   }
 
@@ -43,7 +43,7 @@ class ImageManager {
    * @return {object} the ship image.
    */
   getPlayerShipImage() {
-    return this.innerImageManager.getPlayerShipImage();
+    return this.innerManager.getPlayerShipImage();
   }
 
   /**
@@ -51,7 +51,7 @@ class ImageManager {
    * @return {object} an image.
    */
   getRandomBigAsteroidImage() {
-    return this.innerImageManager.getRandomBigAsteroidImage();
+    return this.innerManager.getRandomBigAsteroidImage();
   }
 
   /**
@@ -59,7 +59,7 @@ class ImageManager {
    * @return {object} an image.
    */
   getRandomMediumAsteroidImage() {
-    return this.innerImageManager.getRandomMediumAsteroidImage();
+    return this.innerManager.getRandomMediumAsteroidImage();
   }
 
   /**
@@ -67,7 +67,7 @@ class ImageManager {
    * @return {object} an image.
    */
   getRandomSmallAsteroidImage() {
-    return this.innerImageManager.getRandomSmallAsteroidImage();
+    return this.innerManager.getRandomSmallAsteroidImage();
   }
 
   /**
@@ -76,7 +76,7 @@ class ImageManager {
    * @return {object} the image to show for the UFO, or null if none exists.
    */
   getUfoImage(index) {
-    return this.innerImageManager.getUfoImage(index);
+    return this.innerManager.getUfoImage(index);
   }
 
   /**
@@ -84,6 +84,6 @@ class ImageManager {
    * @return {object} the game over image.
    */
   getGameOverImage() {
-    return this.innerImageManager.getGameOverImage();
+    return this.innerManager.getGameOverImage();
   }
 }

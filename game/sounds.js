@@ -13,10 +13,10 @@ class Sounds {
    */
   selectManager() {
     if (useCustomAssets) {
-      this.innerAudioManager = this.getDdaManager();
+      this.innerManager = this.getDdaManager();
     }
     else {
-      this.innerAudioManager = this.getCleanManager();
+      this.innerManager = this.getCleanManager();
     }
   }
 
@@ -42,28 +42,28 @@ class Sounds {
    * Plays a sound when the player fires bullet.
    */
   playBulletSound() {
-    this.innerAudioManager.playBulletSound();
+    this.innerManager.playBulletSound();
   }
 
   /**
    * Plays a tiny explosion sound.
    */
   playExplosionSound() {
-    this.innerAudioManager.playExplosionSound();
+    this.innerManager.playExplosionSound();
   }
 
   /**
    * Plays a sound when the player's ship is destroyed.
    */
   playPlayerDeathSound() {
-    this.innerAudioManager.playPlayerDeathSound();
+    this.innerManager.playPlayerDeathSound();
   }
 
   /**
    * Plays a sound when an asteroid is destroyed.
    */
   playAsteroidDeathSound() {
-    this.innerAudioManager.playAsteroidDeathSound();
+    this.innerManager.playAsteroidDeathSound();
   }
 
   /**
@@ -71,41 +71,41 @@ class Sounds {
    * @param {boolean} isAggressive - determines which variant of the sound to play.
    */
   playUFOSpawnSound(isAggressive) {
-    this.innerAudioManager.playUFOSpawnSound(isAggressive);
+    this.innerManager.playUFOSpawnSound(isAggressive);
   }
 
   /**
    * Stops playing the UFO sound.
    */
   stopUFOSpawnSound() {
-    this.innerAudioManager.stopUFOSpawnSound();
+    this.innerManager.stopUFOSpawnSound();
   }
 
   /**
    * Plays a sound when a UFO is destroyed.
    */
   playUFODeathSound() {
-    this.innerAudioManager.playUFODeathSound();
+    this.innerManager.playUFODeathSound();
   }
 
   /**
    * Plays a sound when the player earns an extra life.
    */
   playBonusSound() {
-    this.innerAudioManager.playBonusSound();
+    this.innerManager.playBonusSound();
   }
 
   /**
    * Plays a sound when the game over screen appears.
    */
   playGameOverSound() {
-    this.innerAudioManager.playGameOverSound();
+    this.innerManager.playGameOverSound();
   }
 
   /**
    * Plays a sound when the game is played after a game over.
    */
   playReplaySound() {
-    this.innerAudioManager.playReplaySound();
+    this.innerManager.playReplaySound();
   }
 }

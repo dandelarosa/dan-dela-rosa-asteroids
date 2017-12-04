@@ -5,12 +5,37 @@
  */
 class Sounds {
   constructor() {
+    this.selectManager();
+  }
+
+  /**
+   * Selects the manager based on the current settings.
+   */
+  selectManager() {
     if (useCustomAssets) {
-      this.innerAudioManager = new DDAAudioManager();
+      this.innerAudioManager = this.getDdaManager();
     }
     else {
-      this.innerAudioManager = new CleanAudioManager();
+      this.innerAudioManager = this.getCleanManager();
     }
+  }
+
+  /**
+   * Lazy loads the clean manager.
+   * @return {object} The clean manager.
+   */
+  getCleanManager() {
+    this.cleanManager = this.cleanManager || new CleanAudioManager();
+    return this.cleanManager;
+  }
+
+  /**
+   * Lazy loads the DDA manager.
+   * @return {object} The DDA manager.
+   */
+  getDdaManager() {
+    this.ddaManager = this.ddaManager || new DDAAudioManager();
+    return this.ddaManager;
   }
 
   /**

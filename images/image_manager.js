@@ -5,12 +5,37 @@
  */
 class ImageManager {
   constructor() {
+    this.selectManager();
+  }
+
+  /**
+   * Selects the manager based on the current settings.
+   */
+  selectManager() {
     if (useCustomAssets) {
-      this.innerImageManager = new DDAImageManager();
+      this.innerImageManager = this.getDdaManager();
     }
     else {
-      this.innerImageManager = new CleanImageManager();
+      this.innerImageManager = this.getCleanManager();
     }
+  }
+
+  /**
+   * Lazy loads the clean manager.
+   * @return {object} The clean manager.
+   */
+  getCleanManager() {
+    this.cleanManager = this.cleanManager || new CleanImageManager();
+    return this.cleanManager;
+  }
+
+  /**
+   * Lazy loads the DDA manager.
+   * @return {object} The DDA manager.
+   */
+  getDdaManager() {
+    this.ddaManager = this.ddaManager || new DDAImageManager();
+    return this.ddaManager;
   }
 
   /**

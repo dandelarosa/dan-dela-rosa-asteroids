@@ -22,6 +22,12 @@ class Game {
       showHitboxes = !showHitboxes;
       persistence.setBoolean('show_hitboxes', showHitboxes);
     }
+    if (keyboard.twoPressed && !keyboard.twoPressedPreviousFrame) {
+      useCustomAssets = !useCustomAssets;
+      sounds.selectManager();
+      imageManager.selectManager();
+      persistence.setBoolean('use_custom_assets', useCustomAssets);
+    }
 
     if (this.gameManager.nextSceneID === 'nextlevel') {
       this.currentScene = new PlayScene(this.width, this.height, this.gameManager);

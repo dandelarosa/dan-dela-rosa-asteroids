@@ -20,6 +20,10 @@ class Keyboard {
     this.onePressed = false;
     this.oneReleased = true;
     this.onePressedPreviousFrame = false;
+
+    this.twoPressed = false;
+    this.twoReleased = true;
+    this.twoPressedPreviousFrame = false;
   }
 
   /**
@@ -51,6 +55,10 @@ class Keyboard {
       case 49:
         this.onePressed = true;
         this.oneReleased = false;
+        break;
+      case 50:
+        this.twoPressed = true;
+        this.twoReleased = false;
         break;
     }
   }
@@ -85,6 +93,10 @@ class Keyboard {
         this.onePressed = false;
         this.oneReleased = true;
         break;
+      case 50:
+        this.twoPressed = false;
+        this.twoReleased = true;
+        break;
     }
   }
 
@@ -104,6 +116,13 @@ class Keyboard {
     }
     else if (this.oneReleased) {
       this.onePressedPreviousFrame = false;
+    }
+
+    if (this.twoPressed) {
+      this.twoPressedPreviousFrame = true;
+    }
+    else if (this.twoReleased) {
+      this.twoPressedPreviousFrame = false;
     }
   }
 }

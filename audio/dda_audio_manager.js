@@ -5,12 +5,50 @@
  */
 class DDAAudioManager {
   constructor() {
-    this.bulletAudio = new BulletAudio();
-    this.explosionAudio = new ExplosionAudio();
-    this.deathAudio = new DeathAudio();
-    this.killAudio = new KillAudio();
-    this.ufoDeathAudio = new UFODeathAudio();
-    this.gameOverAudio = new GameOverAudio();
+    var bulletSrc = 'media/sounds/Universal/275151__bird-man__gun-shot.wav';
+    var bulletNum = 4;
+    this.bulletAudio = new MultiAudio(bulletSrc, bulletNum);
+
+    var explosionSrc = 'media/sounds/Universal/147583__cactus2003__far-off-boom-without-amplify.wav';
+    var explosionNum = 4;
+    this.explosionAudio = new MultiAudio(explosionSrc, explosionNum);
+
+    this.deathAudio = new RouletteAudio([
+      'media/sounds/DDA/death/ah_s.mp3',
+      'media/sounds/DDA/death/bobsaget.mp3',
+      'media/sounds/DDA/death/FFFUUUU.mp3',
+      'media/sounds/DDA/death/oh_s.mp3',
+      'media/sounds/DDA/death/oh_s2.mp3',
+      'media/sounds/DDA/death/THATSMY.mp3',
+      'media/sounds/DDA/death/thehwasthat.mp3',
+      'media/sounds/DDA/death/thisisbull.mp3',
+    ]);
+
+    this.killAudio = new RouletteAudio([
+      'media/sounds/DDA/kill/balls.mp3',
+      'media/sounds/DDA/kill/b1.mp3',
+      'media/sounds/DDA/kill/b2.mp3',
+      'media/sounds/DDA/kill/bs.mp3',
+      'media/sounds/DDA/kill/d.mp3',
+      'media/sounds/DDA/kill/f.mp3',
+      'media/sounds/DDA/kill/fu.mp3',
+      'media/sounds/DDA/kill/hs.mp3',
+      'media/sounds/DDA/kill/motherlovers.mp3',
+      'media/sounds/DDA/kill/p.mp3',
+    ]);
+
+    this.ufoDeathAudio = new RouletteAudio([
+      'media/sounds/DDA/ufo/200lbs.mp3',
+      'media/sounds/DDA/ufo/cantdo.mp3',
+      'media/sounds/DDA/ufo/hesan.mp3',
+      'media/sounds/DDA/ufo/jollypiratedonut.mp3',
+      'media/sounds/DDA/ufo/walkamile.mp3',
+    ]);
+
+    this.gameOverAudio = new RouletteAudio([
+      'media/sounds/DDA/olololol.mp3',
+      'media/sounds/DDA/yousinme.mp3',
+    ]);
 
     this.rewardAudio = document.createElement('audio');
     this.rewardAudio.src = 'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg';

@@ -5,8 +5,13 @@
  */
 class CleanAudioManager {
   constructor() {
-    this.bulletAudio = new BulletAudio();
-    this.explosionAudio = new ExplosionAudio();
+    var bulletSrc = 'media/sounds/Universal/275151__bird-man__gun-shot.wav';
+    var bulletNum = 4;
+    this.bulletAudio = new MultiAudio(bulletSrc, bulletNum);
+
+    var explosionSrc = 'media/sounds/Universal/147583__cactus2003__far-off-boom-without-amplify.wav';
+    var explosionNum = 4;
+    this.explosionAudio = new MultiAudio(explosionSrc, explosionNum);
 
     this.rewardAudio = document.createElement('audio');
     this.rewardAudio.src = 'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg';

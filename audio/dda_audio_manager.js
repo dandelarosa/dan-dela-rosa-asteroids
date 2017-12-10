@@ -88,10 +88,40 @@ class DDAAudioManager {
   }
 
   /**
+   * Stops the player death sound.
+   */
+  stopPlayerDeathSound() {
+    this.deathAudio.stopAll();
+  }
+
+  /**
+   * Checks if the player death sound is playing.
+   * @return {boolean} true if the sound is playing, or false if is not playing.
+   */
+  isPlayerDeathSoundPlaying() {
+    return this.deathAudio.isAnyPlaying();
+  }
+
+  /**
    * Plays a sound when an asteroid is destroyed.
    */
   playAsteroidDeathSound() {
     this.killAudio.play();
+  }
+
+  /**
+   * Stops the asteroid death sound.
+   */
+  stopAsteroidDeathSound() {
+    this.killAudio.stopAll();
+  }
+
+  /**
+   * Checks if the asteroid death sound is playing.
+   * @return {boolean} true if the sound is playing, or false if is not playing.
+   */
+  isAsteroidDeathSoundPlaying() {
+    return this.killAudio.isAnyPlaying();
   }
 
   /**
@@ -127,12 +157,52 @@ class DDAAudioManager {
   }
 
   /**
+   * Stops the UFO death sound.
+   */
+  stopUFODeathSound() {
+    this.ufoDeathAudio.stopAll();
+  }
+
+  /**
+   * Checks if the UFO death sound is playing.
+   * @return {boolean} true if the sound is playing, or false if is not playing.
+   */
+  isUFODeathSoundPlaying() {
+    return this.ufoDeathAudio.isAnyPlaying();
+  }
+
+  /**
    * Plays a sound when the player earns an extra life.
    */
   playBonusSound() {
     this.rewardAudio.play();
     // Play this only in the DDA soundpack
     this.rewardAudio2.play();
+  }
+
+  /**
+   * Stops the bonus sound.
+   */
+  stopBonusSound() {
+    this.rewardAudio.pause();
+    this.rewardAudio.currentTime = 0;
+
+    this.rewardAudio2.pause();
+    this.rewardAudio2.currentTime = 0;
+  }
+
+  /**
+   * Checks if the bonus sound is playing.
+   * @return {boolean} true if the sound is playing, or false if is not playing.
+   */
+  isBonusSoundPlaying() {
+    if (isAudioPlaying(this.rewardAudio)) {
+      return true;
+    }
+    if (isAudioPlaying(this.rewardAudio2)) {
+      return true;
+    }
+    return false;
   }
 
   /**

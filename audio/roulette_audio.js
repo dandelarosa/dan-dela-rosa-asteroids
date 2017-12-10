@@ -31,4 +31,29 @@ class RouletteAudio {
       }
     }
   }
+
+  /**
+   * Checks if any sounds in this group are playing.
+   * @return {boolean} true if any sounds are playing, or false if none are playing.
+   */
+  isAnyPlaying() {
+    for (var i = 0; i < this.audioElements.length; i++) {
+      var audioElement = this.audioElements[i];
+      if (isAudioPlaying(audioElement)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Stops playing all sounds in this group.
+   */
+  stopAll() {
+    for (var i = 0; i < this.audioElements.length; i++) {
+      var audioElement = this.audioElements[i];
+      audioElement.pause();
+      audioElement.currentTime = 0;
+    }
+  }
 }

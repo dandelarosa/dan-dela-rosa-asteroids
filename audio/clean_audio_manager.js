@@ -46,9 +46,37 @@ class CleanAudioManager {
   }
 
   /**
+   * Stops the player death sound.
+   */
+  stopPlayerDeathSound() {
+  }
+
+  /**
+   * Checks if the player death sound is playing.
+   * @return {boolean} true if the sound is playing, or false if is not playing.
+   */
+  isPlayerDeathSoundPlaying() {
+    return false;
+  }
+
+  /**
    * Plays a sound when an asteroid is destroyed.
    */
   playAsteroidDeathSound() {
+  }
+
+  /**
+   * Stops the asteroid death sound.
+   */
+  stopAsteroidDeathSound() {
+  }
+
+  /**
+   * Checks if the asteroid death sound is playing.
+   * @return {boolean} true if the sound is playing, or false if is not playing.
+   */
+  isAsteroidDeathSoundPlaying() {
+    return false;
   }
 
   /**
@@ -83,10 +111,43 @@ class CleanAudioManager {
   }
 
   /**
+   * Stops the UFO death sound.
+   */
+  stopUFODeathSound() {
+  }
+
+  /**
+   * Checks if the UFO death sound is playing.
+   * @return {boolean} true if the sound is playing, or false if is not playing.
+   */
+  isUFODeathSoundPlaying() {
+    return false;
+  }
+
+  /**
    * Plays a sound when the player earns an extra life.
    */
   playBonusSound() {
     this.rewardAudio.play();
+  }
+
+  /**
+   * Stops the bonus sound.
+   */
+  stopBonusSound() {
+    this.rewardAudio.pause();
+    this.rewardAudio.currentTime = 0;
+  }
+
+  /**
+   * Checks if the bonus sound is playing.
+   * @return {boolean} true if the sound is playing, or false if is not playing.
+   */
+  isBonusSoundPlaying() {
+    if (isAudioPlaying(this.rewardAudio)) {
+      return true;
+    }
+    return false;
   }
 
   /**

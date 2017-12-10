@@ -32,7 +32,7 @@ class GameManager {
     this.nextSceneID = 'nextlevel';
 
     if (this.previouslyGameOvered) {
-      sounds.playReplaySound();
+      audioManager.playReplaySound();
     }
   }
 
@@ -76,7 +76,7 @@ class GameManager {
     this.currentScore += amount;
     if (this.currentScore >= this.scoreRequiredForExtraLife) {
       this.currentLives++;
-      sounds.playBonusSound();
+      audioManager.playBonusSound();
       this.scoreRequiredForExtraLife += this.additionalScoreRequiredForNextExtraLife;
     }
   }

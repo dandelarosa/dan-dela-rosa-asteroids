@@ -8,7 +8,7 @@ var useCustomAssets = persistence.getBoolean('use_custom_assets',  false);
 var game;
 var context2d;
 var keyboard;
-var sounds;
+var audioManager;
 var imageManager;
 
 /**
@@ -28,7 +28,7 @@ function createGame() {
   document.addEventListener('keydown', keydown);
   document.addEventListener('keyup', keyup);
 
-  sounds = new Sounds;
+  audioManager = new AudioManager();
   imageManager = new ImageManager();
 
   setInterval(update, 1000 / game.fps);

@@ -3,7 +3,7 @@
 /**
  * The class to use for playing sounds.
  */
-class Sounds {
+class AudioManager {
   constructor() {
     this.selectManager();
   }

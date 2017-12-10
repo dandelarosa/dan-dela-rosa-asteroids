@@ -12,7 +12,7 @@ class GameOverScene {
    */
   update() {
     if (!this.playedSound) {
-      sounds.playGameOverSound();
+      audioManager.playGameOverSound();
       this.playedSound = true;
     }
 

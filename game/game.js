@@ -24,7 +24,7 @@ class Game {
     }
     if (keyboard.twoPressed && !keyboard.twoPressedPreviousFrame) {
       useCustomAssets = !useCustomAssets;
-      sounds.selectManager();
+      audioManager.selectManager();
       imageManager.selectManager();
       persistence.setBoolean('use_custom_assets', useCustomAssets);
     }

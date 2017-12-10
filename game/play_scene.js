@@ -82,7 +82,7 @@ class PlayScene {
       }
       else {
         this.killUFO();
-        sounds.playUFODeathSound();
+        audioManager.playUFODeathSound();
       }
     }
     else if (this.gameManager.shouldSpawnUFO()) {
@@ -108,7 +108,7 @@ class PlayScene {
           this.killPlayerBulletAtIndex(i);
           i--;
           this.killAsteroidAtIndex(j);
-          sounds.playExplosionSound();
+          audioManager.playExplosionSound();
           this.playerKilledAsteroid();
           break;
         }
@@ -122,8 +122,8 @@ class PlayScene {
         if (this.collisionDetector.collisionBetween(playerBullet, this.ufo)) {
           this.killPlayerBulletAtIndex(i);
           this.killUFO();
-          sounds.playExplosionSound();
-          sounds.playUFODeathSound();
+          audioManager.playExplosionSound();
+          audioManager.playUFODeathSound();
           this.playerKilledUFO();
           break;
         }
@@ -160,10 +160,10 @@ class PlayScene {
     // Check for collisions between player and UFO
     if (this.ship && this.ufo) {
       if (this.collisionDetector.collisionBetween(this.ship, this.ufo)) {
-        sounds.playExplosionSound();
+        audioManager.playExplosionSound();
         this.killUFO();
         if (this.ship.isInvincible()) {
-          sounds.playUFODeathSound();
+          audioManager.playUFODeathSound();
           this.playerKilledUFO();
         }
         else {
@@ -177,7 +177,7 @@ class PlayScene {
       for (var i = 0; i < this.asteroids.length; i++) {
         var asteroid = this.asteroids[i];
         if (this.collisionDetector.collisionBetween(this.enemyBullet, asteroid)) {
-          sounds.playExplosionSound();
+          audioManager.playExplosionSound();
           this.killAsteroidAtIndex(i);
           this.killEnemyBullet();
           break;
@@ -190,7 +190,7 @@ class PlayScene {
       for (var i = 0; i < this.asteroids.length; i++) {
         var asteroid = this.asteroids[i];
         if (this.collisionDetector.collisionBetween(this.ufo, asteroid)) {
-          sounds.playExplosionSound();
+          audioManager.playExplosionSound();
           this.killAsteroidAtIndex(i);
           break;
         }
@@ -204,7 +204,7 @@ class PlayScene {
           this.spawnShip();
         }
         else {
-          sounds.stopUFOSpawnSound();
+          audioManager.stopUFOSpawnSound();
           this.gameManager.goToGameOver();
         }
       }
@@ -226,8 +226,8 @@ class PlayScene {
    * Destroys the player ship.
    */
   killShip() {
-    sounds.playExplosionSound();
-    sounds.playPlayerDeathSound();
+    audioManager.playExplosionSound();
+    audioManager.playPlayerDeathSound();
     this.ship = null;
     this.gameManager.currentLives--;
     this.deathTimer = 120;
@@ -240,7 +240,7 @@ class PlayScene {
     if (this.ship && this.playerBullets.length < MAX_BULLETS) {
       var bullet = new PlayerBullet(this.ship);
       this.playerBullets.push(bullet);
-      sounds.playBulletSound();
+      audioManager.playBulletSound();
     }
   }
 
@@ -300,14 +300,14 @@ class PlayScene {
   spawnUFO() {
     this.ufo = new UFO();
     this.gameManager.resetUFOTimer();
-    sounds.playUFOSpawnSound(this.ufo.isAggressive());
+    audioManager.playUFOSpawnSound(this.ufo.isAggressive());
   }
 
   /**
    * Destroys the UFO.
    */
   killUFO() {
-    sounds.stopUFOSpawnSound();
+    audioManager.stopUFOSpawnSound();
     this.ufo = null;
   }
 
@@ -319,7 +319,7 @@ class PlayScene {
       return;
     }
     this.enemyBullet = new EnemyBullet(this.ufo, this.ship);
-    sounds.playBulletSound();
+    audioManager.playBulletSound();
   }
 
   /**
@@ -353,7 +353,7 @@ class PlayScene {
    * Handles the event when the player kills an asteroid.
    */
   playerKilledAsteroid() {
-    sounds.playAsteroidDeathSound();
+    audioManager.playAsteroidDeathSound();
     this.gameManager.incrementScore(100);
   }
 

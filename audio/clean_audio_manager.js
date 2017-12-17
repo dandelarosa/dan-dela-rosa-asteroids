@@ -42,46 +42,6 @@ class CleanAudioManager {
   }
 
   /**
-   * Plays a sound when the player's ship is destroyed.
-   */
-  playPlayerDeathSound() {
-  }
-
-  /**
-   * Stops the player death sound.
-   */
-  stopPlayerDeathSound() {
-  }
-
-  /**
-   * Checks if the player death sound is playing.
-   * @return {boolean} true if the sound is playing, or false if is not playing.
-   */
-  isPlayerDeathSoundPlaying() {
-    return false;
-  }
-
-  /**
-   * Plays a sound when an asteroid is destroyed.
-   */
-  playAsteroidDeathSound() {
-  }
-
-  /**
-   * Stops the asteroid death sound.
-   */
-  stopAsteroidDeathSound() {
-  }
-
-  /**
-   * Checks if the asteroid death sound is playing.
-   * @return {boolean} true if the sound is playing, or false if is not playing.
-   */
-  isAsteroidDeathSoundPlaying() {
-    return false;
-  }
-
-  /**
    * Plays a sound when a UFO appears.
    * @param {boolean} isAggressive - determines which variant of the sound to play.
    */
@@ -104,59 +64,5 @@ class CleanAudioManager {
 
     this.passiveUfoAudio.pause();
     this.passiveUfoAudio.currentTime = 0;
-  }
-
-  /**
-   * Plays a sound when a UFO is destroyed.
-   */
-  playUFODeathSound() {
-  }
-
-  /**
-   * Stops the UFO death sound.
-   */
-  stopUFODeathSound() {
-  }
-
-  /**
-   * Checks if the UFO death sound is playing.
-   * @return {boolean} true if the sound is playing, or false if is not playing.
-   */
-  isUFODeathSoundPlaying() {
-    return false;
-  }
-
-  /**
-   * Plays a sound when the player earns an extra life.
-   */
-  playBonusSound() {
-    this.rewardAudio.play();
-  }
-
-  /**
-   * Stops the bonus sound.
-   */
-  stopBonusSound() {
-    this.rewardAudio.stop();
-  }
-
-  /**
-   * Checks if the bonus sound is playing.
-   * @return {boolean} true if the sound is playing, or false if is not playing.
-   */
-  isBonusSoundPlaying() {
-    return this.rewardAudio.isPlaying();
-  }
-
-  /**
-   * Plays a sound when the game over screen appears.
-   */
-  playGameOverSound() {
-  }
-
-  /**
-   * Plays a sound when the game is played after a game over.
-   */
-  playReplaySound() {
   }
 }

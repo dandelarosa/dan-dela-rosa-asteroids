@@ -87,50 +87,6 @@ class DDAAudioManager {
   }
 
   /**
-   * Plays a sound when the player's ship is destroyed.
-   */
-  playPlayerDeathSound() {
-    this.deathAudio.play();
-  }
-
-  /**
-   * Stops the player death sound.
-   */
-  stopPlayerDeathSound() {
-    this.deathAudio.stop();
-  }
-
-  /**
-   * Checks if the player death sound is playing.
-   * @return {boolean} true if the sound is playing, or false if is not playing.
-   */
-  isPlayerDeathSoundPlaying() {
-    return this.deathAudio.isPlaying();
-  }
-
-  /**
-   * Plays a sound when an asteroid is destroyed.
-   */
-  playAsteroidDeathSound() {
-    this.killAudio.play();
-  }
-
-  /**
-   * Stops the asteroid death sound.
-   */
-  stopAsteroidDeathSound() {
-    this.killAudio.stop();
-  }
-
-  /**
-   * Checks if the asteroid death sound is playing.
-   * @return {boolean} true if the sound is playing, or false if is not playing.
-   */
-  isAsteroidDeathSoundPlaying() {
-    return this.killAudio.isPlaying();
-  }
-
-  /**
    * Plays a sound when a UFO appears.
    * @param {boolean} isAggressive - determines which variant of the sound to play.
    */
@@ -153,63 +109,5 @@ class DDAAudioManager {
 
     this.passiveUfoAudio.pause();
     this.passiveUfoAudio.currentTime = 0;
-  }
-
-  /**
-   * Plays a sound when a UFO is destroyed.
-   */
-  playUFODeathSound() {
-    this.ufoDeathAudio.play();
-  }
-
-  /**
-   * Stops the UFO death sound.
-   */
-  stopUFODeathSound() {
-    this.ufoDeathAudio.stop();
-  }
-
-  /**
-   * Checks if the UFO death sound is playing.
-   * @return {boolean} true if the sound is playing, or false if is not playing.
-   */
-  isUFODeathSoundPlaying() {
-    return this.ufoDeathAudio.isPlaying();
-  }
-
-  /**
-   * Plays a sound when the player earns an extra life.
-   */
-  playBonusSound() {
-    this.rewardAudio.play();
-  }
-
-  /**
-   * Stops the bonus sound.
-   */
-  stopBonusSound() {
-    this.rewardAudio.stop();
-  }
-
-  /**
-   * Checks if the bonus sound is playing.
-   * @return {boolean} true if the sound is playing, or false if is not playing.
-   */
-  isBonusSoundPlaying() {
-    return this.rewardAudio.isPlaying();
-  }
-
-  /**
-   * Plays a sound when the game over screen appears.
-   */
-  playGameOverSound() {
-    this.gameOverAudio.play();
-  }
-
-  /**
-   * Plays a sound when the game is played after a game over.
-   */
-  playReplaySound() {
-    this.replayAudio.play();
   }
 }

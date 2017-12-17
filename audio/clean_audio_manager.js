@@ -13,8 +13,7 @@ class CleanAudioManager {
     var explosionNum = 4;
     this.explosionAudio = new MultiAudio(explosionSrc, explosionNum);
 
-    this.rewardAudio = document.createElement('audio');
-    this.rewardAudio.src = 'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg';
+    this.rewardAudio = new SingleAudio('media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg');
 
     this.aggressiveUfoAudio = document.createElement('audio');
     this.aggressiveUfoAudio.src = 'media/sounds/Clean/58015__guitarguy1985__yelp.wav';
@@ -135,8 +134,7 @@ class CleanAudioManager {
    * Stops the bonus sound.
    */
   stopBonusSound() {
-    this.rewardAudio.pause();
-    this.rewardAudio.currentTime = 0;
+    this.rewardAudio.stop();
   }
 
   /**
@@ -144,7 +142,7 @@ class CleanAudioManager {
    * @return {boolean} true if the sound is playing, or false if is not playing.
    */
   isBonusSoundPlaying() {
-    if (isAudioPlaying(this.rewardAudio)) {
+    if (this.rewardAudio.isPlaying()) {
       return true;
     }
     return false;

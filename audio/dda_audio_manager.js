@@ -50,14 +50,11 @@ class DDAAudioManager {
       'media/sounds/DDA/yousinme.mp3',
     ]);
 
-    this.rewardAudio = document.createElement('audio');
-    this.rewardAudio.src = 'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg';
+    this.rewardAudio = new SingleAudio('media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg');
 
-    this.rewardAudio2 = document.createElement('audio');
-    this.rewardAudio2.src = 'media/sounds/DDA/good_s.mp3';
+    this.rewardAudio2 = new SingleAudio('media/sounds/DDA/good_s.mp3');
 
-    this.replayAudio = document.createElement('audio');
-    this.replayAudio.src = 'media/sounds/DDA/lasttimeigave.mp3';
+    this.replayAudio = new SingleAudio('media/sounds/DDA/lasttimeigave.mp3');
 
     this.aggressiveUfoAudio = document.createElement('audio');
     this.aggressiveUfoAudio.src = 'media/sounds/DDA/Thunderstruck.mp3';
@@ -176,7 +173,6 @@ class DDAAudioManager {
    */
   playBonusSound() {
     this.rewardAudio.play();
-    // Play this only in the DDA soundpack
     this.rewardAudio2.play();
   }
 
@@ -184,11 +180,8 @@ class DDAAudioManager {
    * Stops the bonus sound.
    */
   stopBonusSound() {
-    this.rewardAudio.pause();
-    this.rewardAudio.currentTime = 0;
-
-    this.rewardAudio2.pause();
-    this.rewardAudio2.currentTime = 0;
+    this.rewardAudio.stop();
+    this.rewardAudio2.stop();
   }
 
   /**
@@ -196,10 +189,10 @@ class DDAAudioManager {
    * @return {boolean} true if the sound is playing, or false if is not playing.
    */
   isBonusSoundPlaying() {
-    if (isAudioPlaying(this.rewardAudio)) {
+    if (this.rewardAudio.isPlaying()) {
       return true;
     }
-    if (isAudioPlaying(this.rewardAudio2)) {
+    if (this.rewardAudio2.isPlaying()) {
       return true;
     }
     return false;

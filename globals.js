@@ -10,6 +10,7 @@ var context2d;
 var keyboard;
 var audioManager;
 var imageManager;
+var configManager = new ConfigManager();
 
 /**
  * Sets up the HTML page and instantiates the game object.

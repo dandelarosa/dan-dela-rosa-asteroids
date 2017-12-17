@@ -88,7 +88,7 @@ class DDAAudioManager {
    * Stops the player death sound.
    */
   stopPlayerDeathSound() {
-    this.deathAudio.stopAll();
+    this.deathAudio.stop();
   }
 
   /**
@@ -96,7 +96,7 @@ class DDAAudioManager {
    * @return {boolean} true if the sound is playing, or false if is not playing.
    */
   isPlayerDeathSoundPlaying() {
-    return this.deathAudio.isAnyPlaying();
+    return this.deathAudio.isPlaying();
   }
 
   /**
@@ -110,7 +110,7 @@ class DDAAudioManager {
    * Stops the asteroid death sound.
    */
   stopAsteroidDeathSound() {
-    this.killAudio.stopAll();
+    this.killAudio.stop();
   }
 
   /**
@@ -118,7 +118,7 @@ class DDAAudioManager {
    * @return {boolean} true if the sound is playing, or false if is not playing.
    */
   isAsteroidDeathSoundPlaying() {
-    return this.killAudio.isAnyPlaying();
+    return this.killAudio.isPlaying();
   }
 
   /**
@@ -157,7 +157,7 @@ class DDAAudioManager {
    * Stops the UFO death sound.
    */
   stopUFODeathSound() {
-    this.ufoDeathAudio.stopAll();
+    this.ufoDeathAudio.stop();
   }
 
   /**
@@ -165,7 +165,7 @@ class DDAAudioManager {
    * @return {boolean} true if the sound is playing, or false if is not playing.
    */
   isUFODeathSoundPlaying() {
-    return this.ufoDeathAudio.isAnyPlaying();
+    return this.ufoDeathAudio.isPlaying();
   }
 
   /**

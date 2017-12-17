@@ -33,6 +33,14 @@ class RouletteAudio {
   }
 
   /**
+   * Checks if the sound is playing.
+   * @return {boolean} true if the sound is playing, or false if is not playing.
+   */
+  isPlaying() {
+    return this.isAnyPlaying();
+  }
+
+  /**
    * Checks if any sounds in this group are playing.
    * @return {boolean} true if any sounds are playing, or false if none are playing.
    */
@@ -44,6 +52,13 @@ class RouletteAudio {
       }
     }
     return false;
+  }
+
+  /**
+   * Stops playing the audio element.
+   */
+  stop() {
+    this.stopAll();
   }
 
   /**

@@ -50,9 +50,10 @@ class DDAAudioManager {
       'media/sounds/DDA/yousinme.mp3',
     ]);
 
-    this.rewardAudio = new SingleAudio('media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg');
-
-    this.rewardAudio2 = new SingleAudio('media/sounds/DDA/good_s.mp3');
+    this.rewardAudio = new ComboAudio([
+      'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg',
+      'media/sounds/DDA/good_s.mp3',
+    ]);
 
     this.replayAudio = new SingleAudio('media/sounds/DDA/lasttimeigave.mp3');
 
@@ -173,7 +174,6 @@ class DDAAudioManager {
    */
   playBonusSound() {
     this.rewardAudio.play();
-    this.rewardAudio2.play();
   }
 
   /**
@@ -181,7 +181,6 @@ class DDAAudioManager {
    */
   stopBonusSound() {
     this.rewardAudio.stop();
-    this.rewardAudio2.stop();
   }
 
   /**
@@ -189,13 +188,7 @@ class DDAAudioManager {
    * @return {boolean} true if the sound is playing, or false if is not playing.
    */
   isBonusSoundPlaying() {
-    if (this.rewardAudio.isPlaying()) {
-      return true;
-    }
-    if (this.rewardAudio2.isPlaying()) {
-      return true;
-    }
-    return false;
+    return this.rewardAudio.isPlaying();
   }
 
   /**

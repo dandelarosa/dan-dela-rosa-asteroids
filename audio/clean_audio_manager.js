@@ -142,10 +142,7 @@ class CleanAudioManager {
    * @return {boolean} true if the sound is playing, or false if is not playing.
    */
   isBonusSoundPlaying() {
-    if (this.rewardAudio.isPlaying()) {
-      return true;
-    }
-    return false;
+    return this.rewardAudio.isPlaying();
   }
 
   /**

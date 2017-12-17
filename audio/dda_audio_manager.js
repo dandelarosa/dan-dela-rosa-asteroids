@@ -5,6 +5,8 @@
  */
 class DDAAudioManager {
   constructor() {
+    this.audioContainers = {};
+
     var bulletSrc = 'media/sounds/Universal/275151__bird-man__gun-shot.wav';
     var bulletNum = 4;
     this.bulletAudio = new MultiAudio(bulletSrc, bulletNum);
@@ -23,6 +25,7 @@ class DDAAudioManager {
       'media/sounds/DDA/death/thehwasthat.mp3',
       'media/sounds/DDA/death/thisisbull.mp3',
     ]);
+    this.audioContainers[PLAYER_DEATH_AUDIO_PRIORITY] = this.deathAudio;
 
     this.killAudio = new RouletteAudio([
       'media/sounds/DDA/kill/balls.mp3',
@@ -36,6 +39,7 @@ class DDAAudioManager {
       'media/sounds/DDA/kill/motherlovers.mp3',
       'media/sounds/DDA/kill/p.mp3',
     ]);
+    this.audioContainers[ASTEROID_DEATH_AUDIO_PRIORITY] = this.killAudio;
 
     this.ufoDeathAudio = new RouletteAudio([
       'media/sounds/DDA/ufo/200lbs.mp3',
@@ -44,6 +48,7 @@ class DDAAudioManager {
       'media/sounds/DDA/ufo/jollypiratedonut.mp3',
       'media/sounds/DDA/ufo/walkamile.mp3',
     ]);
+    this.audioContainers[UFO_DEATH_AUDIO_PRIORITY] = this.ufoDeathAudio;
 
     this.gameOverAudio = new RouletteAudio([
       'media/sounds/DDA/olololol.mp3',
@@ -54,6 +59,7 @@ class DDAAudioManager {
       'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg',
       'media/sounds/DDA/good_s.mp3',
     ]);
+    this.audioContainers[REWARD_AUDIO_PRIORITY] = this.rewardAudio;
 
     this.replayAudio = new SingleAudio('media/sounds/DDA/lasttimeigave.mp3');
 

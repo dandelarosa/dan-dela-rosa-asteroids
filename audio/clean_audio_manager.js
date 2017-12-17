@@ -5,6 +5,8 @@
  */
 class CleanAudioManager {
   constructor() {
+    this.audioContainers = {};
+
     var bulletSrc = 'media/sounds/Universal/275151__bird-man__gun-shot.wav';
     var bulletNum = 4;
     this.bulletAudio = new MultiAudio(bulletSrc, bulletNum);
@@ -14,6 +16,7 @@ class CleanAudioManager {
     this.explosionAudio = new MultiAudio(explosionSrc, explosionNum);
 
     this.rewardAudio = new SingleAudio('media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg');
+    this.audioContainers[REWARD_AUDIO_PRIORITY] = this.rewardAudio;
 
     this.aggressiveUfoAudio = document.createElement('audio');
     this.aggressiveUfoAudio.src = 'media/sounds/Clean/58015__guitarguy1985__yelp.wav';

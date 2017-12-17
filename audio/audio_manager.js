@@ -4,6 +4,7 @@ const REWARD_AUDIO_PRIORITY = 1;
 const PLAYER_DEATH_AUDIO_PRIORITY = 2;
 const UFO_DEATH_AUDIO_PRIORITY = 3;
 const ASTEROID_DEATH_AUDIO_PRIORITY = 4;
+const AUDIO_PRIORITY_COUNT = 5;
 
 /**
  * The class to use for playing sounds.
@@ -119,51 +120,23 @@ class AudioManager {
    * @param {number} selectedPriority - The priority level for selecting a sound.
    */
   playSoundWithPriority(selectedPriority) {
-    if (selectedPriority < REWARD_AUDIO_PRIORITY) {
-      this.innerManager.stopBonusSound();
-    }
-    else if (selectedPriority === REWARD_AUDIO_PRIORITY) {
-      this.innerManager.playBonusSound();
-    }
-    if (selectedPriority > REWARD_AUDIO_PRIORITY) {
-      if (this.innerManager.isBonusSoundPlaying()) {
-        return;
+    for (var i = 0; i < AUDIO_PRIORITY_COUNT; i++) {
+      var audioContainer = this.innerManager.audioContainers[i];
+      if (!audioContainer) {
+        continue;
       }
-    }
 
-    if (selectedPriority < PLAYER_DEATH_AUDIO_PRIORITY) {
-      this.innerManager.stopPlayerDeathSound();
-    }
-    else if (selectedPriority === PLAYER_DEATH_AUDIO_PRIORITY) {
-      this.innerManager.playPlayerDeathSound();
-    }
-    if (selectedPriority > PLAYER_DEATH_AUDIO_PRIORITY) {
-      if (this.innerManager.isPlayerDeathSoundPlaying()) {
-        return;
+      if (selectedPriority < i) {
+        audioContainer.stop();
       }
-    }
-
-    if (selectedPriority < UFO_DEATH_AUDIO_PRIORITY) {
-      this.innerManager.stopUFODeathSound();
-    }
-    else if (selectedPriority === UFO_DEATH_AUDIO_PRIORITY) {
-      this.innerManager.playUFODeathSound();
-    }
-    if (selectedPriority > UFO_DEATH_AUDIO_PRIORITY) {
-      if (this.innerManager.isUFODeathSoundPlaying()) {
-        return;
+      else if (selectedPriority === i) {
+        audioContainer.play();
       }
-    }
 
-    if (selectedPriority < ASTEROID_DEATH_AUDIO_PRIORITY) {
-      this.innerManager.stopAsteroidDeathSound();
-    }
-    else if (selectedPriority === ASTEROID_DEATH_AUDIO_PRIORITY) {
-      this.innerManager.playAsteroidDeathSound();
-    }
-    if (selectedPriority > ASTEROID_DEATH_AUDIO_PRIORITY) {
-      if (this.innerManager.isAsteroidDeathSoundPlaying()) {
-        return;
+      if (selectedPriority > i) {
+        if (audioContainer.isPlaying()) {
+          return;
+        }
       }
     }
   }

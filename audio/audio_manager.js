@@ -1,10 +1,12 @@
 'use strict';
 
-const REWARD_AUDIO_PRIORITY = 1;
-const PLAYER_DEATH_AUDIO_PRIORITY = 2;
-const UFO_DEATH_AUDIO_PRIORITY = 3;
-const ASTEROID_DEATH_AUDIO_PRIORITY = 4;
-const AUDIO_PRIORITY_COUNT = 5;
+const REPLAY_AUDIO_PRIORITY = 1;
+const GAME_OVER_AUDIO_PRIORITY = 2;
+const REWARD_AUDIO_PRIORITY = 3;
+const PLAYER_DEATH_AUDIO_PRIORITY = 4;
+const UFO_DEATH_AUDIO_PRIORITY = 5;
+const ASTEROID_DEATH_AUDIO_PRIORITY = 6;
+const AUDIO_PRIORITY_COUNT = 7;
 
 /**
  * The class to use for playing sounds.
@@ -105,14 +107,14 @@ class AudioManager {
    * Plays a sound when the game over screen appears.
    */
   playGameOverSound() {
-    this.innerManager.playGameOverSound();
+    this.playSoundWithPriority(GAME_OVER_AUDIO_PRIORITY);
   }
 
   /**
    * Plays a sound when the game is played after a game over.
    */
   playReplaySound() {
-    this.innerManager.playReplaySound();
+    this.playSoundWithPriority(REPLAY_AUDIO_PRIORITY);
   }
 
   /**

@@ -54,6 +54,7 @@ class DDAAudioManager {
       'media/sounds/DDA/olololol.mp3',
       'media/sounds/DDA/yousinme.mp3',
     ]);
+    this.audioContainers[GAME_OVER_AUDIO_PRIORITY] = this.gameOverAudio;
 
     this.rewardAudio = new ComboAudio([
       'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg',
@@ -62,6 +63,7 @@ class DDAAudioManager {
     this.audioContainers[REWARD_AUDIO_PRIORITY] = this.rewardAudio;
 
     this.replayAudio = new SingleAudio('media/sounds/DDA/lasttimeigave.mp3');
+    this.audioContainers[REPLAY_AUDIO_PRIORITY] = this.replayAudio;
 
     this.aggressiveUfoAudio = document.createElement('audio');
     this.aggressiveUfoAudio.src = 'media/sounds/DDA/Thunderstruck.mp3';

@@ -23,6 +23,7 @@ class PlayScene {
     this.spawnAsteroids(this.gameManager.numberOfAsteroidsToCreate());
 
     this.deathTimer = 0;
+    this.winTimer = 0;
   }
 
   /**
@@ -85,7 +86,7 @@ class PlayScene {
         audioManager.playUFODeathSound();
       }
     }
-    else if (this.gameManager.shouldSpawnUFO()) {
+    else if (this.shouldSpawnUFO()) {
       this.spawnUFO();
     }
 
@@ -209,9 +210,14 @@ class PlayScene {
         }
       }
     }
-
-    if (this.shouldGoToNextLevel()) {
-      this.gameManager.goToNextLevel();
+    else if (this.winTimer > 0) {
+      this.winTimer--;
+      if (this.winTimer === 0) {
+        this.gameManager.goToNextLevel();
+      }
+    }
+    else if (this.shouldGoToNextLevel()) {
+      this.winTimer = 90;
     }
   }
 
@@ -292,6 +298,20 @@ class PlayScene {
         this.asteroids.push(newAsteroid);
       }
     }
+  }
+
+  /**
+   * Checks if the UFO should be spawned.
+   * @return {boolean} true if the UFO should be created now, false if not.
+   */
+  shouldSpawnUFO() {
+    if (this.deathTimer > 0) {
+      return false;
+    }
+    else if (this.winTimer > 0) {
+      return false;
+    }
+    return this.gameManager.ufoTimer < 0;
   }
 
   /**

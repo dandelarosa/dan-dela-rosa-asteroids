@@ -8,28 +8,28 @@ class RouletteAudio {
    * @param {string[]} audioSrcs - An array of sound file URLs.
    */
   constructor(audioSrcs) {
-    this.audioElements = [];
+    this.audios = [];
     for (var i = 0; i < audioSrcs.length; i++) {
-      var audio = document.createElement('audio');
-      audio.src = audioSrcs[i];
-      this.audioElements.push(audio);
+      var src = audioSrcs[i];
+      var audio = new SingleAudio(src);
+      this.audios.push(audio);
     }
+    this.previouslyPlayedIndex = undefined;
   }
 
   /**
    * Plays an audio element.
    */
   play() {
-    // If the RNG picked a sound that's already playing, keep trying until it's found one that's available.
-    var selectedAvailableSound = false;
-    while(!selectedAvailableSound) {
-      var i = Math.floor(Math.random() * this.audioElements.length);
-      var audio = this.audioElements[i];
-      if (audio.currentTime === 0 || audio.ended) {
-        selectedAvailableSound = true;
-        audio.play();
-      }
+    if (this.isAnyPlaying()) {
+      return;
     }
+    var selectedIndex = Math.floor(Math.random() * this.audios.length);
+    while (selectedIndex === this.previouslyPlayedIndex) {
+      selectedIndex = Math.floor(Math.random() * this.audios.length);
+    }
+    this.audios[selectedIndex].play();
+    this.previouslyPlayedIndex = selectedIndex;
   }
 
   /**
@@ -45,9 +45,9 @@ class RouletteAudio {
    * @return {boolean} true if any sounds are playing, or false if none are playing.
    */
   isAnyPlaying() {
-    for (var i = 0; i < this.audioElements.length; i++) {
-      var audioElement = this.audioElements[i];
-      if (isAudioPlaying(audioElement)) {
+    for (var i = 0; i < this.audios.length; i++) {
+      var audio = this.audios[i];
+      if (audio.isPlaying()) {
         return true;
       }
     }
@@ -65,10 +65,9 @@ class RouletteAudio {
    * Stops playing all sounds in this group.
    */
   stopAll() {
-    for (var i = 0; i < this.audioElements.length; i++) {
-      var audioElement = this.audioElements[i];
-      audioElement.pause();
-      audioElement.currentTime = 0;
+    for (var i = 0; i < this.audios.length; i++) {
+      var audio = this.audios[i];
+      audio.stop();
     }
   }
 }

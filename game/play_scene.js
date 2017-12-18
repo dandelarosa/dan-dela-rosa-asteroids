@@ -217,7 +217,7 @@ class PlayScene {
       }
     }
     else if (this.shouldGoToNextLevel()) {
-      this.winTimer = 90;
+      this.winTimer = 60;
     }
   }
 

@@ -9,12 +9,11 @@ class MultiAudio {
    * @param {number} numElements - The number of elements to contain.
    */
   constructor(audioSrc, numElements) {
-    this.audioElements = [];
+    this.audios = [];
     this.currentIndex = 0;
     for (var i = 0; i < numElements; i++) {
-      var audio = document.createElement('audio');
-      audio.src = audioSrc;
-      this.audioElements.push(audio);
+      var audio = new SingleAudio(audioSrc);
+      this.audios.push(audio);
     }
   }
 
@@ -22,9 +21,12 @@ class MultiAudio {
    * Plays an audio element.
    */
   play() {
-    var audio = this.audioElements[this.currentIndex];
+    var audio = this.audios[this.currentIndex];
+    if (audio.isPlaying()) {
+      audio.stop();
+    }
     audio.play();
-    if (this.currentIndex > this.audioElements.length - 2) {
+    if (this.currentIndex > this.audios.length - 2) {
       this.currentIndex = 0;
     }
     else {

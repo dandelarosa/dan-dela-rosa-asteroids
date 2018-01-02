@@ -1,6 +1,5 @@
 'use strict';
 
-// globals.js should be included last
 var persistence = new Persistence();
 var showHitboxes = persistence.getBoolean('show_hitboxes', false);
 var useCustomAssets = persistence.getBoolean('use_custom_assets',  false);

@@ -61,6 +61,7 @@ class Keyboard {
         this.twoReleased = false;
         break;
     }
+    evt.preventDefault();
   }
 
   /**
@@ -98,6 +99,7 @@ class Keyboard {
         this.twoReleased = true;
         break;
     }
+    evt.preventDefault();
   }
 
   /**

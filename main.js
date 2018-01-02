@@ -11,6 +11,10 @@ var audioManager;
 var imageManager;
 var configManager = new ConfigManager();
 
+window.addEventListener('load', function() {
+  createGame();
+});
+
 /**
  * Sets up the HTML page and instantiates the game object.
  */

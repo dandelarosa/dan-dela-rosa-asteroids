@@ -7,69 +7,69 @@ class DDAAudioManager {
   constructor() {
     this.audioContainers = {};
 
-    var bulletSrc = 'media/sounds/Universal/275151__bird-man__gun-shot.wav';
+    var bulletSrc = 'assets_cc/audio/275151__bird-man__gun-shot.wav';
     var bulletNum = 4;
     this.bulletAudio = new MultiAudio(bulletSrc, bulletNum);
 
-    var explosionSrc = 'media/sounds/Universal/147583__cactus2003__far-off-boom-without-amplify.wav';
+    var explosionSrc = 'assets_cc/audio/147583__cactus2003__far-off-boom-without-amplify.wav';
     var explosionNum = 4;
     this.explosionAudio = new MultiAudio(explosionSrc, explosionNum);
 
     this.deathAudio = new RouletteAudio([
-      'media/sounds/DDA/death/ah_s.mp3',
-      'media/sounds/DDA/death/bobsaget.mp3',
-      'media/sounds/DDA/death/FFFUUUU.mp3',
-      'media/sounds/DDA/death/oh_s.mp3',
-      'media/sounds/DDA/death/oh_s2.mp3',
-      'media/sounds/DDA/death/THATSMY.mp3',
-      'media/sounds/DDA/death/thehwasthat.mp3',
-      'media/sounds/DDA/death/thisisbull.mp3',
+      'assets_dda/audio/death/ah_s.mp3',
+      'assets_dda/audio/death/bobsaget.mp3',
+      'assets_dda/audio/death/FFFUUUU.mp3',
+      'assets_dda/audio/death/oh_s.mp3',
+      'assets_dda/audio/death/oh_s2.mp3',
+      'assets_dda/audio/death/THATSMY.mp3',
+      'assets_dda/audio/death/thehwasthat.mp3',
+      'assets_dda/audio/death/thisisbull.mp3',
     ]);
     this.audioContainers[PLAYER_DEATH_AUDIO_PRIORITY] = this.deathAudio;
 
     this.killAudio = new RouletteAudio([
-      'media/sounds/DDA/kill/balls.mp3',
-      'media/sounds/DDA/kill/b1.mp3',
-      'media/sounds/DDA/kill/b2.mp3',
-      'media/sounds/DDA/kill/bs.mp3',
-      'media/sounds/DDA/kill/d.mp3',
-      'media/sounds/DDA/kill/f.mp3',
-      'media/sounds/DDA/kill/fu.mp3',
-      'media/sounds/DDA/kill/hs.mp3',
-      'media/sounds/DDA/kill/motherlovers.mp3',
-      'media/sounds/DDA/kill/p.mp3',
+      'assets_dda/audio/kill/balls.mp3',
+      'assets_dda/audio/kill/b1.mp3',
+      'assets_dda/audio/kill/b2.mp3',
+      'assets_dda/audio/kill/bs.mp3',
+      'assets_dda/audio/kill/d.mp3',
+      'assets_dda/audio/kill/f.mp3',
+      'assets_dda/audio/kill/fu.mp3',
+      'assets_dda/audio/kill/hs.mp3',
+      'assets_dda/audio/kill/motherlovers.mp3',
+      'assets_dda/audio/kill/p.mp3',
     ]);
     this.audioContainers[ASTEROID_DEATH_AUDIO_PRIORITY] = this.killAudio;
 
     this.ufoDeathAudio = new RouletteAudio([
-      'media/sounds/DDA/ufo/200lbs.mp3',
-      'media/sounds/DDA/ufo/cantdo.mp3',
-      'media/sounds/DDA/ufo/hesan.mp3',
-      'media/sounds/DDA/ufo/jollypiratedonut.mp3',
-      'media/sounds/DDA/ufo/walkamile.mp3',
+      'assets_dda/audio/ufo/200lbs.mp3',
+      'assets_dda/audio/ufo/cantdo.mp3',
+      'assets_dda/audio/ufo/hesan.mp3',
+      'assets_dda/audio/ufo/jollypiratedonut.mp3',
+      'assets_dda/audio/ufo/walkamile.mp3',
     ]);
     this.audioContainers[UFO_DEATH_AUDIO_PRIORITY] = this.ufoDeathAudio;
 
     this.gameOverAudio = new RouletteAudio([
-      'media/sounds/DDA/olololol.mp3',
-      'media/sounds/DDA/yousinme.mp3',
+      'assets_dda/audio/olololol.mp3',
+      'assets_dda/audio/yousinme.mp3',
     ]);
     this.audioContainers[GAME_OVER_AUDIO_PRIORITY] = this.gameOverAudio;
 
     this.rewardAudio = new ComboAudio([
-      'media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg',
-      'media/sounds/DDA/good_s.mp3',
+      'assets_cc/audio/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg',
+      'assets_dda/audio/good_s.mp3',
     ]);
     this.audioContainers[REWARD_AUDIO_PRIORITY] = this.rewardAudio;
 
-    this.replayAudio = new SingleAudio('media/sounds/DDA/lasttimeigave.mp3');
+    this.replayAudio = new SingleAudio('assets_dda/audio/lasttimeigave.mp3');
     this.audioContainers[REPLAY_AUDIO_PRIORITY] = this.replayAudio;
 
     this.aggressiveUfoAudio = document.createElement('audio');
-    this.aggressiveUfoAudio.src = 'media/sounds/DDA/Thunderstruck.mp3';
+    this.aggressiveUfoAudio.src = 'assets_dda/audio/Thunderstruck.mp3';
 
     this.passiveUfoAudio = document.createElement('audio');
-    this.passiveUfoAudio.src = 'media/sounds/DDA/300excerpt.mp3';
+    this.passiveUfoAudio.src = 'assets_dda/audio/300excerpt.mp3';
   }
 
   /**

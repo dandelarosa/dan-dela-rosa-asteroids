@@ -7,23 +7,23 @@ class CleanAudioManager {
   constructor() {
     this.audioContainers = {};
 
-    var bulletSrc = 'media/sounds/Universal/275151__bird-man__gun-shot.wav';
+    var bulletSrc = 'assets_cc/audio/275151__bird-man__gun-shot.wav';
     var bulletNum = 4;
     this.bulletAudio = new MultiAudio(bulletSrc, bulletNum);
 
-    var explosionSrc = 'media/sounds/Universal/147583__cactus2003__far-off-boom-without-amplify.wav';
+    var explosionSrc = 'assets_cc/audio/147583__cactus2003__far-off-boom-without-amplify.wav';
     var explosionNum = 4;
     this.explosionAudio = new MultiAudio(explosionSrc, explosionNum);
 
-    this.rewardAudio = new SingleAudio('media/sounds/Universal/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg');
+    this.rewardAudio = new SingleAudio('assets_cc/audio/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg');
     this.audioContainers[REWARD_AUDIO_PRIORITY] = this.rewardAudio;
 
     this.aggressiveUfoAudio = document.createElement('audio');
-    this.aggressiveUfoAudio.src = 'media/sounds/Clean/58015__guitarguy1985__yelp.wav';
+    this.aggressiveUfoAudio.src = 'assets_cc/audio/58015__guitarguy1985__yelp.wav';
     this.aggressiveUfoAudio.loop = true;
 
     this.passiveUfoAudio = document.createElement('audio');
-    this.passiveUfoAudio.src = 'media/sounds/Clean/27788__drni__roland-juno106-lfo-to-dco-sirene.wav';
+    this.passiveUfoAudio.src = 'assets_cc/audio/27788__drni__roland-juno106-lfo-to-dco-sirene.wav';
     this.passiveUfoAudio.loop = true;
   }
 

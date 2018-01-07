@@ -1,3 +1,9 @@
 {
-  "isATest": true
+  "audio": {
+    "bullet": {
+      "class": "MultiAudio",
+      "src": "assets_cc/audio/275151__bird-man__gun-shot.wav",
+      "numElements": 4
+    }
+  }
 }

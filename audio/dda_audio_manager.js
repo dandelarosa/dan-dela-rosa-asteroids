@@ -7,9 +7,9 @@ class DDAAudioManager {
   constructor() {
     this.audioContainers = {};
 
-    var bulletSrc = 'assets_cc/audio/275151__bird-man__gun-shot.wav';
-    var bulletNum = 4;
-    this.bulletAudio = new MultiAudio(bulletSrc, bulletNum);
+    // var bulletSrc = 'assets_cc/audio/275151__bird-man__gun-shot.wav';
+    // var bulletNum = 4;
+    // this.bulletAudio = new MultiAudio(bulletSrc, bulletNum);
 
     var explosionSrc = 'assets_cc/audio/147583__cactus2003__far-off-boom-without-amplify.wav';
     var explosionNum = 4;
@@ -76,6 +76,11 @@ class DDAAudioManager {
    * Plays a sound when the player fires bullet.
    */
   playBulletSound() {
+    // TODO: process loading correctly
+    var audioFactory = new ConfigAudioFactory();
+    if (configManager.isLoaded) {
+      this.bulletAudio = audioFactory.audioFrom(configManager.audio.bullet);
+    }
     this.bulletAudio.play();
   }
 

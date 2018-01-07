@@ -5,16 +5,27 @@
  */
 class ConfigManager {
   constructor() {
-    // This is just a POC
+    this.isLoaded = false;
+    var manager = this;
     var configRequest = new XMLHttpRequest();
     configRequest.open('GET', 'config.json');
     configRequest.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
         var configObject = JSON.parse(this.responseText);
-        // TODO: implement for real
+        manager.loadConfigObject(configObject);
+        // FIXME: DEBUG ONLY!!!
         console.log(configObject);
       }
     };
     configRequest.send();
+  }
+
+  /**
+   * Loads the config object.
+   * @param {Object} configObject - The object to process.
+   */
+  loadConfigObject(configObject) {
+    this.audio = configObject.audio;
+    this.isLoaded = true;
   }
 }

@@ -61,6 +61,18 @@
         "assets_cc/audio/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg",
         "assets_dda/audio/good_s.mp3"
       ]
+    },
+    "replay": {
+      "class": "SingleAudio",
+      "src": "assets_dda/audio/lasttimeigave.mp3"
+    },
+    "aggressiveUfo": {
+      "class": "SingleAudio",
+      "src": "assets_dda/audio/Thunderstruck.mp3"
+    },
+    "passiveUfo": {
+      "class": "SingleAudio",
+      "src": "assets_dda/audio/300excerpt.mp3"
     }
   }
 }

@@ -10,7 +10,7 @@ class ConfigAudioManager {
     this.ddaManager = new DDAAudioManager();
     this.aggressiveUfoAudio = this.ddaManager.aggressiveUfoAudio;
     this.passiveUfoAudio = this.ddaManager.passiveUfoAudio;
-    this.audioContainers = this.ddaManager.audioContainers;
+    this.audioContainers = {};
   }
 
   /**
@@ -24,6 +24,9 @@ class ConfigAudioManager {
     this.audioContainers[UFO_DEATH_AUDIO_PRIORITY] = this.factory.audioFrom(configManager.audio.ufoDeath);
     this.audioContainers[GAME_OVER_AUDIO_PRIORITY] = this.factory.audioFrom(configManager.audio.gameOver);
     this.audioContainers[REWARD_AUDIO_PRIORITY] = this.factory.audioFrom(configManager.audio.reward);
+    this.audioContainers[REPLAY_AUDIO_PRIORITY] = this.factory.audioFrom(configManager.audio.replay);
+    this.aggressiveUfoAudio = this.factory.audioFrom(configManager.audio.aggressiveUfo);
+    this.passiveUfoAudio = this.factory.audioFrom(configManager.audio.passiveUfo);
   }
 
   /**
@@ -58,10 +61,7 @@ class ConfigAudioManager {
    */
   stopUFOSpawnSound() {
     // Right now there's no way of knowing which track is playing so just stop all of them.
-    this.aggressiveUfoAudio.pause();
-    this.aggressiveUfoAudio.currentTime = 0;
-
-    this.passiveUfoAudio.pause();
-    this.passiveUfoAudio.currentTime = 0;
+    this.aggressiveUfoAudio.stop();
+    this.passiveUfoAudio.stop();
   }
 }

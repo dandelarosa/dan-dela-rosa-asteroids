@@ -29,6 +29,11 @@ class ConfigAudioFactory {
       var audio = new ComboAudio(srcs);
       return audio;
     }
+    else if (configObject.class === 'SingleAudio') {
+      var src = configObject.src;
+      var audio = new SingleAudio(src);
+      return audio;
+    }
     return null;
   }
 }

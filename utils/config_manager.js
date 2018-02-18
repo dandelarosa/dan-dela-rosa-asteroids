@@ -13,8 +13,6 @@ class ConfigManager {
       if (this.readyState === 4 && this.status === 200) {
         var configObject = JSON.parse(this.responseText);
         manager.loadConfigObject(configObject);
-        // FIXME: DEBUG ONLY!!!
-        console.log(configObject);
       }
     };
     configRequest.send();

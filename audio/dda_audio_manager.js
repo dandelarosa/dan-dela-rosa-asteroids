@@ -7,10 +7,6 @@ class DDAAudioManager {
   constructor() {
     this.audioContainers = {};
 
-    // var bulletSrc = 'assets_cc/audio/275151__bird-man__gun-shot.wav';
-    // var bulletNum = 4;
-    // this.bulletAudio = new MultiAudio(bulletSrc, bulletNum);
-
     var explosionSrc = 'assets_cc/audio/147583__cactus2003__far-off-boom-without-amplify.wav';
     var explosionNum = 4;
     this.explosionAudio = new MultiAudio(explosionSrc, explosionNum);

@@ -21,7 +21,7 @@ class AudioManager {
    */
   selectManager() {
     if (useCustomAssets) {
-      this.innerManager = this.getDdaManager();
+      this.innerManager = configAudioManager;
     }
     else {
       this.innerManager = this.getCleanManager();
@@ -35,15 +35,6 @@ class AudioManager {
   getCleanManager() {
     this.cleanManager = this.cleanManager || new CleanAudioManager();
     return this.cleanManager;
-  }
-
-  /**
-   * Lazy loads the DDA manager.
-   * @return {object} The DDA manager.
-   */
-  getDdaManager() {
-    this.ddaManager = this.ddaManager || new DDAAudioManager();
-    return this.ddaManager;
   }
 
   /**

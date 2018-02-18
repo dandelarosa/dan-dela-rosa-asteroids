@@ -10,6 +10,7 @@ var keyboard;
 var audioManager;
 var imageManager;
 var configManager = new ConfigManager();
+var configAudioManager = new ConfigAudioManager();
 
 window.addEventListener('load', function() {
   createGame();

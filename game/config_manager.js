@@ -25,5 +25,6 @@ class ConfigManager {
   loadConfigObject(configObject) {
     this.audio = configObject.audio;
     this.isLoaded = true;
+    configAudioManager.loadConfig();
   }
 }

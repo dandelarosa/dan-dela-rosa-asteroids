@@ -8,7 +8,6 @@ class ConfigAudioManager {
     this.factory = new ConfigAudioFactory();
     // Will remove when own class is fully implemented
     this.ddaManager = new DDAAudioManager();
-    this.explosionAudio = this.ddaManager.explosionAudio;
     this.aggressiveUfoAudio = this.ddaManager.aggressiveUfoAudio;
     this.passiveUfoAudio = this.ddaManager.passiveUfoAudio;
     this.audioContainers = this.ddaManager.audioContainers;
@@ -19,6 +18,7 @@ class ConfigAudioManager {
    */
   loadConfig() {
     this.bulletAudio = this.factory.audioFrom(configManager.audio.bullet);
+    this.explosionAudio = this.factory.audioFrom(configManager.audio.explosion);
   }
 
   /**

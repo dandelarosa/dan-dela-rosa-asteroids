@@ -4,6 +4,11 @@
       "class": "MultiAudio",
       "src": "assets_cc/audio/275151__bird-man__gun-shot.wav",
       "numElements": 4
+    },
+    "explosion": {
+      "class": "MultiAudio",
+      "src": "assets_cc/audio/147583__cactus2003__far-off-boom-without-amplify.wav",
+      "numElements": 4
     }
   }
 }

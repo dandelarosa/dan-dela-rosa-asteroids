@@ -7,10 +7,6 @@ class DDAAudioManager {
   constructor() {
     this.audioContainers = {};
 
-    var explosionSrc = 'assets_cc/audio/147583__cactus2003__far-off-boom-without-amplify.wav';
-    var explosionNum = 4;
-    this.explosionAudio = new MultiAudio(explosionSrc, explosionNum);
-
     this.deathAudio = new RouletteAudio([
       'assets_dda/audio/death/ah_s.mp3',
       'assets_dda/audio/death/bobsaget.mp3',
@@ -78,13 +74,6 @@ class DDAAudioManager {
       this.bulletAudio = audioFactory.audioFrom(configManager.audio.bullet);
     }
     this.bulletAudio.play();
-  }
-
-  /**
-   * Plays a tiny explosion sound.
-   */
-  playExplosionSound() {
-    this.explosionAudio.play();
   }
 
   /**

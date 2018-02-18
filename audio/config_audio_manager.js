@@ -6,10 +6,6 @@
 class ConfigAudioManager {
   constructor() {
     this.factory = new ConfigAudioFactory();
-    // Will remove when own class is fully implemented
-    this.ddaManager = new DDAAudioManager();
-    this.aggressiveUfoAudio = this.ddaManager.aggressiveUfoAudio;
-    this.passiveUfoAudio = this.ddaManager.passiveUfoAudio;
     this.audioContainers = {};
   }
 

@@ -23,6 +23,7 @@ class ConfigAudioManager {
     this.audioContainers[ASTEROID_DEATH_AUDIO_PRIORITY] = this.factory.audioFrom(configManager.audio.kill);
     this.audioContainers[UFO_DEATH_AUDIO_PRIORITY] = this.factory.audioFrom(configManager.audio.ufoDeath);
     this.audioContainers[GAME_OVER_AUDIO_PRIORITY] = this.factory.audioFrom(configManager.audio.gameOver);
+    this.audioContainers[REWARD_AUDIO_PRIORITY] = this.factory.audioFrom(configManager.audio.reward);
   }
 
   /**

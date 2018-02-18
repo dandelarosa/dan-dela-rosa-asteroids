@@ -7,12 +7,6 @@ class DDAAudioManager {
   constructor() {
     this.audioContainers = {};
 
-    this.rewardAudio = new ComboAudio([
-      'assets_cc/audio/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg',
-      'assets_dda/audio/good_s.mp3',
-    ]);
-    this.audioContainers[REWARD_AUDIO_PRIORITY] = this.rewardAudio;
-
     this.replayAudio = new SingleAudio('assets_dda/audio/lasttimeigave.mp3');
     this.audioContainers[REPLAY_AUDIO_PRIORITY] = this.replayAudio;
 

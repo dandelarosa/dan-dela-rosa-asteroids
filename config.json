@@ -54,6 +54,13 @@
         "assets_dda/audio/olololol.mp3",
         "assets_dda/audio/yousinme.mp3"
       ]
+    },
+    "reward": {
+      "class": "ComboAudio",
+      "srcs": [
+        "assets_cc/audio/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg",
+        "assets_dda/audio/good_s.mp3"
+      ]
     }
   }
 }

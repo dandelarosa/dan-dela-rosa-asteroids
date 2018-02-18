@@ -24,6 +24,11 @@ class ConfigAudioFactory {
       var audio = new RouletteAudio(srcs);
       return audio;
     }
+    else if (configObject.class === 'ComboAudio') {
+      var srcs = configObject.srcs;
+      var audio = new ComboAudio(srcs);
+      return audio;
+    }
     return null;
   }
 }

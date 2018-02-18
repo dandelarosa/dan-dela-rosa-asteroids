@@ -9,6 +9,51 @@
       "class": "MultiAudio",
       "src": "assets_cc/audio/147583__cactus2003__far-off-boom-without-amplify.wav",
       "numElements": 4
+    },
+    "death": {
+      "class": "RouletteAudio",
+      "srcs": [
+        "assets_dda/audio/death/ah_s.mp3",
+        "assets_dda/audio/death/bobsaget.mp3",
+        "assets_dda/audio/death/FFFUUUU.mp3",
+        "assets_dda/audio/death/oh_s.mp3",
+        "assets_dda/audio/death/oh_s2.mp3",
+        "assets_dda/audio/death/THATSMY.mp3",
+        "assets_dda/audio/death/thehwasthat.mp3",
+        "assets_dda/audio/death/thisisbull.mp3"
+      ]
+    },
+    "kill": {
+      "class": "RouletteAudio",
+      "srcs": [
+        "assets_dda/audio/kill/balls.mp3",
+        "assets_dda/audio/kill/b1.mp3",
+        "assets_dda/audio/kill/b2.mp3",
+        "assets_dda/audio/kill/bs.mp3",
+        "assets_dda/audio/kill/d.mp3",
+        "assets_dda/audio/kill/f.mp3",
+        "assets_dda/audio/kill/fu.mp3",
+        "assets_dda/audio/kill/hs.mp3",
+        "assets_dda/audio/kill/motherlovers.mp3",
+        "assets_dda/audio/kill/p.mp3"
+      ]
+    },
+    "ufoDeath": {
+      "class": "RouletteAudio",
+      "srcs": [
+        "assets_dda/audio/ufo/200lbs.mp3",
+        "assets_dda/audio/ufo/cantdo.mp3",
+        "assets_dda/audio/ufo/hesan.mp3",
+        "assets_dda/audio/ufo/jollypiratedonut.mp3",
+        "assets_dda/audio/ufo/walkamile.mp3"
+      ]
+    },
+    "gameOver": {
+      "class": "RouletteAudio",
+      "srcs": [
+        "assets_dda/audio/olololol.mp3",
+        "assets_dda/audio/yousinme.mp3"
+      ]
     }
   }
 }

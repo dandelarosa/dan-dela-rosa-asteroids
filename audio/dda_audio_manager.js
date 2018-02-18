@@ -7,47 +7,6 @@ class DDAAudioManager {
   constructor() {
     this.audioContainers = {};
 
-    this.deathAudio = new RouletteAudio([
-      'assets_dda/audio/death/ah_s.mp3',
-      'assets_dda/audio/death/bobsaget.mp3',
-      'assets_dda/audio/death/FFFUUUU.mp3',
-      'assets_dda/audio/death/oh_s.mp3',
-      'assets_dda/audio/death/oh_s2.mp3',
-      'assets_dda/audio/death/THATSMY.mp3',
-      'assets_dda/audio/death/thehwasthat.mp3',
-      'assets_dda/audio/death/thisisbull.mp3',
-    ]);
-    this.audioContainers[PLAYER_DEATH_AUDIO_PRIORITY] = this.deathAudio;
-
-    this.killAudio = new RouletteAudio([
-      'assets_dda/audio/kill/balls.mp3',
-      'assets_dda/audio/kill/b1.mp3',
-      'assets_dda/audio/kill/b2.mp3',
-      'assets_dda/audio/kill/bs.mp3',
-      'assets_dda/audio/kill/d.mp3',
-      'assets_dda/audio/kill/f.mp3',
-      'assets_dda/audio/kill/fu.mp3',
-      'assets_dda/audio/kill/hs.mp3',
-      'assets_dda/audio/kill/motherlovers.mp3',
-      'assets_dda/audio/kill/p.mp3',
-    ]);
-    this.audioContainers[ASTEROID_DEATH_AUDIO_PRIORITY] = this.killAudio;
-
-    this.ufoDeathAudio = new RouletteAudio([
-      'assets_dda/audio/ufo/200lbs.mp3',
-      'assets_dda/audio/ufo/cantdo.mp3',
-      'assets_dda/audio/ufo/hesan.mp3',
-      'assets_dda/audio/ufo/jollypiratedonut.mp3',
-      'assets_dda/audio/ufo/walkamile.mp3',
-    ]);
-    this.audioContainers[UFO_DEATH_AUDIO_PRIORITY] = this.ufoDeathAudio;
-
-    this.gameOverAudio = new RouletteAudio([
-      'assets_dda/audio/olololol.mp3',
-      'assets_dda/audio/yousinme.mp3',
-    ]);
-    this.audioContainers[GAME_OVER_AUDIO_PRIORITY] = this.gameOverAudio;
-
     this.rewardAudio = new ComboAudio([
       'assets_cc/audio/234924__gordeszkakerek__pick-up-or-found-it-secret-item.ogg',
       'assets_dda/audio/good_s.mp3',

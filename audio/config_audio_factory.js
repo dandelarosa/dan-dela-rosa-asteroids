@@ -19,6 +19,11 @@ class ConfigAudioFactory {
       var audio = new MultiAudio(src, numElements);
       return audio;
     }
+    else if (configObject.class === 'RouletteAudio') {
+      var srcs = configObject.srcs;
+      var audio = new RouletteAudio(srcs);
+      return audio;
+    }
     return null;
   }
 }

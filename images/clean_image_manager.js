@@ -16,10 +16,10 @@ class CleanImageManager {
   }
 
   /**
-   * Gets a random image for the big asteroid.
-   * @return {object} an image.
+   * Gets a random image container for the big asteroid.
+   * @return {object} an image container.
    */
-  getRandomBigAsteroidImage() {
+  getRandomBigAsteroidImageContainer() {
     return null;
   }
 

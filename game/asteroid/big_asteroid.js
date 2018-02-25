@@ -15,6 +15,6 @@ class BigAsteroid extends Asteroid {
 
     this.type = 'big';
 
-    this.image = imageManager.getRandomBigAsteroidImage();
+    this.image = imageManager.getRandomBigAsteroidImageContainer().image;
   }
 }

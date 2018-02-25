@@ -5,16 +5,16 @@
  */
 class DDAImageManager {
   constructor() {
-    this.bigAsteroidImage = new RouletteImage([
-      'assets_dda/images/big_asteroid/bigasteroid1.png',
-      'assets_dda/images/big_asteroid/bigasteroid2.png',
-      'assets_dda/images/big_asteroid/bigasteroid3.png',
-      'assets_dda/images/big_asteroid/bigasteroid4.png',
-      'assets_dda/images/big_asteroid/bigasteroid5.png',
-      'assets_dda/images/big_asteroid/bigasteroid6.png',
-      'assets_dda/images/big_asteroid/bigasteroid7.png',
-      'assets_dda/images/big_asteroid/bigasteroid8.png',
-      'assets_dda/images/big_asteroid/bigasteroid9.png'
+    this.bigAsteroidImageContainer = new RouletteImageContainer([
+      {src: 'assets_dda/images/big_asteroid/bigasteroid1.png'},
+      {src: 'assets_dda/images/big_asteroid/bigasteroid2.png'},
+      {src: 'assets_dda/images/big_asteroid/bigasteroid3.png'},
+      {src: 'assets_dda/images/big_asteroid/bigasteroid4.png'},
+      {src: 'assets_dda/images/big_asteroid/bigasteroid5.png'},
+      {src: 'assets_dda/images/big_asteroid/bigasteroid6.png'},
+      {src: 'assets_dda/images/big_asteroid/bigasteroid7.png'},
+      {src: 'assets_dda/images/big_asteroid/bigasteroid8.png'},
+      {src: 'assets_dda/images/big_asteroid/bigasteroid9.png'}
     ]);
 
     this.carImage = document.createElement('img');
@@ -101,11 +101,11 @@ class DDAImageManager {
   }
 
   /**
-   * Gets a random image for the big asteroid.
-   * @return {object} an image.
+   * Gets a random image container for the big asteroid.
+   * @return {object} an image container.
    */
-  getRandomBigAsteroidImage() {
-    return this.bigAsteroidImage.getImage();
+  getRandomBigAsteroidImageContainer() {
+    return this.bigAsteroidImageContainer.getImageContainer();
   }
 
   /**

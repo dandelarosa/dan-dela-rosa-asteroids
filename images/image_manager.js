@@ -47,11 +47,11 @@ class ImageManager {
   }
 
   /**
-   * Gets a random image for the big asteroid.
-   * @return {object} an image.
+   * Gets a random image container for the big asteroid.
+   * @return {object} an image container.
    */
-  getRandomBigAsteroidImage() {
-    return this.innerManager.getRandomBigAsteroidImage();
+  getRandomBigAsteroidImageContainer() {
+    return this.innerManager.getRandomBigAsteroidImageContainer();
   }
 
   /**

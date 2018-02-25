@@ -5,32 +5,17 @@
  */
 class DDAImageManager {
   constructor() {
-    this.bigAsteroidImage1 = document.createElement('img');
-    this.bigAsteroidImage1.src = 'assets_dda/images/big_asteroid/bigasteroid1.png';
-
-    this.bigAsteroidImage2 = document.createElement('img');
-    this.bigAsteroidImage2.src = 'assets_dda/images/big_asteroid/bigasteroid2.png';
-
-    this.bigAsteroidImage3 = document.createElement('img');
-    this.bigAsteroidImage3.src = 'assets_dda/images/big_asteroid/bigasteroid3.png';
-
-    this.bigAsteroidImage4 = document.createElement('img');
-    this.bigAsteroidImage4.src = 'assets_dda/images/big_asteroid/bigasteroid4.png';
-
-    this.bigAsteroidImage5 = document.createElement('img');
-    this.bigAsteroidImage5.src = 'assets_dda/images/big_asteroid/bigasteroid5.png';
-
-    this.bigAsteroidImage6 = document.createElement('img');
-    this.bigAsteroidImage6.src = 'assets_dda/images/big_asteroid/bigasteroid6.png';
-
-    this.bigAsteroidImage7 = document.createElement('img');
-    this.bigAsteroidImage7.src = 'assets_dda/images/big_asteroid/bigasteroid7.png';
-
-    this.bigAsteroidImage8 = document.createElement('img');
-    this.bigAsteroidImage8.src = 'assets_dda/images/big_asteroid/bigasteroid8.png';
-
-    this.bigAsteroidImage9 = document.createElement('img');
-    this.bigAsteroidImage9.src = 'assets_dda/images/big_asteroid/bigasteroid9.png';
+    this.bigAsteroidImage = new RouletteImage([
+      'assets_dda/images/big_asteroid/bigasteroid1.png',
+      'assets_dda/images/big_asteroid/bigasteroid2.png',
+      'assets_dda/images/big_asteroid/bigasteroid3.png',
+      'assets_dda/images/big_asteroid/bigasteroid4.png',
+      'assets_dda/images/big_asteroid/bigasteroid5.png',
+      'assets_dda/images/big_asteroid/bigasteroid6.png',
+      'assets_dda/images/big_asteroid/bigasteroid7.png',
+      'assets_dda/images/big_asteroid/bigasteroid8.png',
+      'assets_dda/images/big_asteroid/bigasteroid9.png'
+    ]);
 
     this.carImage = document.createElement('img');
     this.carImage.src = 'assets_dda/images/car.png';
@@ -118,16 +103,7 @@ class DDAImageManager {
    * @return {object} an image.
    */
   getRandomBigAsteroidImage() {
-    var index = Math.floor(9 * Math.random());
-    if (index === 0) return this.bigAsteroidImage1;
-    else if (index === 1) return this.bigAsteroidImage2;
-    else if (index === 2) return this.bigAsteroidImage3;
-    else if (index === 3) return this.bigAsteroidImage4;
-    else if (index === 4) return this.bigAsteroidImage5;
-    else if (index === 5) return this.bigAsteroidImage6;
-    else if (index === 6) return this.bigAsteroidImage7;
-    else if (index === 7) return this.bigAsteroidImage8;
-    return this.bigAsteroidImage9;
+    return this.bigAsteroidImage.getImage();
   }
 
   /**

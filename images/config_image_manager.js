@@ -7,9 +7,6 @@ class ConfigImageManager {
   constructor() {
     this.factory = new ConfigImageFactory();
 
-    this.carImage = document.createElement('img');
-    this.carImage.src = 'assets_dda/images/car.png';
-
     this.gameOverImage = document.createElement('img');
     this.gameOverImage.src = 'assets_dda/images/Screen_shot_2016-01-07_at_12.07.42_PM.0.0.png.jpeg';
 

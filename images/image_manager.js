@@ -62,12 +62,19 @@ class ImageManager {
   }
 
   /**
-   * Gets the selected UFO image.
-   * @param {number} index - The index corresponding to the selected image.
-   * @return {object} the image to show for the UFO, or null if none exists.
+   * Gets an image container for the aggressive UFO.
+   * @return {object} an image container.
    */
-  getUfoImage(index) {
-    return this.innerManager.getUfoImage(index);
+  getAggressiveUfoImageContainer() {
+    return this.innerManager.getAggressiveUfoImageContainer();
+  }
+
+  /**
+   * Gets an image container for the passive UFO.
+   * @return {object} an image container.
+   */
+  getPassiveUfoImageContainer() {
+    return this.innerManager.getPassiveUfoImageContainer();
   }
 
   /**

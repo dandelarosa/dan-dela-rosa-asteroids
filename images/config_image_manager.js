@@ -9,15 +9,6 @@ class ConfigImageManager {
 
     this.gameOverImage = document.createElement('img');
     this.gameOverImage.src = 'assets_dda/images/Screen_shot_2016-01-07_at_12.07.42_PM.0.0.png.jpeg';
-
-    this.ufoImage1 = document.createElement('img');
-    this.ufoImage1.src = 'assets_dda/images/ufo/ufo1.png';
-
-    this.ufoImage2 = document.createElement('img');
-    this.ufoImage2.src = 'assets_dda/images/ufo/ufo2.png';
-
-    this.ufoImage3 = document.createElement('img');
-    this.ufoImage3.src = 'assets_dda/images/ufo/ufo3.png';
   }
 
   /**
@@ -28,6 +19,8 @@ class ConfigImageManager {
     this.bigAsteroidImageContainer = this.factory.imageFrom(configManager.images.bigAsteroid);
     this.mediumAsteroidImageContainer = this.factory.imageFrom(configManager.images.mediumAsteroid);
     this.smallAsteroidImageContainer = this.factory.imageFrom(configManager.images.smallAsteroid);
+    this.aggessiveUfoImageContainer = this.factory.imageFrom(configManager.images.aggressiveUfo);
+    this.passiveUfoImageContainer = this.factory.imageFrom(configManager.images.passiveUfo);
   }
 
   /**
@@ -35,7 +28,7 @@ class ConfigImageManager {
    * @return {object} the ship image container.
    */
   getPlayerShipImageContainer() {
-    return this.shipImageContainer;
+    return this.shipImageContainer.getImageContainer();
   }
 
   /**
@@ -63,20 +56,19 @@ class ConfigImageManager {
   }
 
   /**
-   * Gets the selected UFO image.
-   * @param {number} index - The index corresponding to the selected image.
-   * @return {object} the image to show for the UFO, or null if none exists.
+   * Gets an image container for the aggressive UFO.
+   * @return {object} an image container.
    */
-  getUfoImage(index) {
-    if (index === 1) {
-      return this.ufoImage1;
-    }
-    else if (index === 2) {
-      return this.ufoImage2;
-    }
-    else {
-      return this.ufoImage3;
-    }
+  getAggressiveUfoImageContainer() {
+    return this.aggessiveUfoImageContainer.getImageContainer();
+  }
+
+  /**
+   * Gets an image container for the passive UFO.
+   * @return {object} an image container.
+   */
+  getPassiveUfoImageContainer() {
+    return this.passiveUfoImageContainer.getImageContainer();
   }
 
   /**

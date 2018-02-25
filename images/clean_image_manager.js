@@ -40,11 +40,18 @@ class CleanImageManager {
   }
 
   /**
-   * Gets the selected UFO image.
-   * @param {number} index - The index corresponding to the selected image.
-   * @return {object} the image to show for the UFO, or null if none exists.
+   * Gets an image container for the aggressive UFO.
+   * @return {object} an image container.
    */
-  getUfoImage(index) {
+  getAggressiveUfoImageContainer() {
+    return null;
+  }
+
+  /**
+   * Gets an image container for the passive UFO.
+   * @return {object} an image container.
+   */
+  getPassiveUfoImageContainer() {
     return null;
   }
 

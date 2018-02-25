@@ -180,6 +180,21 @@
           "src": "assets_dda/images/small_asteroid/smallasteroid12.png"
         }
       ]
+    },
+    "aggressiveUfo": {
+      "class": "SingleImageContainer",
+      "src": "assets_dda/images/ufo/ufo1.png"
+    },
+    "passiveUfo": {
+      "class": "RouletteImageContainer",
+      "configs": [
+        {
+          "src": "assets_dda/images/ufo/ufo2.png"
+        },
+        {
+          "src": "assets_dda/images/ufo/ufo3.png"
+        }
+      ]
     }
   }
 }

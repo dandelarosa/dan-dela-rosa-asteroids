@@ -74,5 +74,45 @@
       "class": "SingleAudio",
       "src": "assets_dda/audio/300excerpt.mp3"
     }
+  },
+  "images": {
+    "player": {
+      "class": "SingleImageContainer",
+      "src": "assets_dda/images/car.png",
+      "offsetX": -70,
+      "offsetY": -26
+    },
+    "bigAsteroid": {
+      "class": "RouletteImageContainer",
+      "configs": [
+        {
+          "src": "assets_dda/images/big_asteroid/bigasteroid1.png"
+        },
+        {
+          "src": "assets_dda/images/big_asteroid/bigasteroid2.png"
+        },
+        {
+          "src": "assets_dda/images/big_asteroid/bigasteroid3.png"
+        },
+        {
+          "src": "assets_dda/images/big_asteroid/bigasteroid4.png"
+        },
+        {
+          "src": "assets_dda/images/big_asteroid/bigasteroid5.png"
+        },
+        {
+          "src": "assets_dda/images/big_asteroid/bigasteroid6.png"
+        },
+        {
+          "src": "assets_dda/images/big_asteroid/bigasteroid7.png"
+        },
+        {
+          "src": "assets_dda/images/big_asteroid/bigasteroid8.png"
+        },
+        {
+          "src": "assets_dda/images/big_asteroid/bigasteroid9.png"
+        }
+      ]
+    }
   }
 }

@@ -13,7 +13,7 @@ class ImageManager {
    */
   selectManager() {
     if (useCustomAssets) {
-      this.innerManager = this.getDdaManager();
+      this.innerManager = configImageManager;
     }
     else {
       this.innerManager = this.getCleanManager();
@@ -27,15 +27,6 @@ class ImageManager {
   getCleanManager() {
     this.cleanManager = this.cleanManager || new CleanImageManager();
     return this.cleanManager;
-  }
-
-  /**
-   * Lazy loads the DDA manager.
-   * @return {object} The DDA manager.
-   */
-  getDdaManager() {
-    this.ddaManager = this.ddaManager || new DDAImageManager();
-    return this.ddaManager;
   }
 
   /**

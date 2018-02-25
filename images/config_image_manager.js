@@ -3,24 +3,12 @@
 /**
  * The version of the image manager with custom graphics.
  */
-class DDAImageManager {
+class ConfigImageManager {
   constructor() {
-    this.bigAsteroidImageContainer = new RouletteImageContainer([
-      {src: 'assets_dda/images/big_asteroid/bigasteroid1.png'},
-      {src: 'assets_dda/images/big_asteroid/bigasteroid2.png'},
-      {src: 'assets_dda/images/big_asteroid/bigasteroid3.png'},
-      {src: 'assets_dda/images/big_asteroid/bigasteroid4.png'},
-      {src: 'assets_dda/images/big_asteroid/bigasteroid5.png'},
-      {src: 'assets_dda/images/big_asteroid/bigasteroid6.png'},
-      {src: 'assets_dda/images/big_asteroid/bigasteroid7.png'},
-      {src: 'assets_dda/images/big_asteroid/bigasteroid8.png'},
-      {src: 'assets_dda/images/big_asteroid/bigasteroid9.png'}
-    ]);
+    this.factory = new ConfigImageFactory();
 
     this.carImage = document.createElement('img');
     this.carImage.src = 'assets_dda/images/car.png';
-
-    this.shipImageContainer = new SingleImageContainer('assets_dda/images/car.png', -70, -26);
 
     this.gameOverImage = document.createElement('img');
     this.gameOverImage.src = 'assets_dda/images/Screen_shot_2016-01-07_at_12.07.42_PM.0.0.png.jpeg';
@@ -90,6 +78,14 @@ class DDAImageManager {
 
     this.ufoImage3 = document.createElement('img');
     this.ufoImage3.src = 'assets_dda/images/ufo/ufo3.png';
+  }
+
+  /**
+   * Loads the sounds once config.json has been loaded.
+   */
+  loadConfig() {
+    this.shipImageContainer = this.factory.imageFrom(configManager.images.player);
+    this.bigAsteroidImageContainer = this.factory.imageFrom(configManager.images.bigAsteroid);
   }
 
   /**

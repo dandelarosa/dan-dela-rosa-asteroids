@@ -11,6 +11,7 @@ var audioManager;
 var imageManager;
 var configManager = new ConfigManager();
 var configAudioManager = new ConfigAudioManager();
+var configImageManager = new ConfigImageManager();
 
 window.addEventListener('load', function() {
   createGame();

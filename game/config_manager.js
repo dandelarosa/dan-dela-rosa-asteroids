@@ -24,7 +24,9 @@ class ConfigManager {
    */
   loadConfigObject(configObject) {
     this.audio = configObject.audio;
+    this.images = configObject.images;
     this.isLoaded = true;
     configAudioManager.loadConfig();
+    configImageManager.loadConfig();
   }
 }

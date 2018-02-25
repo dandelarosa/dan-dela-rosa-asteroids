@@ -46,19 +46,19 @@ class ImageManager {
   }
 
   /**
-   * Gets a random image for the medium asteroid.
-   * @return {object} an image.
+   * Gets a random image container for the medium asteroid.
+   * @return {object} an image container.
    */
-  getRandomMediumAsteroidImage() {
-    return this.innerManager.getRandomMediumAsteroidImage();
+  getRandomMediumAsteroidImageContainer() {
+    return this.innerManager.getRandomMediumAsteroidImageContainer();
   }
 
   /**
-   * Gets a random image for the small asteroid.
-   * @return {object} an image.
+   * Gets a random image container for the small asteroid.
+   * @return {object} an image container.
    */
-  getRandomSmallAsteroidImage() {
-    return this.innerManager.getRandomSmallAsteroidImage();
+  getRandomSmallAsteroidImageContainer() {
+    return this.innerManager.getRandomSmallAsteroidImageContainer();
   }
 
   /**

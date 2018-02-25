@@ -113,6 +113,73 @@
           "src": "assets_dda/images/big_asteroid/bigasteroid9.png"
         }
       ]
+    },
+    "mediumAsteroid": {
+      "class": "RouletteImageContainer",
+      "configs": [
+        {
+          "src": "assets_dda/images/medium_asteroid/mediumasteroid1.png"
+        },
+        {
+          "src": "assets_dda/images/medium_asteroid/mediumasteroid2.png"
+        },
+        {
+          "src": "assets_dda/images/medium_asteroid/mediumasteroid3.png"
+        },
+        {
+          "src": "assets_dda/images/medium_asteroid/mediumasteroid4.png"
+        },
+        {
+          "src": "assets_dda/images/medium_asteroid/mediumasteroid5.png"
+        },
+        {
+          "src": "assets_dda/images/medium_asteroid/mediumasteroid6.png"
+        },
+        {
+          "src": "assets_dda/images/medium_asteroid/mediumasteroid7.png"
+        }
+      ]
+    },
+    "smallAsteroid": {
+      "class": "RouletteImageContainer",
+      "configs": [
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid1.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid2.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid3.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid4.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid5.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid6.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid7.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid8.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid9.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid10.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid11.png"
+        },
+        {
+          "src": "assets_dda/images/small_asteroid/smallasteroid12.png"
+        }
+      ]
     }
   }
 }

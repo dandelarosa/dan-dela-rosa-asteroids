@@ -14,6 +14,6 @@ class SmallAsteroid extends Asteroid {
     });
 
     this.type = 'small';
-    this.image = imageManager.getRandomSmallAsteroidImage();
+    this.image = imageManager.getRandomSmallAsteroidImageContainer().image;
   }
 }

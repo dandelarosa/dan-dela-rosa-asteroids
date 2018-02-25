@@ -24,18 +24,18 @@ class CleanImageManager {
   }
 
   /**
-   * Gets a random image for the medium asteroid.
-   * @return {object} an image.
+   * Gets a random image container for the medium asteroid.
+   * @return {object} an image container.
    */
-  getRandomMediumAsteroidImage() {
+  getRandomMediumAsteroidImageContainer() {
     return null;
   }
 
   /**
-   * Gets a random image for the small asteroid.
-   * @return {object} an image.
+   * Gets a random image container for the small asteroid.
+   * @return {object} an image container.
    */
-  getRandomSmallAsteroidImage() {
+  getRandomSmallAsteroidImageContainer() {
     return null;
   }
 

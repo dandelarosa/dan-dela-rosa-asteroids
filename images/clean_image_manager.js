@@ -56,10 +56,10 @@ class CleanImageManager {
   }
 
   /**
-   * Gets the image to show on the game over screen.
-   * @return {object} the game over image.
+   * Gets the image container to show on the game over screen.
+   * @return {object} the game over image container.
    */
-  getGameOverImage() {
+  getGameOverImageContainer() {
     return null;
   }
 }

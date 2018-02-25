@@ -40,9 +40,14 @@ class GameOverScene {
     context2d.textAlign = 'center';
     context2d.fillText(highScoreString, 400, 75);
 
-    var image = imageManager.getGameOverImage();
-    if (image) {
-      context2d.drawImage(image, 100, 100, 600, 400);
+    var imageContainer = imageManager.getGameOverImageContainer();
+    if (imageContainer) {
+      var image = imageContainer.image;
+      var x = imageContainer.offsetX;
+      var y = imageContainer.offsetY;
+      var width = imageContainer.width;
+      var height = imageContainer.height;
+      context2d.drawImage(image, x, y, width, height);
     }
 
     context2d.textAlign = 'center';

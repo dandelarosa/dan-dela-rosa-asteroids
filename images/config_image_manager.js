@@ -6,9 +6,6 @@
 class ConfigImageManager {
   constructor() {
     this.factory = new ConfigImageFactory();
-
-    this.gameOverImage = document.createElement('img');
-    this.gameOverImage.src = 'assets_dda/images/Screen_shot_2016-01-07_at_12.07.42_PM.0.0.png.jpeg';
   }
 
   /**
@@ -21,6 +18,7 @@ class ConfigImageManager {
     this.smallAsteroidImageContainer = this.factory.imageFrom(configManager.images.smallAsteroid);
     this.aggessiveUfoImageContainer = this.factory.imageFrom(configManager.images.aggressiveUfo);
     this.passiveUfoImageContainer = this.factory.imageFrom(configManager.images.passiveUfo);
+    this.gameOverImageContainer = this.factory.imageFrom(configManager.images.gameOver);
   }
 
   /**
@@ -72,10 +70,10 @@ class ConfigImageManager {
   }
 
   /**
-   * Gets the image to show on the game over screen.
-   * @return {object} the game over image.
+   * Gets the image container to show on the game over screen.
+   * @return {object} the game over image container.
    */
-  getGameOverImage() {
-    return this.gameOverImage;
+  getGameOverImageContainer() {
+    return this.gameOverImageContainer.getImageContainer();
   }
 }

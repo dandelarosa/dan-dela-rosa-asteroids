@@ -17,7 +17,9 @@ class ConfigImageFactory {
       var src = configObject.src;
       var offsetX = configObject.offsetX;
       var offsetY = configObject.offsetY;
-      var image = new SingleImageContainer(src, offsetX, offsetY);
+      var width = configObject.width;
+      var height = configObject.height;
+      var image = new SingleImageContainer(src, offsetX, offsetY, width, height);
       return image;
     }
     else if (configObject.class === 'RouletteImageContainer') {

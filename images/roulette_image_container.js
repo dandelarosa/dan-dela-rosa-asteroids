@@ -13,7 +13,9 @@ class RouletteImageContainer {
       var src = configs[i].src;
       var offsetX = configs[i].offsetX;
       var offsetY = configs[i].offsetY;
-      var imageContainer = new SingleImageContainer(src, offsetX, offsetY);
+      var width = configs[i].width;
+      var height = configs[i].height;
+      var imageContainer = new SingleImageContainer(src, offsetX, offsetY, width, height);
       this.imageContainers.push(imageContainer);
     }
   }

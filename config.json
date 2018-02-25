@@ -195,6 +195,14 @@
           "src": "assets_dda/images/ufo/ufo3.png"
         }
       ]
+    },
+    "gameOver": {
+      "class": "SingleImageContainer",
+      "src": "assets_dda/images/Screen_shot_2016-01-07_at_12.07.42_PM.0.0.png.jpeg",
+      "offsetX": 100,
+      "offsetY": 100,
+      "width": 600,
+      "height": 400
     }
   }
 }

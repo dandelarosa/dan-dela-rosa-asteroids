@@ -39,11 +39,11 @@ class ImageManager {
   }
 
   /**
-   * Gets the player ship's image.
-   * @return {object} the ship image.
+   * Gets the player ship's image container.
+   * @return {object} the ship image container.
    */
-  getPlayerShipImage() {
-    return this.innerManager.getPlayerShipImage();
+  getPlayerShipImageContainer() {
+    return this.innerManager.getPlayerShipImageContainer();
   }
 
   /**

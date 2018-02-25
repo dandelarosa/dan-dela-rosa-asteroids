@@ -20,6 +20,8 @@ class DDAImageManager {
     this.carImage = document.createElement('img');
     this.carImage.src = 'assets_dda/images/car.png';
 
+    this.shipImageContainer = new SingleImageContainer('assets_dda/images/car.png', -70, -26);
+
     this.gameOverImage = document.createElement('img');
     this.gameOverImage.src = 'assets_dda/images/Screen_shot_2016-01-07_at_12.07.42_PM.0.0.png.jpeg';
 
@@ -91,11 +93,11 @@ class DDAImageManager {
   }
 
   /**
-   * Gets the player ship's image.
-   * @return {object} the ship image.
+   * Gets the player ship's image container.
+   * @return {object} the ship image container.
    */
-  getPlayerShipImage() {
-    return this.carImage;
+  getPlayerShipImageContainer() {
+    return this.shipImageContainer;
   }
 
   /**

@@ -71,9 +71,12 @@ class Ship {
     context2d.translate(this.x, this.y);
     context2d.rotate(this.angle * Math.PI / 180);
 
-    var image = imageManager.getPlayerShipImage();
-    if (image) {
-      context2d.drawImage(image, -70, -26);
+    var imageContainer = imageManager.getPlayerShipImageContainer();
+    if (imageContainer) {
+      var image = imageContainer.image;
+      var offsetX = imageContainer.offsetX;
+      var offsetY = imageContainer.offsetY;
+      context2d.drawImage(image, offsetX, offsetY);
     }
     else {
       context2d.beginPath();

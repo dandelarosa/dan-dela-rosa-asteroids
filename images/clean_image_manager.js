@@ -8,10 +8,10 @@ class CleanImageManager {
   }
 
   /**
-   * Gets the player ship's image.
-   * @return {object} the ship image.
+   * Gets the player ship's image container.
+   * @return {object} the ship image container.
    */
-  getPlayerShipImage() {
+  getPlayerShipImageContainer() {
     return null;
   }
 

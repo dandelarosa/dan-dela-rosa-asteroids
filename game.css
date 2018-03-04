@@ -4,7 +4,7 @@ canvas {
   display: block;
 }
 
-#credits {
+.non-game-div {
   max-width: 800px;
   margin: auto;
 }

@@ -23,10 +23,8 @@ class Game {
       persistence.setBoolean('show_hitboxes', showHitboxes);
     }
     if (keyboard.twoPressed && !keyboard.twoPressedPreviousFrame) {
-      useCustomAssets = !useCustomAssets;
-      audioManager.selectManager();
-      imageManager.selectManager();
-      persistence.setBoolean('use_custom_assets', useCustomAssets);
+      forceDefaultAssets = !forceDefaultAssets;
+      persistence.setBoolean('force_default_assets', forceDefaultAssets);
     }
 
     if (this.gameManager.nextSceneID === 'nextlevel') {

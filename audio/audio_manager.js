@@ -13,18 +13,18 @@ const AUDIO_PRIORITY_COUNT = 7;
  */
 class AudioManager {
   constructor() {
-    this.selectManager();
   }
 
   /**
-   * Selects the manager based on the current settings.
+   * Queries the system for the currently selected manager.
+   * @return {object} The manager that should be used.
    */
-  selectManager() {
-    if (useCustomAssets) {
-      this.innerManager = configAudioManager;
+  getCurrentManager() {
+    if (configManager.isLoaded && !forceDefaultAssets) {
+      return configAudioManager;
     }
     else {
-      this.innerManager = this.getCleanManager();
+      return this.getCleanManager();
     }
   }
 
@@ -41,14 +41,14 @@ class AudioManager {
    * Plays a sound when the player fires bullet.
    */
   playBulletSound() {
-    this.innerManager.playBulletSound();
+    this.getCurrentManager().playBulletSound();
   }
 
   /**
    * Plays a tiny explosion sound.
    */
   playExplosionSound() {
-    this.innerManager.playExplosionSound();
+    this.getCurrentManager().playExplosionSound();
   }
 
   /**
@@ -70,14 +70,14 @@ class AudioManager {
    * @param {boolean} isAggressive - determines which variant of the sound to play.
    */
   playUFOSpawnSound(isAggressive) {
-    this.innerManager.playUFOSpawnSound(isAggressive);
+    this.getCurrentManager().playUFOSpawnSound(isAggressive);
   }
 
   /**
    * Stops playing the UFO sound.
    */
   stopUFOSpawnSound() {
-    this.innerManager.stopUFOSpawnSound();
+    this.getCurrentManager().stopUFOSpawnSound();
   }
 
   /**
@@ -114,7 +114,7 @@ class AudioManager {
    */
   playSoundWithPriority(selectedPriority) {
     for (var i = 0; i < AUDIO_PRIORITY_COUNT; i++) {
-      var audioContainer = this.innerManager.audioContainers[i];
+      var audioContainer = this.getCurrentManager().audioContainers[i];
       if (!audioContainer) {
         continue;
       }

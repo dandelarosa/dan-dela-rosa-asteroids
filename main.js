@@ -2,7 +2,7 @@
 
 var persistence = new Persistence();
 var showHitboxes = persistence.getBoolean('show_hitboxes', false);
-var useCustomAssets = persistence.getBoolean('use_custom_assets',  false);
+var forceDefaultAssets = persistence.getBoolean('force_default_assets', false);
 
 var game;
 var context2d;

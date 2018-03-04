@@ -15,6 +15,9 @@ class MediumAsteroid extends Asteroid {
 
     this.type = 'medium';
 
-    this.image = imageManager.getRandomMediumAsteroidImageContainer().image;
+    var imageContainer = imageManager.getRandomMediumAsteroidImageContainer();
+    if (imageContainer) {
+      this.image = imageContainer.image;
+    }
   }
 }

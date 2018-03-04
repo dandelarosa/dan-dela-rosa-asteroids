@@ -5,18 +5,18 @@
  */
 class ImageManager {
   constructor() {
-    this.selectManager();
   }
 
   /**
-   * Selects the manager based on the current settings.
+   * Queries the system for the currently selected manager.
+   * @return {object} The manager that should be used.
    */
-  selectManager() {
-    if (useCustomAssets) {
-      this.innerManager = configImageManager;
+  getCurrentManager() {
+    if (configManager.isLoaded && !forceDefaultAssets) {
+      return configImageManager;
     }
     else {
-      this.innerManager = this.getCleanManager();
+      return this.getCleanManager();
     }
   }
 
@@ -34,7 +34,7 @@ class ImageManager {
    * @return {object} the ship image container.
    */
   getPlayerShipImageContainer() {
-    return this.innerManager.getPlayerShipImageContainer();
+    return this.getCurrentManager().getPlayerShipImageContainer();
   }
 
   /**
@@ -42,7 +42,7 @@ class ImageManager {
    * @return {object} an image container.
    */
   getRandomBigAsteroidImageContainer() {
-    return this.innerManager.getRandomBigAsteroidImageContainer();
+    return this.getCurrentManager().getRandomBigAsteroidImageContainer();
   }
 
   /**
@@ -50,7 +50,7 @@ class ImageManager {
    * @return {object} an image container.
    */
   getRandomMediumAsteroidImageContainer() {
-    return this.innerManager.getRandomMediumAsteroidImageContainer();
+    return this.getCurrentManager().getRandomMediumAsteroidImageContainer();
   }
 
   /**
@@ -58,7 +58,7 @@ class ImageManager {
    * @return {object} an image container.
    */
   getRandomSmallAsteroidImageContainer() {
-    return this.innerManager.getRandomSmallAsteroidImageContainer();
+    return this.getCurrentManager().getRandomSmallAsteroidImageContainer();
   }
 
   /**
@@ -66,7 +66,7 @@ class ImageManager {
    * @return {object} an image container.
    */
   getAggressiveUfoImageContainer() {
-    return this.innerManager.getAggressiveUfoImageContainer();
+    return this.getCurrentManager().getAggressiveUfoImageContainer();
   }
 
   /**
@@ -74,7 +74,7 @@ class ImageManager {
    * @return {object} an image container.
    */
   getPassiveUfoImageContainer() {
-    return this.innerManager.getPassiveUfoImageContainer();
+    return this.getCurrentManager().getPassiveUfoImageContainer();
   }
 
   /**
@@ -82,6 +82,6 @@ class ImageManager {
    * @return {object} the game over image container.
    */
   getGameOverImageContainer() {
-    return this.innerManager.getGameOverImageContainer();
+    return this.getCurrentManager().getGameOverImageContainer();
   }
 }

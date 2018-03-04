@@ -28,8 +28,9 @@ class MenuScene {
     context2d.font = '24px Courier New';
     context2d.textAlign = 'center';
     context2d.fillText('Dan Dela Rosa Asteroids', 400, 270);
-
-    context2d.textAlign = 'center';
-    context2d.fillText('Press Enter to play', 400, 330);
+    context2d.fillText('Press left and right to turn ship', 400, 330);
+    context2d.fillText('Press up to trust', 400, 360);
+    context2d.fillText('Press space to fire', 400, 390);
+    context2d.fillText('Press enter to play and pause', 400, 420);
   }
 }

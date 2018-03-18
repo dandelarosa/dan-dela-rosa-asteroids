@@ -8,7 +8,7 @@ class ConfigManager {
     this.isLoaded = false;
     var manager = this;
     var configRequest = new XMLHttpRequest();
-    configRequest.open('GET', 'config.json');
+    configRequest.open('GET', 'config/config.json');
     configRequest.onreadystatechange = function() {
       if (this.readyState === 4 && this.status === 200) {
         var configObject = JSON.parse(this.responseText);

@@ -4,7 +4,7 @@ This is an Asteroids clone that can be whitelabeled for your own purposes.
 
 # How to Customize the Game
 
-The game takes in a file named in config.json - this can be created by duplicating config.example.json. The config file is a JSON object with two high-level keys: audio and images.
+The game takes in a file in the config folder named config.json - this can be created by duplicating config.example.json located in the same directory. The config file is a JSON object with two high-level keys: audio and images.
 
 Custom assets are referenced by URL. As a best practice, put all of your assets in a folder called assets_xxx (xxx being the name of your mod) so that Git excludes them from source control.
 

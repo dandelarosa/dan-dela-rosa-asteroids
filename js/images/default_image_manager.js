@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * The clean version of the image manager.
+ * The default version of the image manager.
  */
-class CleanImageManager {
+class DefaultImageManager {
   constructor() {
   }
 

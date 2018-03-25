@@ -16,17 +16,17 @@ class ImageManager {
       return configImageManager;
     }
     else {
-      return this.getCleanManager();
+      return this.getDefaultManager();
     }
   }
 
   /**
-   * Lazy loads the clean manager.
-   * @return {object} The clean manager.
+   * Lazy loads the default manager.
+   * @return {object} The default manager.
    */
-  getCleanManager() {
-    this.cleanManager = this.cleanManager || new CleanImageManager();
-    return this.cleanManager;
+  getDefaultManager() {
+    this.defaultManager = this.defaultManager || new DefaultImageManager();
+    return this.defaultManager;
   }
 
   /**

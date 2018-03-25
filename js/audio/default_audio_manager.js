@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * The clean version of the audio manager.
+ * The default version of the audio manager.
  */
-class CleanAudioManager {
+class DefaultAudioManager {
   constructor() {
     this.audioContainers = {};
 

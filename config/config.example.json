@@ -1,4 +1,7 @@
 {
+  "strings": {
+    "livesCounter": "Dans"
+  },
   "audio": {
     "bullet": {
       "class": "MultiAudio",

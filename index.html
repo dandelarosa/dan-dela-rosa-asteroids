@@ -1,70 +1,73 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Dan Dela Rosa Asteroids</title>
-    <link rel="stylesheet" type="text/css" href="styles/game.css">
-    <script src="js/audio/audio_manager.js"></script>
-    <script src="js/audio/combo_audio.js"></script>
-    <script src="js/audio/config_audio_factory.js"></script>
-    <script src="js/audio/config_audio_manager.js"></script>
-    <script src="js/audio/default_audio_manager.js"></script>
-    <script src="js/audio/multi_audio.js"></script>
-    <script src="js/audio/roulette_audio.js"></script>
-    <script src="js/audio/single_audio.js"></script>
-    <script src="js/game/asteroid/asteroid.js"></script>
-    <script src="js/game/asteroid/big_asteroid.js"></script>
-    <script src="js/game/asteroid/medium_asteroid.js"></script>
-    <script src="js/game/asteroid/small_asteroid.js"></script>
-    <script src="js/game/collision_detector.js"></script>
-    <script src="js/game/config_manager.js"></script>
-    <script src="js/game/game_manager.js"></script>
-    <script src="js/game/game_over_scene.js"></script>
-    <script src="js/game/game.js"></script>
-    <script src="js/game/menu_scene.js"></script>
-    <script src="js/game/play_scene.js"></script>
-    <script src="js/game/player/player_bullet.js"></script>
-    <script src="js/game/player/ship.js"></script>
-    <script src="js/game/ufo/enemy_bullet.js"></script>
-    <script src="js/game/ufo/ufo.js"></script>
-    <script src="js/input/keyboard.js"></script>
-    <script src="js/images/config_image_factory.js"></script>
-    <script src="js/images/config_image_manager.js"></script>
-    <script src="js/images/default_image_manager.js"></script>
-    <script src="js/images/image_manager.js"></script>
-    <script src="js/images/roulette_image_container.js"></script>
-    <script src="js/images/single_image_container.js"></script>
-    <script src="js/strings/config_strings_manager.js"></script>
-    <script src="js/strings/default_strings_manager.js"></script>
-    <script src="js/strings/strings_manager.js"></script>
-    <script src="js/utils/audio.js"></script>
-    <script src="js/utils/persistence.js"></script>
-    <script src="js/main.js"></script>
-  </head>
-  <body>
-    <div id="container">
-      <div id="game"></div>
-      <div id="credits" class="non-game-div">
-        <p>Programmed by Dan Dela Rosa. View the source <a href="https://github.com/dandelarosa/dan-dela-rosa-asteroids" target="_blank">here</a> - be sure to read the README to find out how you can customize the game for your own usage.</p>
-        <p>This game uses Creative Commons Licensed resources.</p>
-        <ul>
-          <li>
-            <a href="https://freesound.org/people/CaCtUs2003/sounds/147583/" target="_blank">Explosion</a>
-          </li>
-          <li>
-            <a href="https://freesound.org/people/Bird_man/sounds/275151/" target="_blank">Bullet</a>
-          </li>
-          <li>
-            <a href="https://freesound.org/people/gordeszkakerek/sounds/234924/" target="_blank">Reward</a>
-          </li>
-          <li>
-            <a href="https://freesound.org/people/DrNI/sounds/27788/" target="_blank">Air Raid</a>
-          </li>
-          <li>
-            <a href="https://freesound.org/people/guitarguy1985/sounds/58015/" target="_blank">Police Siren</a>
-          </li>
-        </ul>
-      </div>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Dan Dela Rosa Asteroids</title>
+  <link rel="stylesheet" type="text/css" href="styles/game.css">
+  <script src="js/audio/audio_manager.js"></script>
+  <script src="js/audio/combo_audio.js"></script>
+  <script src="js/audio/config_audio_factory.js"></script>
+  <script src="js/audio/config_audio_manager.js"></script>
+  <script src="js/audio/default_audio_manager.js"></script>
+  <script src="js/audio/multi_audio.js"></script>
+  <script src="js/audio/roulette_audio.js"></script>
+  <script src="js/audio/single_audio.js"></script>
+  <script src="js/game/asteroid/asteroid.js"></script>
+  <script src="js/game/asteroid/big_asteroid.js"></script>
+  <script src="js/game/asteroid/medium_asteroid.js"></script>
+  <script src="js/game/asteroid/small_asteroid.js"></script>
+  <script src="js/game/collision_detector.js"></script>
+  <script src="js/game/config_manager.js"></script>
+  <script src="js/game/game_manager.js"></script>
+  <script src="js/game/game_over_scene.js"></script>
+  <script src="js/game/game.js"></script>
+  <script src="js/game/menu_scene.js"></script>
+  <script src="js/game/play_scene.js"></script>
+  <script src="js/game/player/player_bullet.js"></script>
+  <script src="js/game/player/ship.js"></script>
+  <script src="js/game/ufo/enemy_bullet.js"></script>
+  <script src="js/game/ufo/ufo.js"></script>
+  <script src="js/input/keyboard.js"></script>
+  <script src="js/images/config_image_factory.js"></script>
+  <script src="js/images/config_image_manager.js"></script>
+  <script src="js/images/default_image_manager.js"></script>
+  <script src="js/images/image_manager.js"></script>
+  <script src="js/images/roulette_image_container.js"></script>
+  <script src="js/images/single_image_container.js"></script>
+  <script src="js/strings/config_strings_manager.js"></script>
+  <script src="js/strings/default_strings_manager.js"></script>
+  <script src="js/strings/strings_manager.js"></script>
+  <script src="js/utils/audio.js"></script>
+  <script src="js/utils/persistence.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div id="game"></div>
+    <div id="credits" class="non-game-div">
+      <p>Programmed by Dan Dela Rosa. View the source <a href="https://github.com/dandelarosa/dan-dela-rosa-asteroids" target="_blank">here</a> - be sure to read the README to find out how you can customize the game for your own usage.</p>
+      <p>This game uses Creative Commons Licensed resources.</p>
+      <ul>
+        <li>
+          <a href="https://freesound.org/people/CaCtUs2003/sounds/147583/" target="_blank">Explosion</a>
+        </li>
+        <li>
+          <a href="https://freesound.org/people/Bird_man/sounds/275151/" target="_blank">Bullet</a>
+        </li>
+        <li>
+          <a href="https://freesound.org/people/gordeszkakerek/sounds/234924/" target="_blank">Reward</a>
+        </li>
+        <li>
+          <a href="https://freesound.org/people/DrNI/sounds/27788/" target="_blank">Air Raid</a>
+        </li>
+        <li>
+          <a href="https://freesound.org/people/guitarguy1985/sounds/58015/" target="_blank">Police Siren</a>
+        </li>
+      </ul>
     </div>
-  </body>
+  </div>
+</body>
 </html>

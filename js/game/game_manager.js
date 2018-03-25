@@ -103,7 +103,8 @@ class GameManager {
     context2d.font = '24px Courier New';
 
     context2d.textAlign = 'left';
-    var livesString = 'Dans: ' + this.currentLives;
+    var counterString = stringsManager.getLivesCounterString();
+    var livesString = counterString + ': ' + this.currentLives;
     context2d.fillText(livesString, 10, 30);
 
     context2d.textAlign = 'right';

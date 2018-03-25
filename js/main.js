@@ -9,9 +9,11 @@ var context2d;
 var keyboard;
 var audioManager;
 var imageManager;
+var stringsManager = new StringsManager();
 var configManager = new ConfigManager();
 var configAudioManager = new ConfigAudioManager();
 var configImageManager = new ConfigImageManager();
+var configStringsManager = new ConfigStringsManager();
 
 window.addEventListener('load', function() {
   createGame();
